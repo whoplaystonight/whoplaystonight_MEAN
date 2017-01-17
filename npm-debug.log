@@ -1,0 +1,207 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/opt/node-v4.6.0-linux-x64/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'boer',
+1 verbose cli   'gulp',
+1 verbose cli   'nodemon' ]
+2 info using npm@4.0.5
+3 info using node@v4.6.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData boer
+8 silly fetchPackageMetaData gulp
+9 silly fetchPackageMetaData nodemon
+10 silly fetchNamedPackageData boer
+11 silly mapToRegistry name boer
+12 silly mapToRegistry using default registry
+13 silly mapToRegistry registry https://registry.npmjs.org/
+14 silly mapToRegistry data Result {
+14 silly mapToRegistry   raw: 'boer',
+14 silly mapToRegistry   scope: null,
+14 silly mapToRegistry   escapedName: 'boer',
+14 silly mapToRegistry   name: 'boer',
+14 silly mapToRegistry   rawSpec: '',
+14 silly mapToRegistry   spec: 'latest',
+14 silly mapToRegistry   type: 'tag' }
+15 silly mapToRegistry uri https://registry.npmjs.org/boer
+16 silly fetchNamedPackageData gulp
+17 silly mapToRegistry name gulp
+18 silly mapToRegistry using default registry
+19 silly mapToRegistry registry https://registry.npmjs.org/
+20 silly mapToRegistry data Result {
+20 silly mapToRegistry   raw: 'gulp',
+20 silly mapToRegistry   scope: null,
+20 silly mapToRegistry   escapedName: 'gulp',
+20 silly mapToRegistry   name: 'gulp',
+20 silly mapToRegistry   rawSpec: '',
+20 silly mapToRegistry   spec: 'latest',
+20 silly mapToRegistry   type: 'tag' }
+21 silly mapToRegistry uri https://registry.npmjs.org/gulp
+22 silly fetchNamedPackageData nodemon
+23 silly mapToRegistry name nodemon
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'nodemon',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'nodemon',
+26 silly mapToRegistry   name: 'nodemon',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/nodemon
+28 verbose request uri https://registry.npmjs.org/boer
+29 verbose request no auth needed
+30 info attempt registry request try #1 at 21:07:35
+31 verbose request id 79c663a0d594147c
+32 http request GET https://registry.npmjs.org/boer
+33 verbose request uri https://registry.npmjs.org/nodemon
+34 verbose request no auth needed
+35 info attempt registry request try #1 at 21:07:35
+36 http request GET https://registry.npmjs.org/nodemon
+37 verbose request uri https://registry.npmjs.org/gulp
+38 verbose request no auth needed
+39 info attempt registry request try #1 at 21:07:35
+40 verbose etag W/"585a6c1a-1caa4"
+41 verbose lastModified Wed, 21 Dec 2016 11:48:42 GMT
+42 http request GET https://registry.npmjs.org/gulp
+43 http 200 https://registry.npmjs.org/nodemon
+44 verbose headers { server: 'nginx/1.10.1',
+44 verbose headers   'content-type': 'application/json',
+44 verbose headers   'last-modified': 'Thu, 12 Jan 2017 15:30:16 GMT',
+44 verbose headers   etag: 'W/"5877a108-30c71"',
+44 verbose headers   'content-encoding': 'gzip',
+44 verbose headers   'cache-control': 'max-age=300',
+44 verbose headers   'content-length': '20439',
+44 verbose headers   'accept-ranges': 'bytes',
+44 verbose headers   date: 'Thu, 12 Jan 2017 20:07:34 GMT',
+44 verbose headers   via: '1.1 varnish',
+44 verbose headers   age: '150',
+44 verbose headers   connection: 'keep-alive',
+44 verbose headers   'x-served-by': 'cache-lhr6335-LHR',
+44 verbose headers   'x-cache': 'HIT',
+44 verbose headers   'x-cache-hits': '2',
+44 verbose headers   'x-timer': 'S1484251654.848037,VS0,VE0',
+44 verbose headers   vary: 'Accept-Encoding' }
+45 silly get cb [ 200,
+45 silly get   { server: 'nginx/1.10.1',
+45 silly get     'content-type': 'application/json',
+45 silly get     'last-modified': 'Thu, 12 Jan 2017 15:30:16 GMT',
+45 silly get     etag: 'W/"5877a108-30c71"',
+45 silly get     'content-encoding': 'gzip',
+45 silly get     'cache-control': 'max-age=300',
+45 silly get     'content-length': '20439',
+45 silly get     'accept-ranges': 'bytes',
+45 silly get     date: 'Thu, 12 Jan 2017 20:07:34 GMT',
+45 silly get     via: '1.1 varnish',
+45 silly get     age: '150',
+45 silly get     connection: 'keep-alive',
+45 silly get     'x-served-by': 'cache-lhr6335-LHR',
+45 silly get     'x-cache': 'HIT',
+45 silly get     'x-cache-hits': '2',
+45 silly get     'x-timer': 'S1484251654.848037,VS0,VE0',
+45 silly get     vary: 'Accept-Encoding' } ]
+46 verbose get saving nodemon to /home/sergio/.npm/registry.npmjs.org/nodemon/.cache.json
+47 verbose correctMkdir /home/sergio/.npm correctMkdir not in flight; initializing
+48 http 200 https://registry.npmjs.org/gulp
+49 verbose headers { server: 'nginx/1.10.1',
+49 verbose headers   'content-type': 'application/json',
+49 verbose headers   'last-modified': 'Thu, 12 Jan 2017 02:27:11 GMT',
+49 verbose headers   etag: 'W/"5876e97f-1cbd1"',
+49 verbose headers   'content-encoding': 'gzip',
+49 verbose headers   'cache-control': 'max-age=300',
+49 verbose headers   'content-length': '16890',
+49 verbose headers   'accept-ranges': 'bytes',
+49 verbose headers   date: 'Thu, 12 Jan 2017 20:07:34 GMT',
+49 verbose headers   via: '1.1 varnish',
+49 verbose headers   age: '148',
+49 verbose headers   connection: 'keep-alive',
+49 verbose headers   'x-served-by': 'cache-lhr6330-LHR',
+49 verbose headers   'x-cache': 'HIT',
+49 verbose headers   'x-cache-hits': '3',
+49 verbose headers   'x-timer': 'S1484251654.877476,VS0,VE0',
+49 verbose headers   vary: 'Accept-Encoding' }
+50 silly get cb [ 200,
+50 silly get   { server: 'nginx/1.10.1',
+50 silly get     'content-type': 'application/json',
+50 silly get     'last-modified': 'Thu, 12 Jan 2017 02:27:11 GMT',
+50 silly get     etag: 'W/"5876e97f-1cbd1"',
+50 silly get     'content-encoding': 'gzip',
+50 silly get     'cache-control': 'max-age=300',
+50 silly get     'content-length': '16890',
+50 silly get     'accept-ranges': 'bytes',
+50 silly get     date: 'Thu, 12 Jan 2017 20:07:34 GMT',
+50 silly get     via: '1.1 varnish',
+50 silly get     age: '148',
+50 silly get     connection: 'keep-alive',
+50 silly get     'x-served-by': 'cache-lhr6330-LHR',
+50 silly get     'x-cache': 'HIT',
+50 silly get     'x-cache-hits': '3',
+50 silly get     'x-timer': 'S1484251654.877476,VS0,VE0',
+50 silly get     vary: 'Accept-Encoding' } ]
+51 verbose get saving gulp to /home/sergio/.npm/registry.npmjs.org/gulp/.cache.json
+52 verbose correctMkdir /home/sergio/.npm correctMkdir not in flight; initializing
+53 http 404 https://registry.npmjs.org/boer
+54 verbose headers { 'content-type': 'application/json',
+54 verbose headers   'cache-control': 'max-age=0',
+54 verbose headers   'content-length': '2',
+54 verbose headers   'accept-ranges': 'bytes',
+54 verbose headers   date: 'Thu, 12 Jan 2017 20:07:35 GMT',
+54 verbose headers   via: '1.1 varnish',
+54 verbose headers   age: '0',
+54 verbose headers   connection: 'keep-alive',
+54 verbose headers   'x-served-by': 'cache-lhr6335-LHR',
+54 verbose headers   'x-cache': 'MISS',
+54 verbose headers   'x-cache-hits': '0',
+54 verbose headers   'x-timer': 'S1484251654.846167,VS0,VE670',
+54 verbose headers   vary: 'Accept-Encoding' }
+55 silly get cb [ 404,
+55 silly get   { 'content-type': 'application/json',
+55 silly get     'cache-control': 'max-age=0',
+55 silly get     'content-length': '2',
+55 silly get     'accept-ranges': 'bytes',
+55 silly get     date: 'Thu, 12 Jan 2017 20:07:35 GMT',
+55 silly get     via: '1.1 varnish',
+55 silly get     age: '0',
+55 silly get     connection: 'keep-alive',
+55 silly get     'x-served-by': 'cache-lhr6335-LHR',
+55 silly get     'x-cache': 'MISS',
+55 silly get     'x-cache-hits': '0',
+55 silly get     'x-timer': 'S1484251654.846167,VS0,VE670',
+55 silly get     vary: 'Accept-Encoding' } ]
+56 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/boer
+56 silly fetchPackageMetaData     at makeError (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+56 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:280:14)
+56 silly fetchPackageMetaData     at Request._callback (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+56 silly fetchPackageMetaData     at Request.self.callback (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/request/request.js:186:22)
+56 silly fetchPackageMetaData     at emitTwo (events.js:87:13)
+56 silly fetchPackageMetaData     at Request.emit (events.js:172:7)
+56 silly fetchPackageMetaData     at Request.<anonymous> (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/request/request.js:1081:10)
+56 silly fetchPackageMetaData     at emitOne (events.js:77:13)
+56 silly fetchPackageMetaData     at Request.emit (events.js:169:7)
+56 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/request/request.js:1001:12)
+56 silly fetchPackageMetaData  error for boer { [Error: Registry returned 404 for GET on https://registry.npmjs.org/boer] pkgid: 'boer', statusCode: 404, code: 'E404' }
+57 silly rollbackFailedOptional Starting
+58 verbose stack TypeError: Cannot read property 'path' of null
+58 verbose stack     at Object.Installer.rollbackFailedOptional (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/lib/install.js:505:29)
+58 verbose stack     at Array.<anonymous> (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+58 verbose stack     at LOOP (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+58 verbose stack     at /opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/slide/lib/chain.js:18:7
+58 verbose stack     at /opt/node-v4.6.0-linux-x64/lib/node_modules/npm/lib/install.js:331:5
+58 verbose stack     at Array.<anonymous> (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+58 verbose stack     at LOOP (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+58 verbose stack     at chain (/opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+58 verbose stack     at /opt/node-v4.6.0-linux-x64/lib/node_modules/npm/lib/install.js:288:5
+58 verbose stack     at /opt/node-v4.6.0-linux-x64/lib/node_modules/npm/node_modules/slide/lib/chain.js:16:22
+59 verbose cwd /var/www/html/Client/yeoman_proves
+60 error Linux 3.19.0-32-generic
+61 error argv "/opt/node-v4.6.0-linux-x64/bin/node" "/usr/bin/npm" "install" "-g" "boer" "gulp" "nodemon"
+62 error node v4.6.0
+63 error npm  v4.0.5
+64 error Cannot read property 'path' of null
+65 error If you need help, you may report this error at:
+65 error     <https://github.com/npm/npm/issues>
+66 verbose exit [ 1, true ]

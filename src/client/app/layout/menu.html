@@ -1,0 +1,74 @@
+<div ng-controller="SidebarController as vm">
+    <!--<div id="alertbanner" ng-show="bannerV"><a ng-class='bannerClass'>{{bannerText}}</a></div>-->
+    <div class="banner">
+        <div class="header-top">
+            <div class="container">
+                <div class="indicat">
+                    <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1398 W El Camino Real, Mountain View,UK</span>
+                </div>
+                <div class="detail">
+                    <ul>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> + 1 599-033-5036</li>
+                        <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i> Mon-Sun 8:00 am to 23:00 pm </li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="container">
+                <div class="navigation navi">
+                    <div class="logo">
+                        <h1><a href="#/">WHO PLAYS TONIGHT?</a></h1>
+                    </div>
+                    <div class="navigation-right">
+                        <nav class="link-effect-3" id="link-effect-3">
+                            <ul class="nav1 nav nav-wil">
+                                <li><a data-hover="Home" href="#/">Home</a></li>
+                                <li id="Events"><a data-hover="Events" href="#/events">Events</a></li>
+                                <li><a data-hover="List Events" href="#/events_front_end/list_events/">List Events</a></li>
+                                <li><a data-hover="Contact" href="#/contact/contact/">Contact</a></li>
+                                <li id="SignUp"><a data-hover="Sign Up" href="#/users/sign_up/">Sign Up</a></li>
+                                <li id="LogProf"><a data-hover="Login" href="#/users/login/">Login</a></li>
+                                <li class=""><a data-hover="Locate" href="#/locate/locate/">Locate</a></li>
+                                <!-- <li><a data-hover="Dashboard" href="#">Dashboard</a></li>
+                                <li><a data-hover="Admin" href="#">Admin</a></li> -->
+                                <li class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
+                                  <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- script-for-menu -->
+                        <script>
+                            $("span.menu").click(function() {
+                                $("ul.nav1").slideToggle(300, function() {
+                                    // Animation complete.
+                                });
+                            });
+                        </script>
+                        <!-- /script-for-menu -->
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- Modal login -->
+    <div id="LoginModal" class="modal_login modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content"></div>
+        </div>
+    </div>
+
+    <!--<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1></h1>
+            <strong>WEB TEST</strong>
+        </div>
+        <div>
+            <h1 id="BackHome"><a href="#">Back Home</a></h1>
+        </div>
+    </div>
+    </div>-->
+</div>
