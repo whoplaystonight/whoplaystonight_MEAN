@@ -1,0 +1,10 @@
+##Node
+descargar en https://nodejs.org/es/ 
+descomprimir en /opt
+cd /usr/local/bin/
+sudo ln -s /opt/node-v6.9.4-linux-x64/bin/node node
+sudo ln -s /opt/node-v6.9.4-linux-x64/bin/npm npm
+// borrar
+whereis npm
+whereis node
+borrarlos todos
