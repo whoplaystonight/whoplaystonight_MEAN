@@ -1,7 +1,7 @@
 (function (){
   'use strict';
 
-  angular.module('app.contact', [
+  angular.module('app.main', [
     'app.core',
     'app.widgets'
   ]);

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('app.contact')
+    .module('app.main')
     .run(appRun);
 
     appRun.$inject=['routerHelper'];
@@ -14,16 +14,16 @@
     function getStates(){
       return[
         {
-          state:'contact',
+          state:'main',
           config:{
-            url:'/contact',
-            templateUrl: 'app/contact/contact.html',
-            controller:'ContactController',
+            url:'/main',
+            templateUrl: 'app/main/main.html',
+            controller:'MainController',
             controllerAs:'vm',
-            title:'Contact',
+            title:'Main',
             settings: {
-              nav:3,
-              content:'<i class="fa fa-lock"></i> Contact'
+              nav:2,
+              content:'<i class="fa fa-lock"></i> Main'
             }//end_settings
           }//end_config
         }
