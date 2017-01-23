@@ -1,9 +1,8 @@
-(function (){
+(function(){
   'use strict';
 
-  angular.module('app.contact', [
+  angular.module('app.locate', [
     'app.core',
     'app.widgets'
   ]);
-
 })();

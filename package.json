@@ -1,6 +1,6 @@
 {
-  "name": "Mortgage_calculator",
-  "description": "Mortgage_calculator Project Generated from HotTowel Angular",
+  "name": "who_plays_tonight",
+  "description": "Who Plays Tonight? Project Generated from HotTowel Angular",
   "version": "0.0.0",
   "scripts": {
     "init": "npm install",

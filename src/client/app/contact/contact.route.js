@@ -26,7 +26,6 @@
               content:'<i class="fa fa-lock"></i> Contact'
             }//end_settings
           }//end_config
-        }
-      ];//end_return
+        }];//end_return
     }//end_function
 })();

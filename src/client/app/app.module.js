@@ -8,6 +8,7 @@
     'app.dashboard',
     'app.layout',
     'app.contact',
+    'app.locate',
   ]);
 
 })();
