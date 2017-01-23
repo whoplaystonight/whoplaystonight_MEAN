@@ -1,17 +1,25 @@
-<section class="mainbar">
-  <section class="matter">
-    <div class="container">
-      <div class="row">
-        <div class="widget wviolet">
-          <div ht-widget-header title="{{vm.title}}"></div>
-          <div class="widget-content user">
-            <h3>TODO: Implement Your Features</h3>
-          </div>
-          <div class="widget-foot">
-            <div class="clearfix"></div>
-          </div>
+<div class="container">
+  <video playsinline autoplay muted loop poster="app/main/media/concert1.mp4" id="bgvid">
+      <source src="app/main/media/concert1.mp4" type="video/mp4"/>
+  </video>
+
+  <div class="w3ls_banner_info" id="bannerMain">
+    <h3>Welcome To  Who Plays Tonight ?</h3>
+    <p>The APP for live music followers.</p>
+    <p>Please enter the name of band to search concerts</p>
+    <br>
+    <section id="searcherMain">
+      <div class="col-lg-6 in-gp-tb">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+          </span>
         </div>
+        <!-- /input-group -->
       </div>
-    </div>
-  </section>
-</section>
+      <!-- /.col-lg-6 -->
+    </section>
+  </div>
+
+</div>
