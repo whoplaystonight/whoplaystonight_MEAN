@@ -32,6 +32,7 @@
   <!-- endbuild -->
 
   <link rel="stylesheet" href="/src/client/styles/style.css">
+  <link rel="stylesheet" type="text/css" href="/src/client/styles/locate.css">
 
 
 
@@ -43,7 +44,7 @@
     <div id="splash-page" ng-show="showSplash">
       <div class="page-splash">
         <div class="page-splash-message">
-          paquita
+          WHO PLAYS TONIGHT?
         </div>
         <div class="progress progress-striped active page-progress-bar">
           <div class="bar"></div>
@@ -52,6 +53,7 @@
     </div>
   </div>
 
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyAhxaDfVV53FiAvq_HxOzdYIrGqszV_VM4"></script>
   <!-- build:js js/lib.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -64,6 +66,15 @@
   <script src="/bower_components/toastr/toastr.js"></script>
   <script src="/bower_components/angular-animate/angular-animate.js"></script>
   <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/bower_components/angularjs-geolocation/src/geolocation.js"></script>
+  <script src="/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+  <script src="/bower_components/lodash/lodash.js"></script>
+  <script src="/bower_components/markerclustererplus/src/markerclusterer.js"></script>
+  <script src="/bower_components/google-maps-utility-library-v3-markerwithlabel/dist/markerwithlabel.js"></script>
+  <script src="/bower_components/google-maps-utility-library-v3-infobox/dist/infobox.js"></script>
+  <script src="/bower_components/google-maps-utility-library-v3-keydragzoom/dist/keydragzoom.js"></script>
+  <script src="/bower_components/js-rich-marker/src/richmarker.js"></script>
+  <script src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -78,6 +89,7 @@
   <script src="/src/client/app/core/core.module.js"></script>
   <script src="/src/client/app/dashboard/dashboard.module.js"></script>
   <script src="/src/client/app/layout/layout.module.js"></script>
+  <script src="/src/client/app/locate/locate.module.js"></script>
   <script src="/src/client/app/main/main.module.js"></script>
   <script src="/src/client/app/widgets/widgets.module.js"></script>
   <script src="/src/client/app/admin/admin.controller.js"></script>
@@ -94,12 +106,14 @@
   <script src="/src/client/app/core/dataservice.js"></script>
   <script src="/src/client/app/dashboard/dashboard.controller.js"></script>
   <script src="/src/client/app/dashboard/dashboard.route.js"></script>
-  <script src="/src/client/app/layout/ht-sidebar.directive.js"></script>
-  <script src="/src/client/app/layout/ht-top-nav.directive.js"></script>
+  <script src="/src/client/app/layout/menu.controller.js"></script>
   <script src="/src/client/app/layout/shell.controller.js"></script>
   <script src="/src/client/app/layout/sidebar.controller.js"></script>
+  <script src="/src/client/app/locate/locate.controller.js"></script>
+  <script src="/src/client/app/locate/locate.route.js"></script>
   <script src="/src/client/app/main/main.controller.js"></script>
   <script src="/src/client/app/main/main.route.js"></script>
+  <script src="/src/client/app/widgets/configApiGoogleMaps.js"></script>
   <script src="/src/client/app/widgets/ht-img-person.directive.js"></script>
   <script src="/src/client/app/widgets/ht-widget-header.directive.js"></script>
   <!-- endinject -->

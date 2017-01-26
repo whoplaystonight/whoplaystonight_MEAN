@@ -1,7 +1,7 @@
 {
-  "name": "Mortgage_calculator",
+  "name": "who_plays_tonight",
   "version": "0.0.1",
-  "description": "Mortgage Calculator",
+  "description": "who plays tonight?",
   "authors": [],
   "license": "MIT",
   "ignore": [
@@ -24,10 +24,12 @@
     "extras.angular.plus": "^0.9.2",
     "font-awesome": "~4.6.0",
     "moment": "^2.12.0",
-    "angular-ui-router": "^0.4.2",
+    "angular-ui-router": "~0.3.2",
     "toastr": "^2.1.2",
     "angular-animate": "^1.5.3",
-    "angular-bootstrap": "^1.2.5"
+    "angular-bootstrap": "^1.2.5",
+    "angularjs-geolocation": "0.1.1",
+    "angular-google-maps":"~2.4.1"
   },
   "resolutions": {
     "angular": "1.5.3"

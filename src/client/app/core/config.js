@@ -13,8 +13,8 @@
   }
 
   var config = {
-    appErrorPrefix: '[Mortgage_calculator Error] ',
-    appTitle: 'Mortgage_calculator'
+    appErrorPrefix: '[Who_plays_tonight? Error] ',
+    appTitle: 'Who_plays_tonight?'
   };
 
   core.value('config', config);
