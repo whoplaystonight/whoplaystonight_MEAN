@@ -16,7 +16,21 @@
     activate();
 
     function activate(){
+      var promises =[getEvents()];
+      return $q.all(promises).then(function() {
       logger.info('Activated Locate View');
+      });
+    }//end of activate
+
+    function getEvents() {
+      // console.log('Estic al getEvents del controller');
+      return dataservice.getEvents().then(function(data) {
+        // console.log(data);
+        vm.events = data;
+        return vm.events;
+      });
     }
-  }
-})();
+
+  }//end of controller
+
+})();//end of clousure
