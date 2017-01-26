@@ -1,50 +1,41 @@
+<style media="screen">
+  body {
+    padding-top: 30px;
+  }
+</style>
 <section class="mainbar">
   <section class="matter">
-    <div class="container">
-      <div class="row">
-        <div class="widget wviolet">
-          <div ht-widget-header title="{{vm.title}}"></div>
-          <div class="widget-content user">
+    <div class="col-sm-6">
+      <!-- FORM ============ -->
 
-          <form id="contact_form" name="contact_form" class="form-contact">
-            <h2 class="form-contact-heading">Contact Us</h2>
-            <div class="control-group">
-              <input type="text" id="inputName" name="inputName" placeholder="Name" class="input-block-level" dir="auto" maxlength="100">
-            </div>
-            <div class="control-group">
-                <input type="text" id="inputEmail" name="inputEmail" placeholder="Email *" class="input-block-level" maxlength="100">
-            </div>
-            <div class="control-group">
-                <label for="sel1">Subject</label>
-                <select class="form-control" id="inputSubject" name="inputSubject" title="Choose subject">
-                    <option value="compra">About your purchase</option>
-                    <option value="evento">Celebrate an event with us</option>
-                    <option value="programacion">Contact our programming department</option>
-                    <option value="Trabaja">Work with us</option>
-                    <option value="proyectos">Do you want to propose projects</option>
-                    <option value="sugerencias">Make us suggestions</option>
-                    <option value="reclamaciones">We handle your claims</option>
-                    <option value="club">Club Who Plays Tonight?</option>
-                    <option value="sociales">Social projects</option>
-                    <option value="festivos">Holiday opening</option>
-                    <option value="novedades">We'll let you know about our news</option>
-                    <option value="diferente">Something different</option>
-                </select>
-            </div>
-            <div class="control-group">
-                  <textarea class="input-block-level" rows="4" name="inputMessage" placeholder="Message *" style="max-width: 100%;" dir="auto"></textarea>
-            </div>
-            <input type="hidden" name="token" value="contact_form" />
-            <input class="btn btn-primary" type="submit" name="submit" id="submitBtn" disabled="disabled" value="send" />
-            <img src="images/ajax-loader.gif" alt="ajax loader icon" class="ajaxLoader" /><br/><br/>
-            <div id="resultMessage" style="display: none;"></div>
-          </form>
-          </div>
-          <div class="widget-foot">
-            <div class="clearfix"></div>
-          </div>
+      <form name="userForm" ng-submit="submitForm()" novalidate>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+          <label>Name</label>
+          <input type="text" name="name" class="form-control" ng-model="user.name" required>
+          <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
         </div>
-      </div>
+
+        <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+          <label>Username</label>
+          <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
+          <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+          <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" ng-model="user.email">
+          <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+
+      </form>
     </div>
+
   </section>
 </section>

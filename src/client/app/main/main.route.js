@@ -16,14 +16,14 @@
         {
           state:'main',
           config:{
-            url:'/main',
+            url:'/home',
             templateUrl: 'app/main/main.html',
             controller:'MainController',
             controllerAs:'vm',
             title:'Main',
             settings: {
               nav:2,
-              content:'<i class="fa fa-lock"></i> Main'
+              content:'<i class="fa fa-lock"></i> Home'
             }//end_settings
           }//end_config
         }

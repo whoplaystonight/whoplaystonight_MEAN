@@ -28,14 +28,189 @@ p{
     color:#555;
     font-family: 'Montserrat', sans-serif;
 }
-.background-video {
-    position: fixed;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    width: 100%;
-    height:100%;
+
+/* -------- Menú ----------*/
+ul.topnav li.icon {display: none;}
+header {
+	width:100%;
+	background: #2E2E2E;
+	color: #fff;
+	position: inherit;
+}
+
+header nav {
+	width:auto;
+	background:#2E2E2E;
+	padding-bottom: 20px;
+	float: right;
+}
+.container a {
+        color: #FFF;
+        text-decoration: none;
+        font: 20px 'Montserrat', sans-serif;
+        margin: 0px 10px;
+        padding: 10px 10px;
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+}
+.container {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0 auto;
+}
+.menu_bar {
+	display:none;
+}
+
+header nav ul {
+	overflow:hidden;
+	list-style:none;
+}
+
+header nav ul li {
+	float:left;
+}
+
+header nav ul li a {
+	color:#fff;
+	padding:20px;
+	display:block;
+	text-decoration:none;
+}
+li > a:hover {
+    background: #2E2E2E !important;
+}
+header nav ul li span {
+	margin-right:10px;
+}
+
+section {
+	padding:20px;
+}
+.logo{
+	float:left;
+}
+.logo span {
+    color: #17C2A4;
+}
+.logo h1 a {
+    font-size:1.2em;
+    color: #fff;
+    text-decoration: none;
+    text-transform: capitalize;
+	font-weight:600;
+	margin-left: 20px;
+	letter-spacing: 2px;
+}
+.info-head {
+	padding-bottom: 25px;
+	padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+.indicat {
+    float: left;
+}
+.indicat span{
+	font-size: 1em;
+    color: #fff;
+}
+.detail {
+    float: right;
+}
+.detail ul li {
+    display: inline-block;
+    font-size: 1em;
+    margin: 0 0.5em;
+    color: #fff;
+}
+@media(min-width: 801px){
+    .borderXwidth a:before, .borderXwidth a:after {
+        position: absolute;
+        opacity: 0;
+        width: 0%;
+        height: 2px;
+        content: '';
+        background: #c52d2f;
+        transition: all 0.8s;
+    }
+
+    .borderXwidth a:before {
+        left: 0px;
+        top: 0px;
+    }
+
+    .borderXwidth a:after {
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .borderXwidth a:hover:before, .borderXwidth a:hover:after {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@media(max-width:991px){
+	.indicat span {
+	    font-size: 0.95em;
+	}
+	.detail ul li {
+    	font-size: 0.95em;
+	}
+}
+
+@media screen and (max-width:800px) {
+  ul.topnav li/*:not(:first-child)*/ {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:800px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+@media(max-width:736px){
+	.indicat span {
+    	font-size: 0.9em;
+	}
+	.detail ul li {
+    	font-size: 0.9em;
+	}
+}
+@media(max-width:667px){
+	.indicat {
+    	float: none;
+    	text-align: center;
+	}
+	.detail {
+    	float: none;
+    	text-align: center;
+    	margin-top: 1em;
+	}
+	.logo {
+		text-align: center;
+	}
+}
+@media(max-width:414px){
+	.logo h1 a {
+    	font-size: 1em;
+	}
 }
 /* -------- Video ---------*/
 video#bgvid {
@@ -53,8 +228,8 @@ video#bgvid {
     transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
     background-size: cover;
-
-    @media screen and (max-device-width: 800px) {
+}
+@media screen and (max-device-width: 800px) {
     html {
          background: url(polina.jpg) #000 no-repeat center center fixed;
     }
@@ -62,7 +237,7 @@ video#bgvid {
         display: none;
     }
 }
-}
+/*---------------- FIN Video -------------*/
 /*-- banner --*/
 input[type="submit"],.w3agile_contact_right_agileinfo p a,.w3_copy_right p a{
     transition:.5s ease-in-out;
@@ -184,7 +359,7 @@ span.menu{
 .w3ls_banner_info {
     padding: 2em;
     text-align: center;
-    background: rgba(34, 34, 34, 0.58);
+    background: rgba(0, 0, 0, 0.82);
     width: 59%;
     margin: 14em auto;
 }
