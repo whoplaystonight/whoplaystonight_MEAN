@@ -1,124 +1,11 @@
+
 <link rel="stylesheet" href="/src/client/styles/contact.css">
 <style media="screen">
-    body {
-      /*background-image:url("../img/12-natural-stone-background-sml.jpg");*/
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-    };
-    h2 {
-        color:blue;
-    }
-
-    .container {
-    	margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    };
-
-    .materialContainer {
-        width: 100%;
-        height:100%;
-    };
-
-    .app-content {
-    	width:100%;
-    };
-
-
-    form {
-    	padding: 10px 30px 20px 25px;
-    };
-
-
-    /**
-     * MESSAGES
-     * http://www.cnblogs.com/Answer1215/p/4068016.html
-     */
-    .my-messages {
-      position: absolute;
-      left:80px;
-      bottom: 15px;
-      /*position: relative;*/
-    }
-
-    .my-messages .ng-active {
-      /* messages are showing */
-    }
-
-    .my-messages .ng-inactive {
-      /* messages are not showing */
-    }
-
-    .some-message {
-      color: black;
-      background-color: #d9534f;
-
-      position: absolute;
-      opacity: 1;
-      transition: 3.3s linear all;
-      font-size: .8em;
-    }
-
-    .some-message .ng-enter .ng-enter-active {
-      opacity: 1;
-      top: 0;
-    }
-
-    .some-message .ng-enter {
-      opacity: 0;
-      top: -20px;
-    }
-
-    .some-message .ng-leave {
-      opacity: 1;
-      top: 0;
-    }
-
-    .some-message .ng-leave-active {
-      opacity: 0;
-      top: 20px;
-    }
-
-
-    /**
-     * From Bootstrap CSS
-     */
-    .label-danger {
-      background-color: #d9534f;
-    }
-    .label-warning {
-      background-color: #f0ad4e;
-    }
-
-    .label-success {
-      background-color: #5cb85c;
-    }
-
-    .label-info {
-      background-color: #5bc0de;
-    }
-
-
-    /**
-     * Flex Boxes
-     */
-    .rightFlexbox {
-    /*background-color: #5cb85c;	*/
-    };
-    .leftFlexbox {
-    /*background-color: #5cb85c;	*/
-    };
-
 </style>
 <section class="mainbar">
   <section class="matter">
-    <div class="container">
-      <div class="row">
-        <div class="widget wviolet">
-          <div ht-widget-header title="{{vm.title}}"></div>
-          <div class="widget-content user">
+    <div class="col-sm-6">
+      <!-- FORM ============ -->
 
           <form id="contact_form" name="contact_form" class="form-contact">
             <h2 class="form-contact-heading">Contact Us</h2>
@@ -157,9 +44,37 @@
           <div class="widget-foot">
             <div class="clearfix"></div>
           </div>
+
+      <form name="userForm" ng-submit="submitForm()" novalidate>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+          <label>Name</label>
+          <input type="text" name="name" class="form-control" ng-model="user.name" required>
+          <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
         </div>
-      </div>
+
+        <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+          <label>Username</label>
+          <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
+          <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+          <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" ng-model="user.email">
+          <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+
+      </form>
     </div>
+
   </section>
 </section>
 

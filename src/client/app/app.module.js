@@ -8,7 +8,8 @@
     'app.dashboard',
     'app.layout',
     'app.contact',
-    // 'ngAnimate'
+    'app.main',
+    'app.locate',
   ]);
 
 })();
