@@ -1,3 +1,117 @@
+<link rel="stylesheet" href="/src/client/styles/contact.css">
+<style media="screen">
+    body {
+      /*background-image:url("../img/12-natural-stone-background-sml.jpg");*/
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    };
+    h2 {
+        color:blue;
+    }
+
+    .container {
+    	margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    };
+
+    .materialContainer {
+        width: 100%;
+        height:100%;
+    };
+
+    .app-content {
+    	width:100%;
+    };
+
+
+    form {
+    	padding: 10px 30px 20px 25px;
+    };
+
+
+    /**
+     * MESSAGES
+     * http://www.cnblogs.com/Answer1215/p/4068016.html
+     */
+    .my-messages {
+      position: absolute;
+      left:80px;
+      bottom: 15px;
+      /*position: relative;*/
+    }
+
+    .my-messages .ng-active {
+      /* messages are showing */
+    }
+
+    .my-messages .ng-inactive {
+      /* messages are not showing */
+    }
+
+    .some-message {
+      color: black;
+      background-color: #d9534f;
+
+      position: absolute;
+      opacity: 1;
+      transition: 3.3s linear all;
+      font-size: .8em;
+    }
+
+    .some-message .ng-enter .ng-enter-active {
+      opacity: 1;
+      top: 0;
+    }
+
+    .some-message .ng-enter {
+      opacity: 0;
+      top: -20px;
+    }
+
+    .some-message .ng-leave {
+      opacity: 1;
+      top: 0;
+    }
+
+    .some-message .ng-leave-active {
+      opacity: 0;
+      top: 20px;
+    }
+
+
+    /**
+     * From Bootstrap CSS
+     */
+    .label-danger {
+      background-color: #d9534f;
+    }
+    .label-warning {
+      background-color: #f0ad4e;
+    }
+
+    .label-success {
+      background-color: #5cb85c;
+    }
+
+    .label-info {
+      background-color: #5bc0de;
+    }
+
+
+    /**
+     * Flex Boxes
+     */
+    .rightFlexbox {
+    /*background-color: #5cb85c;	*/
+    };
+    .leftFlexbox {
+    /*background-color: #5cb85c;	*/
+    };
+
+</style>
 <section class="mainbar">
   <section class="matter">
     <div class="container">
@@ -9,7 +123,7 @@
           <form id="contact_form" name="contact_form" class="form-contact">
             <h2 class="form-contact-heading">Contact Us</h2>
             <div class="control-group">
-              <input type="text" id="inputName" name="inputName" placeholder="Name" class="input-block-level" dir="auto" maxlength="100">
+              <input type="text" id="inputName" name="inputName" placeholder="Name" class="input-block-level" dir="auto" maxlength="100" ng-required="true">
             </div>
             <div class="control-group">
                 <input type="text" id="inputEmail" name="inputEmail" placeholder="Email *" class="input-block-level" maxlength="100">
@@ -48,3 +162,151 @@
     </div>
   </section>
 </section>
+
+<br><br><!-- TEST -->
+
+<div class = "materialContainer">
+
+	<!--
+	Toolbar
+	-->
+	<md-toolbar>
+		<div class="md-toolbar-tools" layout="column" layout-align="center">
+			<!-- <span class="md-flex" layout="column" layout-align="center"> -->
+			<span class="md-flex">
+				<h2>Send an Email with SendGrid
+				</h2>
+			</span>
+		</div>
+	</md-toolbar>
+
+
+	<!--
+	row layout containing 3 flex boxes
+	-->
+	<div layout="row">
+
+		<!-- Flex Box 1
+		Disappears on screens <600px wide (sm)
+		-->
+		<div flex hide-sm class="leftFlexbox">
+		</div>
+
+		<!-- Flex Box 2
+		Containing our Form
+		-->
+		<div flex flex-gt-sm="75" flex-md="66" flex-gt-md="40">
+			<md-content layout="column" layout-align="center center" layout-margin layout-padding>
+				<div class="app-content">
+					<form name="emailForm" class="emailForm" novalidate>
+						<md-input-container>
+							<label>To</label>
+							<input type="email" name="to" class="long" ng-model="email.to" placeholder="Email Address.." ng-required="true" />
+							<md-tooltip>
+			          			Enter a valid Email Address
+			        		</md-tooltip>
+
+			<!--
+			 				<div ng-if="emailForm.$dirty">
+				        		<div class="my-messages" ng-messages="emailForm.to.$error">
+				          			<span ng-message="required" class="some-message">Required field</span>
+				        		</div>
+				        	</div>
+			-->
+						</md-input-container>
+
+						<md-input-container>
+							<label>From</label>
+							<input type="email" class="long" name="from" ng-model="email.from" placeholder="Email Address.." ng-required="true" />
+							<md-tooltip>
+			          			Enter a valid Email Address
+			        		</md-tooltip>
+			<!--
+			        		<div ng-if="emailForm.$dirty">
+				        		<div class="my-messages" ng-messages="emailForm.from.$error">
+				          			<div ng-message="required" class="some-message">Required field</div>
+				          			<!- <div ng-message="email" class="some-message">Please enter a valid Email address</div> ->
+				        		</div>
+				        	</div>
+			-->
+						</md-input-container>
+
+						<md-input-container>
+							<label>Subject</label>
+							<input type="text" name="subject" class="long" ng-model="email.subject" ng-required="true" />
+							<md-tooltip>
+			          			Enter Email subject text
+			        		</md-tooltip>
+
+			<!--
+			         		<div ng-if="emailForm.$dirty">
+				        		<div ng-messages="emailForm.subject.$error" class="my-messages">
+				          			<div ng-message="required" class="some-message">Required field</div>
+				        		</div>
+				        	</div>
+			-->
+
+						</md-input-container>
+
+						<md-input-container>
+						  <label>Email Text</label>
+							<textarea ng-model="email.text" class="long" name="text" placeholder="Enter Text Here.." columns="1" md-maxlength="150" ng-required="true" flex></textarea>
+							<md-tooltip>
+			          			Enter text limit is 150 characters
+			        		</md-tooltip>
+
+
+			    		    <div ng-if="emailForm.$dirty">
+				        		<div ng-messages="emailForm.text.$error" class="my-messages">
+			<!-- 	          			<div ng-message="required" class="some-message">Required field</div> -->
+			 	          			<div ng-message="md-maxlength" class="some-message">Max of 150 characters</div>
+				        		</div>
+				        	</div>
+						</md-input-container>
+
+
+						<!--
+						Progress Bar
+						-->
+						<md-progress-linear ng-if="waitingForResponse" md-theme="blue" md-mode="indeterminate" >
+						</md-progress-linear>
+
+						<div ng-show="!waitingForResponse">
+						    <md-button id="emailSubmitBn" class="md-raised md-primary" ng-disabled="emailForm.$invalid" ng-click="submitEmail()">
+					  			Submit
+							</md-button>
+
+							<md-button id="emailPreviewBn" class="md-raised md-primary md-hue-1" ng-disabled="emailForm.$invalid" ng-click="previewEmail()">
+					  			Preview
+							</md-button>
+
+							<md-button id="clearFormBn" type="reset" class="md-raised md-warn" ng-disabled ="emailForm.$pristine" ng-click="resetForm()">
+					  			Reset
+							</md-button>
+
+						</div>
+
+						<!--
+						Colours available are: md-primary, md-assent, md-warn, md-background
+						each having shades: md-hue-1, md-hue-2, md-hue-3
+						-->
+						<!-- Messages -->
+						<div ng-if="emailPreviewMessages.success">
+						  	<h3 class="some-message"><span class="label-success">Preview Success!!</span></h3>
+						</div>
+						<div ng-if="emailPreviewMessages.fail">
+						  	<h3 class="some-message"><span class="label-danger">Error getting preview!!</span></h3>
+						</div>
+					</form>
+				</div>
+			</md-content>
+		</div>
+
+
+		<!-- Flex Box 3 -->
+		<!-- Disappears on screens <600px wide (sm) -->
+		<div flex hide-sm class="rightFlexbox">
+		</div>
+
+	</div>
+</div>
