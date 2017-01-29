@@ -34,12 +34,14 @@
 
     function getEvents() {
       // console.log('Estic al getEvents del dataservice');
-      return $http.get('/api/people')
+      return $http.get('/api/events')
         .then(success)
         .catch(fail);
 
       function success(response) {
+        // console.log(response.data);
         return response.data;
+
       }
 
       function fail(e) {

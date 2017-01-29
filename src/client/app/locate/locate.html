@@ -29,18 +29,18 @@
                     <table class="table table-condensed table-striped">
                       <thead>
                         <tr>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Age</th>
-                          <th>Location</th>
+                          <th>Band Name</th>
+                          <th>Event Description</th>
+                          <th>Type Event</th>
+                          <th>Date Event</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr ng-repeat="p in vm.events">
-                          <td>{{p.firstName}}</td>
-                          <td>{{p.lastName}}</td>
-                          <td>{{p.age}}</td>
-                          <td>{{p.location}}</td>
+                          <td>{{p.band_name}}</td>
+                          <td>{{p.description}}</td>
+                          <td>{{p.type_event}}</td>
+                          <td>{{p.date_event}}</td>
                         </tr>
                       </tbody>
                     </table>

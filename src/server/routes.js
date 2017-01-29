@@ -3,7 +3,7 @@ var four0four = require('./utils/404')();
 var data = require('./data');
 
 router.get('/people', getPeople);
-router.get('/people', getPeople);
+// router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
 router.get('/*', four0four.notFoundMiddleware);
 
@@ -15,10 +15,9 @@ function getPeople(req, res, next) {
   res.status(200).send(data.people);
 }
 
-function getEvents(req, res, next) {
-  res.status(200).send(data.people);
-}
-
+// function getEvents(req, res, next) {
+//   res.status(200).send(data.people);
+// }
 
 
 function getPerson(req, res, next) {
