@@ -1,32 +1,25 @@
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
 var sg = require('./sendgrid.env');
-// var sg = require('sendgrid')(process.env.SECRET_KEY);
-// console.log(process.env.SECRET_KEY);
 
 exports.sendEmail = function(req, res) {
 
     // var emailTo = '';
     // var emailFrom = '';
-    var body = '';
+    var emailTo = req.body.from;
+    var emailFrom = req.body.to;
+    var body = '<body>' +
+    '<div id="contact-email">' +
+    '<div> <h1>Contact with WhoPlaysTonight</h1> <h4>Subject: ' + req.body.subject +
+    '</h4></div>' +
+    '<section>' +
+    'Name:<p>' + req.body.name + '</p>' +
+    'Email: <p>' + req.body.from + '</p>' +
+    'Message:<p>' + req.body.text + '</p></section>' +
+    '</div>' +
+    ' </body>';
 
-
-    // emailTo = req.body.from;
-    // emailFrom = req.body.to;
-
-      body = '<body>' +
-        '<div id="contact-email">' +
-        '<div> <h1>Contact with WhoPlaysTonight</h1> <h4>Subject: ' + req.body.subject +
-        '</h4></div>' +
-        '<section>' +
-        'Name:<p>' + req.body.name + '</p>' +
-        'Email: <p>' + req.body.from + '</p>' +
-        'Message:<p>' + req.body.text + '</p></section>' +
-        '</div>' +
-        ' </body>';
-
-
-  var template =
+    var template =
     '<html>' +
     '<head>' +
     '<meta charset="utf-8" />' +
@@ -77,34 +70,58 @@ exports.sendEmail = function(req, res) {
     '</style>' +
     '</head>' + body + '</html>';
 
-  var email = {
-    // from: emailFrom,
-    from: req.body.from,
-    // to: emailTo,
-    to: req.body.to,
-    subject: req.body.subject,
-    text: req.body.text,
-    html: template
-  };
-  console.log(email);console.log("hi");
-  //Input APIKEY Sendgrid
-  var options = {
-    auth: {
-      api_key: sg
-    }
-  };
-  var mailer = nodemailer.createTransport(sgTransport(options));
+    var email = {
+        // from: emailFrom,
+        from: req.body.from,
+        // to: emailTo,
+        to: req.body.to,
+        subject: req.body.subject,
+        text: req.body.text,
+        html: template
+    };
+    console.log(email);
 
-  mailer.sendMail(email, function(error, info) {
-    if (error) {
-      res.status('401').json({
-        err: info
-      });
-    } else {
-      res.status('200').json({
-        success: true
-      });
-    }
-  });
+    // API KEY Sendgrid
+    var options = {
+        auth: {
+            api_key: sg
+        }
+    };
+    var mailer = nodemailer.createTransport(sgTransport(options));
+
+    mailer.sendMail(email, function(error, info) {
+        if (error) {
+            res.status('401').json({
+                err: info
+            });
+        } else {
+            res.status('200').json({
+                success: true
+            });
+        }
+    });
+
+    // Email to the user
+
+    var email2 = {
+        from: emailFrom,
+        // from: req.body.from,
+        to: emailTo,
+        // to: req.body.to,
+        subject: req.body.subject,
+        text: req.body.text,
+        html: template
+    };
+    mailer.sendMail(email2, function(error, info) {
+        if (error) {
+            res.status('401').json({
+                err: info
+            });
+        } else {
+            res.status('200').json({
+                success: true
+            });
+        }
+    });
 
 };
