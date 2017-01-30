@@ -17,3 +17,7 @@ Ejecutar el gulp como root ante cualquier problema
 whereis npm
 whereis node
 borrarlos todos
+
+
+##Contact
+Put your SENDGRID APIKEY in src/server/utils/sendgrid.env

@@ -1,33 +1,18 @@
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
 var sg = require('./sendgrid.env');
+// var sg = require('sendgrid')(process.env.SECRET_KEY);
+// console.log(process.env.SECRET_KEY);
 
 exports.sendEmail = function(req, res) {
 
-  var emailTo = '';
-  var emailFrom = '';
-  var body = '';
+    // var emailTo = '';
+    // var emailFrom = '';
+    var body = '';
 
-  switch (req.body.type) {
-    case 'user':
-      emailTo = req.body.from;
-      emailFrom = req.body.to;
 
-      body = '<body>' +
-        '<div id="contact-email">' +
-        '<div> <h1>Contact with WhoPlaysTonight</h1> <h4>Subject: ' + req.body.subject +
-        '</h4></div>' +
-        '<section>' +
-        'Name:<p>' + req.body.name + '</p>' +
-        'Email: <p>' + req.body.from + '</p>' +
-        'Message:<p>' + req.body.text + '</p></section>' +
-        '</div>' +
-        ' </body>';
-
-      break;
-    case 'admin':
-      emailTo = req.body.to;
-      emailFrom = req.body.from;
+    // emailTo = req.body.from;
+    // emailFrom = req.body.to;
 
       body = '<body>' +
         '<div id="contact-email">' +
@@ -40,15 +25,6 @@ exports.sendEmail = function(req, res) {
         '</div>' +
         ' </body>';
 
-      break;
-    case 'modify':
-
-      break;
-    case 'signup':
-
-      break;
-
-  }
 
   var template =
     '<html>' +
@@ -102,13 +78,15 @@ exports.sendEmail = function(req, res) {
     '</head>' + body + '</html>';
 
   var email = {
-    from: emailFrom,
-    to: emailTo,
+    // from: emailFrom,
+    from: req.body.from,
+    // to: emailTo,
+    to: req.body.to,
     subject: req.body.subject,
     text: req.body.text,
     html: template
   };
-
+  console.log(email);console.log("hi");
   //Input APIKEY Sendgrid
   var options = {
     auth: {
