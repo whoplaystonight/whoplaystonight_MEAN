@@ -5,24 +5,41 @@
     .module('app.contact')
     .controller('ContactController', ContactController);
 
-    ContactController.$inject = ['logger', '$scope'];
+    ContactController.$inject = ['dataservice', '$state', '$timeout'];
     /* @ngInject */
-    function ContactController(logger, $scope) {
+    function ContactController(dataservice, $state, $timeout) {
         var vm = this;
         vm.title = 'Contact';
+        vm.inputName = '';
+        vm.inputEmail = '';
+        vm.inputSubject = '';
+        vm.inputMessage = '';
+        vm.sendContact = sendContact;
 
-        activate();
-
-        function activate() {
-            logger.info('Activated Contact View');
+        function sendContact() {
+            var data = {
+                name: vm.inputName,
+                from: vm.inputEmail,
+                to: 'whoplaystonight@gmail.com',
+                subject: vm.inputSubject,
+                text: vm.inputMessage,
+            };
+            console.log("inside");
+            console.log(dataservice);
+            dataservice.sendemail(data).then(function(response) {
+                console.log("sendemail");
+                if (response) {
+                    console.log("true");
+                    vm.resultMessage = 'The email has been sent';
+                    vm.inputName = '';
+                    vm.inputEmail = '';
+                    vm.inputSubject = '';
+                    vm.inputMessage = '';
+                } else {
+                    console.log("false");
+                    vm.resultMessage = 'Error sending the email, try later';
+                }
+            });
         }
-        $scope.submitForm = function() {
-
-            // check to make sure the form is completely valid
-            if ($scope.userForm.$valid) {
-                alert('our form is amazing');
-            }
-
-        };
     }
 })();

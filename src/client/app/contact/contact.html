@@ -1,41 +1,53 @@
-<style media="screen">
-  body {
-    padding-top: 30px;
-  }
-</style>
+<!-- <link rel="stylesheet" href="/src/client/styles/contact.css"> -->
 <section class="mainbar">
-  <section class="matter">
-    <div class="col-sm-6">
-      <!-- FORM ============ -->
+    <section class="matter">
+        <form name="userForm" ng-submit="submitForm()" novalidate>
+            <div ht-widget-header title="{{vm.title}}"></div>
+            <h1>Contact us</h1><br />
+            <!-- Name -->
+            <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" ng-model="vm.inputName" required>
+                <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+            </div>
 
-      <form name="userForm" ng-submit="submitForm()" novalidate>
+            <!-- Email -->
+            <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="vm.inputEmail">
+                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+            </div>
 
-        <!-- NAME -->
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-          <label>Name</label>
-          <input type="text" name="name" class="form-control" ng-model="user.name" required>
-          <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
-        </div>
+            <!-- Subject -->
+            <div class="control-group">
+					<label for="sel1">Subject</label>
+					<select ng-model="vm.inputSubject" class="form-control" id="inputSubject" name="inputSubject" title="Choose subject">
+						<option value="compra">Info relativa a tu compra</option>
+						<option value="evento">Celebra un evento con nosotros</option>
+						<option value="programacion">Contacta con nuestro dpto de programacion</option>
+						<option value="Trabaja">Trabaja con nosotros</option>
+						<option value="proyectos">Deseas proponernos proyectos</option>
+						<option value="sugerencias">Haznos sugerencias</option>
+						<option value="reclamaciones">Atendemos tus reclamaciones</option>
+						<option value="club">Club rural_shop</option>
+						<option value="sociales">Proyectos sociales</option>
+						<option value="festivos">Apertura de festivos</option>
+						<option value="novedades">Te avisamos de nuestras novedades</option>
+						<option value="diferente">Algo diferente</option>
+					</select>
+				</div>
+            <!-- Message -->
+            <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                <label>Message</label>
+                <textarea required ng-model="vm.inputMessage" ng-minlength="3" ng-maxlength="1000" rows="4" id="inputMessage" name="inputMessage" placeholder="Type your message" style="max-width: 100%;" dir="auto"></textarea>
+                <p ng-show="userForm.inputMessage.$error.minlength" class="help-block">Message is too short.</p>
+                <p ng-show="userForm.inputMessage.$error.maxlength" class="help-block">Message is too long.</p>
+            </div>
 
-        <!-- USERNAME -->
-        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
-          <label>Username</label>
-          <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
-          <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
-          <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
-        </div>
 
-        <!-- EMAIL -->
-        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-          <label>Email</label>
-          <input type="email" name="email" class="form-control" ng-model="user.email">
-          <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
-        </div>
 
-        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+            <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="vm.sendContact()">Submit</button>
 
-      </form>
-    </div>
-
-  </section>
+        </form>
+    </section>
 </section>
