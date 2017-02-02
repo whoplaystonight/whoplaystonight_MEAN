@@ -10,6 +10,7 @@
     'app.contact',
     'app.main',
     'app.locate',
+    'app.users',
   ]);
 
 })();
