@@ -7,17 +7,32 @@ eventsModel.getEvents=function(callback){
 
   if(connection){
     // console.log('*******************Estic al if del getEvents del model********************************');
-
-    connection.query('SELECT * FROM event ORDER BY event_id', function(error, rows){
+    var query='SELECT * FROM event ORDER BY event_id';
+    connection.query(query, function(error, rows){
       if(error){
         throw error;
       }else{
-        console.log('Estic al else del getEvents del model');
+        // console.log('Estic al else del getEvents del model');
         callback(null, rows);
       }
     });//end of connection.query
   }// end of if connection
 
 };//end of evenstModel.getEvents
+
+
+eventsModel.getEvent=function(eventId, callback){
+  if(connection){
+    var query='SELECT * FROM event WHERE event_id= ' + connection.escape(eventId);
+    connection.query(query, function(error, rows){
+      if(error){
+          throw error;
+      }else{
+        callback(null, rows);
+      }
+    });
+  }//end of if connection
+
+};//enf¡d of eventsModel.getEvent
 
 module.exports=eventsModel;

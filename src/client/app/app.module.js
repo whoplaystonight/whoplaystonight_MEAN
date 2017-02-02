@@ -5,7 +5,7 @@
     'app.core',
     'app.widgets',
     'app.admin',
-    'app.dashboard',
+    // 'app.dashboard',
     'app.layout',
     'app.contact',
     'app.locate',

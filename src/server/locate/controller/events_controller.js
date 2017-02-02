@@ -10,5 +10,18 @@ exports.getEvents=function(req, res){
 
     res.json(200,data);
 
+  });//eventsModel.getEvents
+
+};//end of getEvents
+
+exports.getEvent=function(req, res){
+  var eventId=req.params.eventId;
+
+  eventsModel.getEvent(eventId,function(error, data){
+    if(error){
+      res.send(error);
+    }
+    res.json(200, data);
   });
-};
+
+};//end of getEvent

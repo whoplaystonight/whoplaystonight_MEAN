@@ -5,4 +5,5 @@ module.exports =function(app){
   //mostramos todos los usuarios
   // console.log('Estic al events_routes');
   app.get('/api/events', eventsController.getEvents);
+  app.get('api/events/:eventId', eventsController.getEvent);
 };
