@@ -11,6 +11,9 @@ var four0four = require('./utils/404')();
 
 var environment = process.env.NODE_ENV;
 
+// var dotenv = require('dotenv');
+// dotenv.load({ path: './src/server/.env' });
+
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
