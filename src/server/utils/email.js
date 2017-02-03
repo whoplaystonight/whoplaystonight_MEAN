@@ -89,40 +89,43 @@ exports.sendEmail = function(req, res) {
         }
     };
     var mailer = nodemailer.createTransport(sgTransport(options));
+    switch (req.body.messageDirection) {
+        case 'to_admin':
+            mailer.sendMail(email, function (error, info) {
+                if (error) {
+                    res.status('401').json({
+                        err: info
+                    });
+                } else {
+                    res.status('200').json({
+                        success: true
+                    });
+                }
+            });
+            break;
 
-    mailer.sendMail(email, function(error, info) {
-        if (error) {
-            res.status('401').json({
-                err: info
+        case 'to_user':
+            var email2 = {
+                from: emailFrom,
+                // from: req.body.from,
+                to: emailTo,
+                // to: req.body.to,
+                subject: req.body.subject,
+                text: req.body.text,
+                html: template
+            };
+            mailer.sendMail(email2, function (error, info) {
+                if (error) {
+                    res.status('401').json({
+                        err: info
+                    });
+                } else {
+                    res.status('200').json({
+                        success: true
+                    });
+                }
             });
-        } else {
-            res.status('200').json({
-                success: true
-            });
-        }
-    });
-
-    // Email to the user
-
-    var email2 = {
-        from: emailFrom,
-        // from: req.body.from,
-        to: emailTo,
-        // to: req.body.to,
-        subject: req.body.subject,
-        text: req.body.text,
-        html: template
-    };
-    mailer.sendMail(email2, function(error, info) {
-        if (error) {
-            res.status('401').json({
-                err: info
-            });
-        } else {
-            res.status('200').json({
-                success: true
-            });
-        }
-    });
+            break;
+    }   
 
 };
