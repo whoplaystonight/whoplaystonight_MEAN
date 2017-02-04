@@ -21,7 +21,7 @@
           controllerAs:'vm',
           title:'Locate',
           settings:{
-            nav:4,
+            nav:5,
             content:'<i class="fa fa-lock"></i> Locate'
           }//end_settings
         }//end_config

@@ -1,23 +1,41 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
+    angular
     .module('app.core')
     .factory('dataservice', dataservice);
+
 
   dataservice.$inject = ['$window','$http', '$q', 'exception', 'logger'];
   /* @ngInject */
   function dataservice($window,$http, $q, exception, logger) {
+
     var service = {
+      sendemail: sendemail,
       getEvents: getEvents,
       // getPeople: getPeople,
       // getMessageCount: getMessageCount,
       getLocation: getLocation
     };
 
+
     return service;
 
-    // function getMessageCount() { return $q.when(72); }
+    function sendemail(data){
+        console.log(data + 'hi');
+        return $http.post('/api/sendemail', data)
+        .then(success)
+        .catch(fail);
+
+        function success() {
+            return true;
+        }
+
+        function fail() {
+            return false;
+        }
+    }
+
 
     function getLocation(){
         var deferred=$q.defer();
@@ -36,19 +54,6 @@
         return deferred.promise;
     }//end of getLocation
 
-    // function getPeople() {
-    //   return $http.get('/api/people')
-    //     .then(success)
-    //     .catch(fail);
-    //
-    //   function success(response) {
-    //     return response.data;
-    //   }
-    //
-    //   function fail(e) {
-    //     return exception.catcher('XHR Failed for getPeople')(e);
-    //   }
-    // }//end of getPeople
 
     function getEvents() {
       // console.log('Estic al getEvents del dataservice');
@@ -65,7 +70,24 @@
       function fail(e) {
         return exception.catcher('XHR Failed for getEvents')(e);
       }
-    }//end of getPeople
+    }//end of getEvents
+
+    // function getMessageCount() { return $q.when(72); }
+    //
+    // function getPeople() {
+    //   return $http.get('/api/people')
+    //     .then(success)
+    //     .catch(fail);
+    //
+    //   function success(response) {
+    //     return response.data;
+    //   }
+    //
+    //   function fail(e) {
+    //     return exception.catcher('XHR Failed for getPeople')(e);
+    //   }
+    // }//end of getPeople
+
   }//End of dataservice function
 
 })();//end of clousure

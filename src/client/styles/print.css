@@ -1,0 +1,31 @@
+/*------------------------------------*\
+#GLOBAL
+\*------------------------------------*/
+.info-head {
+    display: none;
+}
+nav {
+    display: none;
+}
+h1 {
+    font-size: 20px;
+}
+.web {
+    display: none;
+}
+/*------------------------------------*\
+#HOME
+\*------------------------------------*/
+#bannerMain {
+    display: none;
+}
+.video-background {
+    display: none;
+}
+
+/*------------------------------------*\
+#LOCATE
+\*------------------------------------*/
+#mapholder {
+    display: none;
+}

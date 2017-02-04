@@ -1,50 +1,53 @@
+<!-- <link rel="stylesheet" href="/src/client/styles/contact.css"> -->
 <section class="mainbar">
-  <section class="matter">
-    <div class="container">
-      <div class="row">
-        <div class="widget wviolet">
-          <div ht-widget-header title="{{vm.title}}"></div>
-          <div class="widget-content user">
+    <section class="matter">
+        <form name="userForm" ng-submit="submitForm()" novalidate>
+            <div ht-widget-header title="{{vm.title}}"></div>
+            <h1>Contact us</h1><br />
+            <!-- Name -->
+            <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" ng-model="vm.inputName" required>
+                <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+            </div>
 
-          <form id="contact_form" name="contact_form" class="form-contact">
-            <h2 class="form-contact-heading">Contact Us</h2>
-            <div class="control-group">
-              <input type="text" id="inputName" name="inputName" placeholder="Name" class="input-block-level" dir="auto" maxlength="100">
+            <!-- Email -->
+            <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="vm.inputEmail">
+                <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
             </div>
+
+            <!-- Subject -->
             <div class="control-group">
-                <input type="text" id="inputEmail" name="inputEmail" placeholder="Email *" class="input-block-level" maxlength="100">
+					<label for="sel1">Subject</label>
+					<select ng-model="vm.inputSubject" class="form-control" id="inputSubject" name="inputSubject" title="Choose subject">
+						<option value="compra">Info relativa a tu compra</option>
+						<option value="evento">Celebra un evento con nosotros</option>
+						<option value="programacion">Contacta con nuestro dpto de programacion</option>
+						<option value="Trabaja">Trabaja con nosotros</option>
+						<option value="proyectos">Deseas proponernos proyectos</option>
+						<option value="sugerencias">Haznos sugerencias</option>
+						<option value="reclamaciones">Atendemos tus reclamaciones</option>
+						<option value="club">Club rural_shop</option>
+						<option value="sociales">Proyectos sociales</option>
+						<option value="festivos">Apertura de festivos</option>
+						<option value="novedades">Te avisamos de nuestras novedades</option>
+						<option value="diferente">Algo diferente</option>
+					</select>
+				</div>
+            <!-- Message -->
+            <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                <label>Message</label>
+                <textarea required ng-model="vm.inputMessage" ng-minlength="3" ng-maxlength="1000" rows="4" id="inputMessage" name="inputMessage" placeholder="Type your message" style="max-width: 100%;" dir="auto"></textarea>
+                <p ng-show="userForm.inputMessage.$error.minlength" class="help-block">Message is too short.</p>
+                <p ng-show="userForm.inputMessage.$error.maxlength" class="help-block">Message is too long.</p>
             </div>
-            <div class="control-group">
-                <label for="sel1">Subject</label>
-                <select class="form-control" id="inputSubject" name="inputSubject" title="Choose subject">
-                    <option value="compra">About your purchase</option>
-                    <option value="evento">Celebrate an event with us</option>
-                    <option value="programacion">Contact our programming department</option>
-                    <option value="Trabaja">Work with us</option>
-                    <option value="proyectos">Do you want to propose projects</option>
-                    <option value="sugerencias">Make us suggestions</option>
-                    <option value="reclamaciones">We handle your claims</option>
-                    <option value="club">Club Who Plays Tonight?</option>
-                    <option value="sociales">Social projects</option>
-                    <option value="festivos">Holiday opening</option>
-                    <option value="novedades">We'll let you know about our news</option>
-                    <option value="diferente">Something different</option>
-                </select>
-            </div>
-            <div class="control-group">
-                  <textarea class="input-block-level" rows="4" name="inputMessage" placeholder="Message *" style="max-width: 100%;" dir="auto"></textarea>
-            </div>
-            <input type="hidden" name="token" value="contact_form" />
-            <input class="btn btn-primary" type="submit" name="submit" id="submitBtn" disabled="disabled" value="send" />
-            <img src="images/ajax-loader.gif" alt="ajax loader icon" class="ajaxLoader" /><br/><br/>
-            <div id="resultMessage" style="display: none;"></div>
-          </form>
-          </div>
-          <div class="widget-foot">
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+
+            
+            <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="vm.sendContact()">Submit</button>
+
+        </form>
+    </section>
 </section>

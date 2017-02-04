@@ -11,14 +11,22 @@ var four0four = require('./utils/404')();
 
 var environment = process.env.NODE_ENV;
 
+// var dotenv = require('dotenv');
+// dotenv.load({ path: './src/server/.env' });
+
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-// app.use('/api', require('./routes'));
 
+// app.use('/api', require('./routes'));
+require('./contact/contact.router.js')(app);
 require('./locate/routes/events_routes')(app);
+
+
+
+
 
 console.log('About to crank up node');
 console.log('PORT=' + port);

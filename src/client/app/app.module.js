@@ -8,7 +8,9 @@
     // 'app.dashboard',
     'app.layout',
     'app.contact',
+    'app.main',
     'app.locate',
+    'app.users',
   ]);
 
 })();

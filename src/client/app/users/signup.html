@@ -1,0 +1,31 @@
+<section class="mainbar">
+  <section class="matter">
+    <div class="container">
+      <div class="row">
+        <div class="widget wviolet">
+          <div ht-widget-header title="{{vm.title}}"></div>
+          <div class="widget-content user">
+            <form name="signupform" ng-submit="submitForm()" novalidate>
+              <!-- Email -->
+              <div class="form-group" ng-class="{ 'has-error' : signupform.email.$invalid && !signupform.email.$pristine }">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" ng-model="vm.inputEmail">
+                <p ng-show="signupform.email.$invalid && !signupform.email.$pristine" class="help-block">Enter a valid email.</p>
+              </div>
+              <!-- Password -->
+              <div class="form-group" ng-class="{ 'has-error' : signupform.email.$invalid && !signupform.email.$pristine }">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" ng-model="vm.inputPassword">
+                <p ng-show="signupform.password.$invalid && !signupform.password.$pristine" class="help-block">Enter a valid password.</p>
+              </div>
+              <button type="submit" class="btn btn-primary" ng-disabled="signupform.$invalid" ng-click="vm.sendSignUp()">Submit</button>
+            </form>
+          </div>
+          <div class="widget-foot">
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

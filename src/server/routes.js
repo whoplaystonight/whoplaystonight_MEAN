@@ -1,10 +1,16 @@
 var router = require('express').Router();
 var four0four = require('./utils/404')();
 var data = require('./data');
+// var contact = require('./contact/contact.router');
+//
+// module.exports = function(app) {
+//     app.post('/api/sendmail',contact.sendmail);
+// }
 
 router.get('/people', getPeople);
 // router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
+// router.get('sendemail', sendemail);
 router.get('/*', four0four.notFoundMiddleware);
 
 module.exports = router;
