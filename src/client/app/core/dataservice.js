@@ -15,7 +15,8 @@
       getEvents: getEvents,
       // getPeople: getPeople,
       // getMessageCount: getMessageCount,
-      getLocation: getLocation
+      getLocation: getLocation,
+      // getEvent:getEvent
     };
 
 
@@ -71,6 +72,23 @@
         return exception.catcher('XHR Failed for getEvents')(e);
       }
     }//end of getEvents
+
+
+    // function getEvent(){
+    //
+    //   return $http.get('/api/events/:event_id')
+    //     .then(success)
+    //     .catch(fail);
+    //
+    //     function success(response){
+    //       return response.data;
+    //     }
+    //
+    //     function fail(e){
+    //       return exception.catcher('XHR Failed for getEvent')(e);
+    //     }
+    //
+    // }//end of getEvent
 
     // function getMessageCount() { return $q.when(72); }
     //

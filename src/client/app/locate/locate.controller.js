@@ -14,12 +14,15 @@
     // vm.events=[];
     vm.eventMarker={};
     vm.eventsMarkers=[];
+    // vm.details=details;
 
     /*Nomes declarar si es te que gastar en la vista
     vm.getLocation=getLocation;*/
 
     //Map centered on spain
     vm.map = { center: { latitude: 39.5770969, longitude: -3.5280415 }, zoom: 10 };
+    vm.getEvent=getEvent;
+    // vm.showDetails=showDetails;
 
     activate();
 
@@ -49,6 +52,7 @@
       );//enf of return dataservice
     }//end of getLocation
 
+
     function getEvents() {
       // console.log('Estic al getEvents del controller');
       return dataservice.getEvents().then(function(data) {
@@ -59,6 +63,44 @@
       });
     }
 
+    function getEvent(item){
+      console.log('Estic al getEvent');
+        return serviceEvent(item).then(
+          function(data){
+            vm.event=data;
+          }
+        );
+    }//end of getEvent
+
+    function serviceEvent(item){
+      console.log('Estic al serviceEvent');
+      var deferred=$q.defer();
+      getDetails(item,
+        function(vmEvent){
+        deferred.resolve(vmEvent);
+        },
+        function(err){
+          deferred.reject(err);
+        }//end of function(err)
+      );//end of getEvent
+      return deferred.promise;
+    }//End of promiseEvent
+
+
+    function getDetails(item){
+      console.log('Estic al getDetails');
+      var id=item.currentTarget.getAttribute('id');
+      for (var i in vm.events){
+        if(id===vm.events[i].event_id){
+            vm.details=vm.events[i];
+        }
+      }
+      console.log(vm.details);
+      return vm.details;
+    }//end of getEvent
+
+
+
     function getEventLocation(){
       for (var i in vm.events){
         vm.eventsMarker={ id:i,
@@ -66,7 +108,7 @@
                           longitude:vm.events[i].longitud };
         vm.eventsMarkers.push(vm.eventsMarker);
       }
-      console.log(vm.eventsMarkers);
+      // console.log(vm.eventsMarkers);
       return vm.eventsMarkers;
     }//end of getEventsLocation
 

@@ -1,0 +1,71 @@
+<section class="mainbar">
+  <section class="matter">
+    <div class="container">
+      <div class="row">
+        <div class="widget wviolet">
+          <div ht-widget-header title="{{vm.title}}"></div>
+          <div class="widget-content user">
+            <section id="main" class="wrapper">
+    <div class="container">
+
+        <header class="major">
+            <h2>EVENT DETAILS</h2>
+            <p>Here you can view the DETAILS of the events.</p>
+        </header>
+
+        <div class="image fit">
+
+            <div id="mapholder">
+
+              <div class="widget-content text-center text-info">
+                <table class="table table-condensed table-striped">
+                  <thead>
+                    <tr>
+                      <th>Band Name</th>
+                      <th>Event Description</th>
+                      <th>Type Event</th>
+                      <th>Number of artist</th>
+                      <th>Date Event</th>
+                      <th>Access</th>
+                      <th>Date Ticket</th>
+                      <th>Openning Time</th>
+                      <th>Start Time</th>
+                      <th>End Time</th>
+                      <th>Poster</th>
+                      <th>Town</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="ev in vm.event">
+                      <td>{{ev.band_name}}</td>
+                      <td>{{ev.description}}</td>
+                      <td>{{ev.type_event}}</td>
+                      <td>{{ev.n_participants}}</td>
+                      <td>{{ev.date_event}}</td>
+                      <td>{{ev.type_access}}</td>
+                      <td>{{ev.date_ticket}}</td>
+                      <td>{{ev.openning}}</td>
+                      <td>{{ev.start}}</td>
+                      <td>{{ev.end}}</td>
+                      <td>{{ev.poster}}</td>
+                      <td>{{ev.town}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+          </div>
+          <div class="widget-foot">
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

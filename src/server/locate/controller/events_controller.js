@@ -14,14 +14,15 @@ exports.getEvents=function(req, res){
 
 };//end of getEvents
 
-exports.getEvent=function(req, res){
-  var eventId=req.params.eventId;
-
-  eventsModel.getEvent(eventId,function(error, data){
-    if(error){
-      res.send(error);
-    }
-    res.json(200, data);
-  });
-
-};//end of getEvent
+// exports.getEvent=function(req, res){
+//
+//   var eventId=req.params.event_id;
+//
+//   eventsModel.getEvent(eventId,function(error, data){
+//     if(error){
+//       res.send(error);
+//     }
+//     res.json(200, data);
+//   });
+//
+// };//end of getEvent
