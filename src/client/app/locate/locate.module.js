@@ -3,6 +3,6 @@
 
   angular.module('app.locate', [
     'app.core',
-    'app.widgets'
+    'app.widgets',
   ]);
 })();

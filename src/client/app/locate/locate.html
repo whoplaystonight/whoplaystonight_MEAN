@@ -19,9 +19,45 @@
             <div id="demo">Demo</div>
             <div id="mapholder">
               <h5>Mapholder</h5>
-              <ui-gmap-google-map center="vm.map.center" zoom="vm.map.zoom"></ui-gmap-google-map>
+              <ui-gmap-google-map center="vm.map.center" zoom="vm.map.zoom">
+                <!--To show the browser location marker on the map-->
+                <ui-gmap-marker idkey="vm.location.id" coords="vm.location.coords" options="vm.location.options" ></ui-gmap-marker>
+                <!--To show the events location markers on the map-->
+                <ui-gmap-markers models="vm.eventsMarkers" coords="'self'"></ui-gmap-markers>
+
+              </ui-gmap-google-map>
             </div>
-            <div class="ofertas">Ofertas</div>
+            <div class="ofertas">
+              <div class="col-md-6">
+                <div class="widget wviolet">
+                  <div ht-widget-header title="Events" allow-collapse="true"></div>
+
+                  <div class="widget-content text-center text-info">
+                    <table class="table table-condensed table-striped">
+                      <thead>
+                        <tr>
+                          <th>Band Name</th>
+                          <th>Event Description</th>
+                          <th>Type Event</th>
+                          <th>Date Event</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="p in vm.events track by $index">
+                          <td>{{p.band_name}}</td>
+                          <td>{{p.description}}</td>
+                          <td>{{p.type_event}}</td>
+                          <td>{{p.date_event}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="widget-foot">
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
 
     </div>

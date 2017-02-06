@@ -19,7 +19,7 @@
           templateUrl:'app/locate/locate.html',
           controller:'LocateController',
           controllerAs:'vm',
-          title:'Contact',
+          title:'Locate',
           settings:{
             nav:5,
             content:'<i class="fa fa-lock"></i> Locate'
