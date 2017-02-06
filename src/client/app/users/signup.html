@@ -5,20 +5,36 @@
         <div class="widget wviolet">
           <div ht-widget-header title="{{vm.title}}"></div>
           <div class="widget-content user">
-            <form name="signupform" ng-submit="submitForm()" novalidate>
-              <!-- Email -->
-              <div class="form-group" ng-class="{ 'has-error' : signupform.email.$invalid && !signupform.email.$pristine }">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" ng-model="vm.inputEmail">
-                <p ng-show="signupform.email.$invalid && !signupform.email.$pristine" class="help-block">Enter a valid email.</p>
+            <form name='signupform'>
+              <div class='form-group'>
+                <label for="email">Username</label>
+                <input type="text" class='form-control' placeholder='username' name='username' ng-model='vm.username' required ng-class='{ error: signupform.username.$invalid && !signupform.$pristine, warning: signupform.username.$error.username }'>
+                <span ng-show='!signupform.$pristine && signupform.username.$error.required'>Username is required</span>
               </div>
-              <!-- Password -->
-              <div class="form-group" ng-class="{ 'has-error' : signupform.email.$invalid && !signupform.email.$pristine }">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" ng-model="vm.inputPassword">
-                <p ng-show="signupform.password.$invalid && !signupform.password.$pristine" class="help-block">Enter a valid password.</p>
+
+              <div class='form-group'>
+                <label for="email">Email</label>
+                <input type="email" class='form-control' placeholder='example@email.com' name='email' ng-model='vm.email' ng-pattern="/^.+@.+\..+$/" required ng-class='{ error: signupform.email.$invalid && !signupform.$pristine, warning: signupform.email.$error.email }'>
+                <span ng-show='!signupform.$pristine && signupform.email.$error.required'>Email is required</span>
+                <span ng-show='!signupform.$pristine && signupform.email.$error.pattern'>Please enter a valid email</span>
               </div>
-              <button type="submit" class="btn btn-primary" ng-disabled="signupform.$invalid" ng-click="vm.sendSignUp()">Submit</button>
+
+              <div class='form-group'>
+                <label for="password">Password</label>
+                <input type="password" class='form-control' placeholder='password' name='password' ng-minlength='4' ng-model='vm.password' required ng-class='{ error: signupform.password.$invalid && !signupform.$pristine }'>
+                <span ng-show='!signupform.$pristine && signupform.password.$error.required'>Password is required</span>
+                <span ng-show="signupform.password.$error.minlength">The password is too short.</span>
+              </div>
+
+              <div class='form-group'>
+                <label for="rpassword">Password</label>
+                <input type="password" class='form-control' placeholder='password' name='rpassword' ng-minlength='4' ng-model='vm.rpassword' required ng-class='{ error: signupform.rpassword.$invalid && !signupform.$pristine }'>
+                <span ng-show='!signupform.$pristine && signupform.rpassword.$error.required'>Password is required</span>
+                <span ng-show="signupform.rpassword.$error.minlength">The password is too short.</span>
+                <span ng-show="vm.password !== vm.rpassword">Passwords do not match.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary" ng-hide='!signupform.$valid || vm.password !== vm.rpassword' ng-click="vm.submitSignUpForm()">Submit</button>
             </form>
           </div>
           <div class="widget-foot">

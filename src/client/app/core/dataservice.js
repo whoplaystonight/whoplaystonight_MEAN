@@ -12,6 +12,7 @@
             getPeople: getPeople,
             getMessageCount: getMessageCount,
             sendemail: sendemail,
+            SignUp: SignUp,
         };
 
         return service;
@@ -39,6 +40,22 @@
             .then(success)
             .catch(fail);
 
+            function success() {
+                return true;
+            }
+
+            function fail() {
+                return false;
+            }
+        }
+
+
+        function SignUp(data) {
+            console.log(data);
+            return $http.post('/api/signup', data)
+            .then(success)
+            .catch(fail);
+            console.log("chya")
             function success() {
                 return true;
             }
