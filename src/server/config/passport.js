@@ -1,7 +1,7 @@
 var LocalStrategy = require('passport-local').Strategy;
 
 var bcrypt = require('bcrypt-nodejs');
-var connection = require('../configdb.js');
+var connection = require('../config.db.js');
 
 
 module.exports = function (passport) {
@@ -36,21 +36,29 @@ module.exports = function (passport) {
         passwordField: 'password',
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
-        function (req, user, password, done) {
+        function (req, username, password, done) {
             // we are checking to see if the user trying to login already exists
             console.log("llega a passport");
             if (connection) {
                 console.log("conecta")
+                console.log(username)
             }else{
                 console.log("error")
             }
-            mysql.connection.query('SELECT COUNT(*) FROM users WHERE username like "' + username + '"',
-                function (error, rows) {
-                    if (err)
-                        console.log("error");
+            var query = 'SELECT COUNT(*) as total FROM users WHERE username like "' + username + '"';
+            connection.query(query, function (error, rows) {
+                console.log(error);
+                console.log(rows[0].total);
+                   if (error){
+                        console.log("error 1");
+                        console.log(error);
+                        console.log(rows);
                         //return done(err);
-                    if (rows.length) {
+                    }
+                    if (rows[0].total > 0) {
                         console.log("error 2");
+                        console.log(error);
+                        console.log(rows);
                         //return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
                     } else {
                         // if there is no user with that username
