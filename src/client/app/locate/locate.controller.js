@@ -7,9 +7,9 @@
   // .controller('ModalController',ModalController)
   .controller('ModalInstanceCtrl',ModalInstanceCtrl);
 
-  LocateController.$inject=['$q','dataservice','logger','$uibModal'];
+  LocateController.$inject=['$q','dataservice','logger','$uibModal','$scope'];
 
-  function LocateController($q,dataservice,logger,$uibModal){
+  function LocateController($q,dataservice,logger,$uibModal,$scope){
 
     var vm=this;
     vm.title='Locate';
@@ -18,10 +18,6 @@
     vm.map = { center: { latitude: 39.5770969, longitude: -3.5280415 }, zoom: 10 };
     vm.getEvent=getEvent;
     // vm.modalController=modalController;
-
-
-
-
 
     activate();
 
@@ -99,6 +95,22 @@
     // }//End of promiseEvent
     //
     //
+
+    vm.open=function(item){
+      getEvent(item);
+      console.log(vm.details);
+      var modalInstance=$uibModal.open({
+        templateUrl:'app/locate/details.html',
+        controller:['details',ModalInstanceCtrl],
+        controllerAs:'vm',
+        size:'lg',
+        backdrop:'static',
+        resolve:{
+          details: function(){ return vm.details}
+        }
+      });//end ModalInstance
+    };//end open
+
     function getEvent(item){
       console.log('Estic al getDetails');
       var id=item.currentTarget.getAttribute('id');
@@ -107,22 +119,12 @@
             vm.details=vm.events[i];
         }
       }
-      console.log(vm.details);
       return vm.details;
     }//end of getDetails
 
 
-    // function modalController($uibModal){
-    //   console.log('Estic al modalController');
-      vm.open=function(){
-        var modalInstance=$uibModal.open({
-          templateUrl:'app/locate/details.html',
-          controller:'ModalInstanceCtrl',
-          controllerAs:'vm'
-        });//end ModalInstance
-        console.log('Jamon');
-      };//end open
-    // }//end of modalController function
+
+
 
 
   }//end of controller
@@ -134,15 +136,19 @@
 
   ModalInstanceCtrl.$inject=['$uibModalInstance'];
 
-  function ModalInstanceCtrl($uibModalInstance){
+  function ModalInstanceCtrl($uibModalInstance, details){
+    console.log(details);
     var vm=this;
     vm.ok=function(){
-      $uibModalInstance.close(vm.selected.item);
+      $uibModalInstance.close();
     };
 
-    vm.cancel=function(){
-      $uibModalInstance.dismiss('cancel');
-    };
+    vm.details=details;
+
+
+    // vm.cancel=function(){
+    //   $uibModalInstance.close();
+    // };
   }
 
 
