@@ -14,9 +14,16 @@
         </header>
 
         <div class="image fit">
-            <div id="ubicacion">Ubication</div>
+            <!-- <div id="ubicacion">Ubication</div> -->
             <!-- Se escribe un mapa con la localizacion anterior-->
-            <div id="demo">Demo</div>
+            <!-- <div id="demo">Demo</div> -->
+
+            <section id="filterEvents">
+              <label for="searchEvents">Enter the name of the city where search concerts</label>
+              <br>
+              <input id="searchEvents" type="text" class="filtre" ng-model="filtro" >
+            </section>
+
             <div id="mapholder">
               <h5>Mapholder</h5>
               <ui-gmap-google-map center="vm.map.center" zoom="vm.map.zoom">
@@ -24,8 +31,43 @@
                 <ui-gmap-marker idkey="vm.location.id" coords="vm.location.coords" options="vm.location.options" ></ui-gmap-marker>
                 <!--To show the events location markers on the map-->
                 <ui-gmap-markers models="vm.eventsMarkers" coords="'self'"></ui-gmap-markers>
-
               </ui-gmap-google-map>
+              <div class="widget-content text-center text-info">
+                <table class="table table-condensed table-striped">
+                  <thead>
+                    <tr>
+                      <th>Band Name</th>
+                      <th>Event Description</th>
+                      <th>Type Event</th>
+                      <th>Number of artist</th>
+                      <th>Date Event</th>
+                      <th>Access</th>
+                      <th>Date Ticket</th>
+                      <th>Openning Time</th>
+                      <th>Start Time</th>
+                      <th>End Time</th>
+                      <th>Poster</th>
+                      <th>Town</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="ev in vm.details">
+                      <td>{{ev.band_name}}</td>
+                      <td>{{ev.description}}</td>
+                      <td>{{ev.type_event}}</td>
+                      <td>{{ev.n_participants}}</td>
+                      <td>{{ev.date_event}}</td>
+                      <td>{{ev.type_access}}</td>
+                      <td>{{ev.date_ticket}}</td>
+                      <td>{{ev.openning}}</td>
+                      <td>{{ev.start}}</td>
+                      <td>{{ev.end}}</td>
+                      <td>{{ev.poster}}</td>
+                      <td>{{ev.town}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div class="ofertas">
               <div class="col-md-6">
@@ -36,18 +78,22 @@
                     <table class="table table-condensed table-striped">
                       <thead>
                         <tr>
+                          <th>Town</th>
                           <th>Band Name</th>
-                          <th>Event Description</th>
-                          <th>Type Event</th>
                           <th>Date Event</th>
+                          <th>Start Time</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="p in vm.events track by $index">
-                          <td>{{p.band_name}}</td>
-                          <td>{{p.description}}</td>
-                          <td>{{p.type_event}}</td>
-                          <td>{{p.date_event}}</td>
+                        <tr ng-repeat="evs in vm.events | filter:filtro" >
+                          <td>{{evs.town}}</td>
+                          <td>{{evs.band_name}}</td>
+                          <td>{{evs.date_event}}</td>
+                          <td>{{evs.start}}</td>
+                          <!-- <td><input id="{{evs.event_id}}" type="button" value="Details" ng-click="vm.getEvent($element.target)"></td> -->
+                          <!-- <td><a class="details" ui-sref="locate.details({eventId:evs.event_id})">Details</a></td> -->
+                          <td><button id="{{evs.event_id}}" ng-click="vm.open($event)">Details</button></td>
+                          <!-- ng-click="vm.getEvent($event)" -->
                         </tr>
                       </tbody>
                     </table>

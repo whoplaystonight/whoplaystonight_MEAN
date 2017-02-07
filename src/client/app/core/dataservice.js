@@ -8,6 +8,7 @@
     dataservice.$inject = ['$window', '$http', '$q', 'exception', 'logger'];
     /* @ngInject */
     function dataservice($window, $http, $q, exception, logger) {
+
         var service = {
             sendemail: sendemail,
             getEvents: getEvents,
@@ -32,7 +33,8 @@
             function fail() {
                 return false;
             }
-        }
+        }//end of sendmail
+
 
         function getLocation() {
             var deferred = $q.defer();
@@ -90,7 +92,7 @@
             return $http.post('/api/signup', data)
                 .then(success)
                 .catch(fail);
-            console.log("chya")
+
             function success() {
                 return true;
             }
@@ -100,6 +102,39 @@
             }
         }
 
-    }
 
-})();
+    // function getEvent(){
+    //
+    //   return $http.get('/api/events/:event_id')
+    //     .then(success)
+    //     .catch(fail);
+    //
+    //     function success(response){
+    //       return response.data;
+    //     }
+    //
+    //     function fail(e){
+    //       return exception.catcher('XHR Failed for getEvent')(e);
+    //     }
+    //
+    // }//end of getEvent
+
+    // function getMessageCount() { return $q.when(72); }
+    //
+    // function getPeople() {
+    //   return $http.get('/api/people')
+    //     .then(success)
+    //     .catch(fail);
+    //
+    //   function success(response) {
+    //     return response.data;
+    //   }
+    //
+    //   function fail(e) {
+    //     return exception.catcher('XHR Failed for getPeople')(e);
+    //   }
+    // }//end of getPeople
+
+  }//End of dataservice function
+
+})();//end of clousure

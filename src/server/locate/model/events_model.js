@@ -1,5 +1,5 @@
 
-var connection=require('../config.js');
+var connection=require('../../config.db.js');
 
 var eventsModel={};
 
@@ -21,18 +21,18 @@ eventsModel.getEvents=function(callback){
 };//end of evenstModel.getEvents
 
 
-eventsModel.getEvent=function(eventId, callback){
-  if(connection){
-    var query='SELECT * FROM event WHERE event_id= ' + connection.escape(eventId);
-    connection.query(query, function(error, rows){
-      if(error){
-          throw error;
-      }else{
-        callback(null, rows);
-      }
-    });
-  }//end of if connection
-
-};//enf¡d of eventsModel.getEvent
+// eventsModel.getEvent=function(event_Id, callback){
+//   if(connection){
+//     var query='SELECT * FROM event WHERE event_id= ' + connection.escape(event_id);
+//     connection.query(query, function(error, rows){
+//       if(error){
+//           throw error;
+//       }else{
+//         callback(null, rows);
+//       }
+//     });
+//   }//end of if connection
+//
+// };//enf¡d of eventsModel.getEvent
 
 module.exports=eventsModel;

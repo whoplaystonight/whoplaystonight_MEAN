@@ -25,6 +25,21 @@
             content:'<i class="fa fa-lock"></i> Locate'
           }//end_settings
         }//end_config
-      }];//end_return
+      }//end of state locate
+      // ,{
+      //   state:'locate.details',
+      //   config:{
+      //     url:'/{eventId}',
+      //     templateUrl:'app/locate/locate.html',
+      //     controller:'LocateController',
+      //     controllerAs:'vm',
+      //     resolve:{
+      //         details: function(LocateService){
+      //         return LocateService.getEvent();
+      //       }//end of data
+      //     }//end of resolve
+      //   }//end config
+      // }//end of state
+    ];//end_return
   }//end_function
 })();//end clousure

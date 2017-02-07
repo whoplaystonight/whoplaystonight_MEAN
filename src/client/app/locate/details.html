@@ -1,0 +1,45 @@
+<section id="modalContainer">
+  <header class="modal-header">
+    <h1>Event Details</h1>
+  </header>
+  <main id="modal-body">
+    <table class="table table-condensed table-striped">
+      <thead>
+        <tr>
+          <th>Band Name</th>
+          <th>Event Description</th>
+          <th>Type Event</th>
+          <th>Number of artist</th>
+          <th>Date Event</th>
+          <th>Access</th>
+          <th>Date Ticket</th>
+          <th>Openning Time</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Poster</th>
+          <th>Town</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="ev in vm.details">
+          <td>{{ev.band_name}}</td>
+          <td>{{ev.description}}</td>
+          <td>{{ev.type_event}}</td>
+          <td>{{ev.n_participants}}</td>
+          <td>{{ev.date_event}}</td>
+          <td>{{ev.type_access}}</td>
+          <td>{{ev.date_ticket}}</td>
+          <td>{{ev.openning}}</td>
+          <td>{{ev.start}}</td>
+          <td>{{ev.end}}</td>
+          <td>{{ev.poster}}</td>
+          <td>{{ev.town}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+  <footer class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="$close()">Cancel</button>
+  </footer>
+</section>
