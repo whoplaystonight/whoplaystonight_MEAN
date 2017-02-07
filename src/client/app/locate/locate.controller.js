@@ -3,26 +3,25 @@
 
   angular
   .module('app.locate')
-  .controller('LocateController',LocateController);
+  .controller('LocateController',LocateController)
+  // .controller('ModalController',ModalController)
+  .controller('ModalInstanceCtrl',ModalInstanceCtrl);
 
-  LocateController.$inject=['$q','dataservice','logger'];
+  LocateController.$inject=['$q','dataservice','logger','$uibModal'];
 
-  function LocateController($q,dataservice,logger){
+  function LocateController($q,dataservice,logger,$uibModal){
 
     var vm=this;
     vm.title='Locate';
-    // vm.events=[];
-    vm.eventMarker={};
     vm.eventsMarkers=[];
-    // vm.details=details;
-
-    /*Nomes declarar si es te que gastar en la vista
-    vm.getLocation=getLocation;*/
-
     //Map centered on spain
     vm.map = { center: { latitude: 39.5770969, longitude: -3.5280415 }, zoom: 10 };
     vm.getEvent=getEvent;
-    // vm.showDetails=showDetails;
+    // vm.modalController=modalController;
+
+
+
+
 
     activate();
 
@@ -52,7 +51,6 @@
       );//enf of return dataservice
     }//end of getLocation
 
-
     function getEvents() {
       // console.log('Estic al getEvents del controller');
       return dataservice.getEvents().then(function(data) {
@@ -62,44 +60,6 @@
         return vm.events;
       });
     }
-
-    function getEvent(item){
-      console.log('Estic al getEvent');
-        return serviceEvent(item).then(
-          function(data){
-            vm.event=data;
-          }
-        );
-    }//end of getEvent
-
-    function serviceEvent(item){
-      console.log('Estic al serviceEvent');
-      var deferred=$q.defer();
-      getDetails(item,
-        function(vmEvent){
-        deferred.resolve(vmEvent);
-        },
-        function(err){
-          deferred.reject(err);
-        }//end of function(err)
-      );//end of getEvent
-      return deferred.promise;
-    }//End of promiseEvent
-
-
-    function getDetails(item){
-      console.log('Estic al getDetails');
-      var id=item.currentTarget.getAttribute('id');
-      for (var i in vm.events){
-        if(id===vm.events[i].event_id){
-            vm.details=vm.events[i];
-        }
-      }
-      console.log(vm.details);
-      return vm.details;
-    }//end of getEvent
-
-
 
     function getEventLocation(){
       for (var i in vm.events){
@@ -112,6 +72,78 @@
       return vm.eventsMarkers;
     }//end of getEventsLocation
 
+
+    // function getEvent(item){
+    //   console.log('Estic al getEvent');
+    //     return serviceEvent(item).then(
+    //       function(data){
+    //         console.log('jamon');
+    //         vm.event=data;
+    //
+    //       }
+    //     );
+    // }//end of getEvent
+    //
+    // function serviceEvent(item){
+    //   console.log('Estic al serviceEvent');
+    //   var deferred=$q.defer();
+    //   getDetails(item,
+    //     function(vmEvent){
+    //     deferred.resolve(vmEvent);
+    //     },
+    //     function(err){
+    //       deferred.reject(err);
+    //     }//end of function(err)
+    //   );//end of getEvent
+    //   return deferred.promise;
+    // }//End of promiseEvent
+    //
+    //
+    function getEvent(item){
+      console.log('Estic al getDetails');
+      var id=item.currentTarget.getAttribute('id');
+      for (var i in vm.events){
+        if(id===vm.events[i].event_id){
+            vm.details=vm.events[i];
+        }
+      }
+      console.log(vm.details);
+      return vm.details;
+    }//end of getDetails
+
+
+    // function modalController($uibModal){
+    //   console.log('Estic al modalController');
+      vm.open=function(){
+        var modalInstance=$uibModal.open({
+          templateUrl:'app/locate/details.html',
+          controller:'ModalInstanceCtrl',
+          controllerAs:'vm'
+        });//end ModalInstance
+        console.log('Jamon');
+      };//end open
+    // }//end of modalController function
+
+
   }//end of controller
+
+  // ModalController.$inject=['$uibModal'];
+
+
+
+
+  ModalInstanceCtrl.$inject=['$uibModalInstance'];
+
+  function ModalInstanceCtrl($uibModalInstance){
+    var vm=this;
+    vm.ok=function(){
+      $uibModalInstance.close(vm.selected.item);
+    };
+
+    vm.cancel=function(){
+      $uibModalInstance.dismiss('cancel');
+    };
+  }
+
 
 })();//end of clousure

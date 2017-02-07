@@ -4,5 +4,6 @@
   angular.module('app.locate', [
     'app.core',
     'app.widgets',
+    'ui.bootstrap'
   ]);
 })();

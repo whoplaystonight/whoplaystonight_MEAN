@@ -9,8 +9,11 @@
     ModalController.$inject=['$uibModal'];
 
     function ModalController($uibModal,$log){
+
       var vm=this;
+      vm.items=['item1','item2','item3'];
       vm.animationsEnabled=true;
+
       vm.open=function(size){
         var modalInstance=$uibModal.open({
           animation:vm.animationsEnabled,
@@ -23,10 +26,11 @@
             }//end items
           }//end resolve
         });//end ModalInstance
+
         modalInstance.result.then(function(selectedItem){
           vm.selected=selectedItem;
         },function(){
-          $log.info('Modal dismisses at: ' +new Date());
+          $log.info('Modal dismissed at: ' +new Date());
         });
       };//end open
 

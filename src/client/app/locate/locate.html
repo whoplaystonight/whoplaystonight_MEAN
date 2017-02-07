@@ -51,7 +51,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="ev in vm.event">
+                    <tr ng-repeat="ev in vm.details">
                       <td>{{ev.band_name}}</td>
                       <td>{{ev.description}}</td>
                       <td>{{ev.type_event}}</td>
@@ -92,7 +92,8 @@
                           <td>{{evs.start}}</td>
                           <!-- <td><input id="{{evs.event_id}}" type="button" value="Details" ng-click="vm.getEvent($element.target)"></td> -->
                           <!-- <td><a class="details" ui-sref="locate.details({eventId:evs.event_id})">Details</a></td> -->
-                          <td><button id="{{evs.event_id}}" ng-click="vm.getEvent($event)">Details</button></td>
+                          <td><button id="{{evs.event_id}}" ng-click="vm.open()">Details</button></td>
+                          <!-- ng-click="vm.getEvent($event)" -->
                         </tr>
                       </tbody>
                     </table>
