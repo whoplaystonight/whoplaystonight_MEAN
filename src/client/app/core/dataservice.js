@@ -16,12 +16,12 @@
             // getMessageCount: getMessageCount,
             getLocation: getLocation,
             SignUp: SignUp,
+            SignIn: SignIn
         };
 
         return service;
 
         function sendemail(data) {
-            console.log(data + 'hi');
             return $http.post('/api/sendemail', data)
                 .then(success)
                 .catch(fail);
@@ -71,22 +71,6 @@
             }
         }//end of getEvents
 
-        // function getMessageCount() { return $q.when(72); }
-        //
-        // function getPeople() {
-        //   return $http.get('/api/people')
-        //     .then(success)
-        //     .catch(fail);
-        //
-        //   function success(response) {
-        //     return response.data;
-        //   }
-        //
-        //   function fail(e) {
-        //     return exception.catcher('XHR Failed for getPeople')(e);
-        //   }
-        // }//end of getPeople
-
         function SignUp(data) {
             console.log(data);
             return $http.post('/api/signup', data)
@@ -102,39 +86,22 @@
             }
         }
 
+        function SignIn(data) {
+            return $http.post('/api/signin',data)
+                    .then(success)
+                    .catch(fail);
+            
+            function success(response) {
+                console.log(response);
+                return response;
+            }
+            
+            function fail() {
+                return false;
+            }
+        }
 
-    // function getEvent(){
-    //
-    //   return $http.get('/api/events/:event_id')
-    //     .then(success)
-    //     .catch(fail);
-    //
-    //     function success(response){
-    //       return response.data;
-    //     }
-    //
-    //     function fail(e){
-    //       return exception.catcher('XHR Failed for getEvent')(e);
-    //     }
-    //
-    // }//end of getEvent
 
-    // function getMessageCount() { return $q.when(72); }
-    //
-    // function getPeople() {
-    //   return $http.get('/api/people')
-    //     .then(success)
-    //     .catch(fail);
-    //
-    //   function success(response) {
-    //     return response.data;
-    //   }
-    //
-    //   function fail(e) {
-    //     return exception.catcher('XHR Failed for getPeople')(e);
-    //   }
-    // }//end of getPeople
+    }
 
-  }//End of dataservice function
-
-})();//end of clousure
+})();

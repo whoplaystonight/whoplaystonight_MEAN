@@ -7,7 +7,7 @@
           <div class="widget-content user">
             <form name='signupform'>
               <div class='form-group'>
-                <label for="email">Username</label>
+                <label for="username">Username</label>
                 <input type="text" class='form-control' placeholder='username' name='username' ng-model='vm.username' required ng-class='{ error: signupform.username.$invalid && !signupform.$pristine, warning: signupform.username.$error.username }'>
                 <span ng-show='!signupform.$pristine && signupform.username.$error.required'>Username is required</span>
               </div>
