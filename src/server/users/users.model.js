@@ -1,45 +1,33 @@
-var mysql = require('../config.db');
+var connection = require('../config.db.js');
 
-var userModel = {};
+var usersModel = {};
 
-userModel.insertUser = function(userData,callback){
-
-    if (mysql.connection) {
-        mysql.connection.query('INSERT INTO users SET ?', userData, function(err, result) {
-            if(err){
-                throw err;
-            }else{
-                callback(result);
-            }
-        });
-    }
-};
-
-userModel.countUser = function(userData,callback){
-
-    if (mysql.connection) {
-        //mysql.connection.query('INSERT INTO users SET ?', userData.user, function(error, result) {
-            mysql.connection.query('SELECT * FROM users WHERE user = ?',userData.user, function(err, rows) {
-            if(err){
-                throw err;
-            }else{
-                callback(rows);
-            }
-        });
-    }
-};
-
-userModel.getUser = function (user, callback) {
-    if (mysql.connection) {
-        mysql.connection.query('SELECT * FROM users WHERE user like "' + user + '"',
-        function (error, row) {
+usersModel.countUsers = function (username, callback) {
+    if (connection) {
+        var query = 'SELECT COUNT(*) as total FROM users WHERE username like "' + username + '"';
+        connection.query(query, function (error, rows) {
             if (error) {
                 throw error;
             } else {
-                callback(null, row);
+                callback(null, rows);
             }
         });
     }
-};
+}
 
-module.exports = userModel;
+usersModel.addUserDB = function (user, callback) {
+    if (connection) {
+        var queryinsert = 'INSERT INTO users ( username, email, name, password, type ) values ("' + user.username + '","' + user.email + '","","' + user.password + '","' + user.type + '")';
+        connection.query(queryinsert, function (error, rows) {
+            if (error) {
+                console.log("error insert db");
+                throw error;
+            } else {
+                console.log("insertado correctamente")
+                callback(null, rows);
+            }
+        });
+    }
+}
+
+module.exports = usersModel;

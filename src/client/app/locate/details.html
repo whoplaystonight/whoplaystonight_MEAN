@@ -3,7 +3,7 @@
     <h1>Event Details</h1>
   </header>
   <main id="modal-body">
-    <table class="table table-condensed table-striped">
+      <table class="table table-condensed table-striped">
       <thead>
         <tr>
           <th>Band Name</th>
@@ -21,25 +21,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="ev in vm.details">
-          <td>{{ev.band_name}}</td>
-          <td>{{ev.description}}</td>
-          <td>{{ev.type_event}}</td>
-          <td>{{ev.n_participants}}</td>
-          <td>{{ev.date_event}}</td>
-          <td>{{ev.type_access}}</td>
-          <td>{{ev.date_ticket}}</td>
-          <td>{{ev.openning}}</td>
-          <td>{{ev.start}}</td>
-          <td>{{ev.end}}</td>
-          <td>{{ev.poster}}</td>
-          <td>{{ev.town}}</td>
+        <tr>
+          <td>{{vm.event.band_name}}</td>
+          <td>{{vm.event.description}}</td>
+          <td>{{vm.event.type_event}}</td>
+          <td>{{vm.event.n_participants}}</td>
+          <td>{{vm.event.date_event}}</td>
+          <td>{{vm.event.type_access}}</td>
+          <td>{{vm.event.date_ticket}}</td>
+          <td>{{vm.event.openning}}</td>
+          <td>{{vm.event.start}}</td>
+          <td>{{vm.event.end}}</td>
+          <td>{{vm.event.poster}}</td>
+          <td>{{vm.event.town}}</td>
         </tr>
       </tbody>
     </table>
   </main>
   <footer class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="vm.ok()">OK</button>
+    <button class="btn btn-primary" type="button" ng-click="$close">OK</button>
     <button class="btn btn-warning" type="button" ng-click="$close()">Cancel</button>
   </footer>
 </section>

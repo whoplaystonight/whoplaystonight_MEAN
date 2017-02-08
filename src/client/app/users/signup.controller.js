@@ -33,9 +33,9 @@
         dataservice.SignUp(datausertojson).then(function (response) {
             console.log(response)
             if(response == true){
-                console.log('guay')
+                logger.success("Registered user correctly");
             }else{
-                logger.error("Super error");
+                logger.error("An error has occurred");
             }
         });
     }
