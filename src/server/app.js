@@ -23,7 +23,7 @@ app.use(logger('dev'));
 // app.use('/api', require('./routes'));
 require('./contact/contact.router.js')(app);
 require('./config/passport.js')(passport);
-require('./users/users.router.js')(app, passport);
+require('./users/users.router.js')(app);
 require('./locate/routes/events_routes')(app);
 
 app.use(passport.initialize());

@@ -1,10 +1,14 @@
-var users = require('./users.model.js');
+var passport = require('passport');
 
 exports.signup = function (req, res) {
-    users.insertUser(req.body,
-            function (err, callback) {
-                if (err) { res.send(err); }
-                res.json(callback);
-            }
-    );
+    passport.authenticate('local-signup', function (err,user, info){
+        if (err) {
+            return res.send('err');
+        }
+        if (!user) {
+            return res.send('name');
+        }
+        return res.send(true);
+    }
+    )(req, res);
 };
