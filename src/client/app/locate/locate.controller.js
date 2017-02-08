@@ -13,11 +13,13 @@
 
     var vm=this;
     vm.title='Locate';
-    vm.eventsMarkers=[];
+    vm.events=[];
     //Map centered on spain
     vm.map = { center: { latitude: 39.5770969, longitude: -3.5280415 }, zoom: 10 };
     vm.getEvent=getEvent;
-    // vm.modalController=modalController;
+    vm.eventsMarkers=[];
+    vm.showDetails=showDetails;
+    //vm.modalController=modalController;
 
     activate();
 
@@ -95,21 +97,24 @@
     // }//End of promiseEvent
     //
     //
-
-    vm.open=function(item){
-      getEvent(item);
-      console.log(vm.details);
-      var modalInstance=$uibModal.open({
-        templateUrl:'app/locate/details.html',
-        controller:['details',ModalInstanceCtrl],
-        controllerAs:'vm',
-        size:'lg',
-        backdrop:'static',
-        resolve:{
-          details: function(){ return vm.details}
-        }
-      });//end ModalInstance
-    };//end open
+    function showDetails(event){
+      // vm.open=function(){
+        // getEvent(item);
+        // console.log(vm.details);
+        // var modalInstance=
+        $uibModal.open({
+          templateUrl:'app/locate/details.html',
+          controller:['$uibModalInstance','events','event',ModalInstanceCtrl],
+          controllerAs:'vm',
+          size:'lg',
+          backdrop:'static',
+          resolve:{
+            events:function(){ return vm.events},
+            event: function(){ return event;}
+          }
+        });//end ModalInstance
+      // };//end open
+    }//end of showDetails
 
     function getEvent(item){
       console.log('Estic al getDetails');
@@ -122,29 +127,19 @@
       return vm.details;
     }//end of getDetails
 
-
-
-
-
-
   }//end of controller
 
   // ModalController.$inject=['$uibModal'];
 
 
-
-
-  ModalInstanceCtrl.$inject=['$uibModalInstance'];
-
-  function ModalInstanceCtrl($uibModalInstance, details){
-    console.log(details);
+  function ModalInstanceCtrl($uibModalInstance, events, event){
+    console.log(event);
     var vm=this;
-    vm.ok=function(){
-      $uibModalInstance.close();
-    };
-
-    vm.details=details;
-
+    vm.events=events;
+    vm.event=event;
+    // vm.ok=function(){
+    //   $uibModalInstance.close();
+    // };
 
     // vm.cancel=function(){
     //   $uibModalInstance.close();
