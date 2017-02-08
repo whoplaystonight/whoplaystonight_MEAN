@@ -20,6 +20,13 @@
     vm.eventsMarkers=[];
     vm.showDetails=showDetails;
     //vm.modalController=modalController;
+    vm.clickMarker={
+      click:function(marker){
+        console.log(marker.key);
+        getEvent(marker.key);
+        showDetails(vm.details);
+      }
+    };
 
     activate();
 
@@ -61,7 +68,7 @@
 
     function getEventLocation(){
       for (var i in vm.events){
-        vm.eventsMarker={ id:i,
+        vm.eventsMarker={ id:vm.events[i].event_id,
                           latitude:vm.events[i].latitud,
                           longitude:vm.events[i].longitud };
         vm.eventsMarkers.push(vm.eventsMarker);
@@ -107,7 +114,7 @@
           controller:['$uibModalInstance','events','event',ModalInstanceCtrl],
           controllerAs:'vm',
           size:'lg',
-          backdrop:'static',
+          backdrop:'true',
           resolve:{
             events:function(){ return vm.events},
             event: function(){ return event;}
@@ -116,9 +123,9 @@
       // };//end open
     }//end of showDetails
 
-    function getEvent(item){
+    function getEvent(id){
       console.log('Estic al getDetails');
-      var id=item.currentTarget.getAttribute('id');
+      // var id=item.currentTarget.getAttribute('id');
       for (var i in vm.events){
         if(id===vm.events[i].event_id){
             vm.details=vm.events[i];

@@ -30,44 +30,8 @@
                 <!--To show the browser location marker on the map-->
                 <ui-gmap-marker idkey="vm.location.id" coords="vm.location.coords" options="vm.location.options" ></ui-gmap-marker>
                 <!--To show the events location markers on the map-->
-                <ui-gmap-markers models="vm.eventsMarkers" coords="'self'"></ui-gmap-markers>
+                <ui-gmap-markers models="vm.eventsMarkers" coords="'self'" events="vm.clickMarker"></ui-gmap-markers>
               </ui-gmap-google-map>
-              <!-- <div class="widget-content text-center text-info">
-                <table class="table table-condensed table-striped">
-                  <thead>
-                    <tr>
-                      <th>Band Name</th>
-                      <th>Event Description</th>
-                      <th>Type Event</th>
-                      <th>Number of artist</th>
-                      <th>Date Event</th>
-                      <th>Access</th>
-                      <th>Date Ticket</th>
-                      <th>Openning Time</th>
-                      <th>Start Time</th>
-                      <th>End Time</th>
-                      <th>Poster</th>
-                      <th>Town</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="ev in vm.details">
-                      <td>{{ev.band_name}}</td>
-                      <td>{{ev.description}}</td>
-                      <td>{{ev.type_event}}</td>
-                      <td>{{ev.n_participants}}</td>
-                      <td>{{ev.date_event}}</td>
-                      <td>{{ev.type_access}}</td>
-                      <td>{{ev.date_ticket}}</td>
-                      <td>{{ev.openning}}</td>
-                      <td>{{ev.start}}</td>
-                      <td>{{ev.end}}</td>
-                      <td>{{ev.poster}}</td>
-                      <td>{{ev.town}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> -->
             </div>
             <div class="ofertas">
               <div class="col-md-6">
