@@ -32,7 +32,7 @@
                 <!--To show the events location markers on the map-->
                 <ui-gmap-markers models="vm.eventsMarkers" coords="'self'"></ui-gmap-markers>
               </ui-gmap-google-map>
-              <div class="widget-content text-center text-info">
+              <!-- <div class="widget-content text-center text-info">
                 <table class="table table-condensed table-striped">
                   <thead>
                     <tr>
@@ -67,7 +67,7 @@
                     </tr>
                   </tbody>
                 </table>
-              </div>
+              </div> -->
             </div>
             <div class="ofertas">
               <div class="col-md-6">
@@ -86,14 +86,16 @@
                       </thead>
                       <tbody>
                         <tr ng-repeat="evs in vm.events | filter:filtro" >
+                          <!-- <td>{{evs}}</td> -->
                           <td>{{evs.town}}</td>
                           <td>{{evs.band_name}}</td>
                           <td>{{evs.date_event}}</td>
                           <td>{{evs.start}}</td>
                           <!-- <td><input id="{{evs.event_id}}" type="button" value="Details" ng-click="vm.getEvent($element.target)"></td> -->
                           <!-- <td><a class="details" ui-sref="locate.details({eventId:evs.event_id})">Details</a></td> -->
-                          <td><button id="{{evs.event_id}}" ng-click="vm.open($event)">Details</button></td>
+                          <td><button id="{{evs.event_id}}" ng-click="vm.showDetails(evs)">Details</button></td>
                           <!-- ng-click="vm.getEvent($event)" -->
+                          <!-- ng-click="vm.open($event)" -->
                         </tr>
                       </tbody>
                     </table>
