@@ -2,6 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var bcrypt = require('bcrypt-nodejs');
 var connection = require('../config.db.js');
+var userModel = require('../users/users.model');
 
 
 module.exports = function (passport) {
@@ -39,58 +40,26 @@ module.exports = function (passport) {
         function (req, username, password, done) {
             // we are checking to see if the user trying to login already exists
             console.log("llega a passport");
-            if (connection) {
-                console.log("conecta")
-                console.log(username)
-                console.log(password)
-            } else {
-                console.log("error")
-            }
-            var query = 'SELECT COUNT(*) as total FROM users WHERE username like "' + username + '"';
-            connection.query(query, function (error, rows) {
-                console.log(error);
-                console.log(rows[0].total);
-                if (error) {
-                    console.log("error 1");
-                    console.log(error);
-                    console.log(rows);
-                    //return done(err);
-                }
+
+            userModel.countUsers(username, function (error, rows) {
                 if (rows[0].total > 0) {
-                    console.log("error 2");
-                    console.log(error);
-                    console.log(rows);
-                    //return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+                    return done(null, false, 'That username is already taken.');
                 } else {
-                    // if there is no user with that username
-                    // create the user
-                    console.log('create the user');
                     var addnewuserinbd = {
                         username: username,
                         email: req.body.email,
                         password: bcrypt.hashSync(password, null, null),  // use the generateHash function in our user model
                         type: 'client'
                     };
-                    console.log(addnewuserinbd)
-                    var queryinsert = 'INSERT INTO users ( username, email, name, password, type ) values ("' + addnewuserinbd.username + '","' + addnewuserinbd.email + '","","' + addnewuserinbd.password + '","' + addnewuserinbd.type + '")';
-                    console.log(queryinsert)
-                    connection.query(queryinsert, function (error, rows) {
+                    userModel.addUserDB(addnewuserinbd, function (error, rows) {
                         if (error) {
-                            console.log("error insert db");
-                            return done(err);
-                        } else {
-                            console.log("insertado correctamente")
+                            return done(error);
+                        }
+                        if (rows) {
                             return done(null, addnewuserinbd);
                         }
                     });
-                        /*var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
-
-                        connection.query(insertQuery, [newUserMysql.username, newUserMysql.password], function (err, rows) {
-                            newUserMysql.id = rows.insertId;
-
-                            return done(null, newUserMysql);
-                        });*/
-                    }
+                }
             });
         })
     );
