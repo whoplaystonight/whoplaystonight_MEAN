@@ -29,4 +29,17 @@ userModel.countUser = function(userData,callback){
     }
 };
 
+userModel.getUser = function (user, callback) {
+    if (mysql.connection) {
+        mysql.connection.query('SELECT * FROM users WHERE user like "' + user + '"',
+        function (error, row) {
+            if (error) {
+                throw error;
+            } else {
+                callback(null, row);
+            }
+        });
+    }
+};
+
 module.exports = userModel;

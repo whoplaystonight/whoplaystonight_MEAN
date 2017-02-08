@@ -26,6 +26,20 @@
             content: 'SignUp'
           }
         }
+      },
+      {
+        state: 'signin',
+        config: {
+          url: '/signin',
+          templateUrl: 'app/users/signin.html',
+          controller: 'SignUpController',
+          controllerAs: 'vm',
+          title: 'SignIn',
+          settings: {
+            nav: 7,
+            content: 'SignIn'
+          }
+        }
       }
     ];
   }

@@ -33,7 +33,7 @@
             function fail() {
                 return false;
             }
-        }//end of sendmail
+        }
 
 
         function getLocation() {
