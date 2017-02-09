@@ -63,4 +63,28 @@ module.exports = function (passport) {
             });
         })
     );
+
+    passport.use('local-login', new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+    },
+        function (req, user, password, done) {
+            userModel.getUser(user, function (error, rows) {
+                if (!rows.length) {
+
+                    return done(null, false, 'nouser');
+                }
+                if (!bcrypt.compareSync(password, rows[0].password)) {
+
+                    return done(null, false, 'wrongpassword');
+                } else {
+
+                    return done(null, rows[0]);
+                }
+            });
+
+        })
+    );
+
 };
