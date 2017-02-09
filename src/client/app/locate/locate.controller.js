@@ -28,6 +28,28 @@
       }
     };
 
+    vm.viewby=10;
+    vm.totalItems=vm.events.lenght;
+    vm.currentPage=1;
+    vm.itemsPerPage=vm.viewby;
+    vm.maxSize=5;
+    vm.numPages=2;
+    // vm.$watch('currentPage', function(){
+    //   setPagingData(vm.currentPage);
+    // });
+    // function setPagingData(page){
+    //   var pagedData=vm.events.slice((page -1)*vm.itemsPerPage, page * vm.itemsPerPage);
+    //   vm.aCandidates=pagedData;
+    // }
+
+    vm.setPage=function(pageNo){
+      vm.currentPage=pageNo;
+    };
+    vm.setItemsPerPage=function(num){
+      vm.itemsPerPage=num;
+      vm.currentPage=1;
+    };
+
     activate();
 
     function activate(){

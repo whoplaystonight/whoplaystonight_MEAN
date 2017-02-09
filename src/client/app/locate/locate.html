@@ -21,7 +21,7 @@
             <section id="filterEvents">
               <label for="searchEvents">Enter the name of the city where search concerts</label>
               <br>
-              <input id="searchEvents" type="text" class="filtre" ng-model="filtro" >
+              <input id="searchEvents" type="text" class="filtre" ng-model="vm.filtro" >
             </section>
 
             <div id="mapholder">
@@ -32,6 +32,8 @@
                 <!--To show the events location markers on the map-->
                 <ui-gmap-markers models="vm.eventsMarkers" coords="'self'" events="vm.clickMarker"></ui-gmap-markers>
               </ui-gmap-google-map>
+              <uib-pagination total-items="vm.totalItems" max-size="vm.maxSize" ng-model="vm.currentPage" class="pagination-sm" items-per-page="vm.itemsPerPage"></uib-pagination>
+
             </div>
             <div class="ofertas">
               <div class="col-md-6">
@@ -49,7 +51,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="evs in vm.events | filter:filtro" >
+                        <tr ng-repeat="evs in vm.events.slice(((vm.currentPage-1)*vm.itemsPerPage),((vm.currentPage)*vm.itemsPerPage)) | filter:vm.filtro" >
                           <!-- <td>{{evs}}</td> -->
                           <td>{{evs.town}}</td>
                           <td>{{evs.band_name}}</td>
@@ -63,9 +65,24 @@
                         </tr>
                       </tbody>
                     </table>
+                    <br>
+                    View
+                    <select ng-model="vm.viewby" ng-change="vm.setItemsPerPage(vm.viewby)">
+                        <option>3</option>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                        <option>40</option>
+                        <option>50</option>
+                    </select>
+                        records at a time.
+
+
                   </div>
                   <div class="widget-foot">
-                    <div class="clearfix"></div>
+                    <div class="clearfix">
+                    </div>
                   </div>
                 </div>
               </div>
