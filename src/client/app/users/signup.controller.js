@@ -34,6 +34,9 @@
             console.log(response)
             if(response == true){
                 logger.success("Registered user correctly");
+                $timeout(function () {
+                    $state.go('main');
+                }, 3000);
             }else{
                 logger.error("An error has occurred");
             }

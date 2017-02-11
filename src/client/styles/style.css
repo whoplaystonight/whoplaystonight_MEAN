@@ -63,8 +63,6 @@ ul.topnav li.icon {
 }
 header {
     width:100%;
-    background: #2E2E2E;
-    color: #fff;
     position: inherit;
 }
 
@@ -353,7 +351,6 @@ span.menu{
 /*-----------Page-footer-----------*/
 .footer-w3l {
     padding: 5em 0;
-    background: #000000;
 }
 .footer-grid i {
     font-size: 1.2em;
