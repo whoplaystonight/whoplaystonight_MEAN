@@ -22,7 +22,7 @@
           title:'Locate',
           settings:{
             nav:5,
-            content:'<i class="fa fa-lock"></i> Locate'
+            content:'Locate'
           }//end_settings
         }//end_config
       }//end of state locate

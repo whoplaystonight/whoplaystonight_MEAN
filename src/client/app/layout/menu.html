@@ -23,6 +23,9 @@
             <li class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
               <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
             </li>
+            <li ng-hide="$root.authUser" >
+              <a target="_self" href="api/loginFacebook"><span  class="fa fa-facebook fa-lg"></span></a>
+            </li>
             <li class="icon">
               <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
             </li>

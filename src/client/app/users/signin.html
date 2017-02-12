@@ -1,0 +1,32 @@
+<div>
+    <form id="login_form" name="login_form">
+        <div class="modal-header">
+            <h1>Sign In</h1>
+        </div>
+        <br />
+        <br />
+        <div class='form-group'>
+            <label for="username">Username</label>
+            <input type="text" class='form-control' placeholder='username' name='username' ng-model='vm.username' required ng-class='{ error: login_form.username.$invalid && !login_form.$pristine, warning: login_form.username.$error.username }'>
+            <span ng-show='!login_form.$pristine && login_form.username.$error.required'>Username is required</span>
+        </div>
+
+        <div class='form-group'>
+            <label for="password">Password</label>
+            <input type="password" class='form-control' placeholder='password' name='password' ng-model='vm.password'
+                required ng-class='{ error: login_form.password.$invalid && !login_form.$pristine }'>
+                <span ng-show='!login_form.$pristine && login_form.password.$error.required'>Password is required</span>
+        </div>
+
+        <br />
+        <br />
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="login_form.$invalid" ng-click="vm.submitSignInForm()">Sign In</button>
+        <div id="resultMessageFail" class="msg_error">{{vm.resultMessageFail}}</div>
+        <br />
+        <hr class="login">
+        <br />
+        <p>Or... if you don't have an account</p>
+        <a href="signup"> <h2>Sign Up now!</h2></a>
+
+    </form>
+</div>

@@ -23,7 +23,7 @@
             title:'Main',
             settings: {
               nav:1,
-              content:'<i class="fa fa-lock"></i> Home'
+              content:'<i class="fa fa-home" aria-hidden="true"></i> Home'
             }//end_settings
           }//end_config
         }

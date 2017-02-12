@@ -16,12 +16,12 @@
             // getMessageCount: getMessageCount,
             getLocation: getLocation,
             SignUp: SignUp,
+            SignIn: SignIn
         };
 
         return service;
 
         function sendemail(data) {
-            console.log(data + 'hi');
             return $http.post('/api/sendemail', data)
                 .then(success)
                 .catch(fail);
@@ -33,7 +33,7 @@
             function fail() {
                 return false;
             }
-        }//end of sendmail
+        }
 
 
         function getLocation() {
@@ -71,22 +71,6 @@
             }
         }//end of getEvents
 
-        // function getMessageCount() { return $q.when(72); }
-        //
-        // function getPeople() {
-        //   return $http.get('/api/people')
-        //     .then(success)
-        //     .catch(fail);
-        //
-        //   function success(response) {
-        //     return response.data;
-        //   }
-        //
-        //   function fail(e) {
-        //     return exception.catcher('XHR Failed for getPeople')(e);
-        //   }
-        // }//end of getPeople
-
         function SignUp(data) {
             console.log(data);
             return $http.post('/api/signup', data)
@@ -102,39 +86,41 @@
             }
         }
 
+        function SignIn(data) {
+            return $http.post('/api/signin',data)
+                    .then(success)
+                    .catch(fail);
+            
+            function success(response) {
+                return response;
+            }
+            
+            function fail() {
+                return false; 
+           }
+        }
 
-    // function getEvent(){
-    //
-    //   return $http.get('/api/events/:event_id')
-    //     .then(success)
-    //     .catch(fail);
-    //
-    //     function success(response){
-    //       return response.data;
-    //     }
-    //
-    //     function fail(e){
-    //       return exception.catcher('XHR Failed for getEvent')(e);
-    //     }
-    //
-    // }//end of getEvent
+        function isLoggedin() {
+            return $http.get('/api/loggedin')
+                .then(success)
+                .catch(fail);
 
-    // function getMessageCount() { return $q.when(72); }
-    //
-    // function getPeople() {
-    //   return $http.get('/api/people')
-    //     .then(success)
-    //     .catch(fail);
-    //
-    //   function success(response) {
-    //     return response.data;
-    //   }
-    //
-    //   function fail(e) {
-    //     return exception.catcher('XHR Failed for getPeople')(e);
-    //   }
-    // }//end of getPeople
+            function success(responseUser) {
+                if (responseUser.data === '0') {
+                    $rootScope.authUser = false;
+                    return false;
+                } else {
+                    $rootScope.authUser = responseUser.data;
+                    return responseUser.data;
+                }
+            }
 
-  }//End of dataservice function
+            function fail(e) {
+                return exception.catcher('XHR Failed for /api/loggedin')(e);
+            }
+        }
 
-})();//end of clousure
+
+    }
+
+})();
