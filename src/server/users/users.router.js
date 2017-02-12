@@ -6,5 +6,5 @@ module.exports = function (app) {
     //app.get('/api/loginFacebook', userscontroller.loginfacebook);
     app.get('/api/loginFacebook', passport.authenticate('facebook'));
     //app.get('/api/auth/facebook/callback', userscontroller.loginfacebookcallback);
-    app.get('/api/auth/facebook/callback', passport.authenticate('facebook')); 
+    app.get('/api/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/signup', succesRedirect: '/'})); 
 };

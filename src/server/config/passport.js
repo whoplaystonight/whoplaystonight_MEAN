@@ -138,7 +138,8 @@ module.exports = function (passport) {
         clientID: '1839022376365731',
         clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
         callbackURL: "http://localhost:8001/api/auth/facebook/callback",
-        profileFields: ['id', 'displayName', 'name', 'gender', 'photos']
+        profileFields: ['id', 'displayName', 'name', 'gender', 'photos'],
+        passReqToCallback: true
     },
         function (req, accessToken, refreshToken, profile, cb) {
             /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
