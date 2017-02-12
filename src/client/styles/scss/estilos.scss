@@ -1,0 +1,11 @@
+//~/whoplaystonight_MEAN/src/client/styles$ sass --watch scss/estilos.scss:css/estilos_sass.css
+@import "variables";
+
+header {
+    background: $backgroundcolor_header;
+    color: $text_white;
+}
+
+.footer-w3l {
+    background: $backgroundcolor_footer;
+}
