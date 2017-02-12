@@ -2,7 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const OAuthStrategy = require('passport-oauth').OAuthStrategy; //encara que no es gaste, fa falta
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy; //encara que no es gaste, fa falta
-
+var TwitterStrategy = require('passport-twitter').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 var connection = require('../config.db.js');
 var userModel = require('../users/users.model');
@@ -216,5 +216,17 @@ module.exports = function (passport) {
             });
         }
     ));*/
-
+    // =========================================================================
+    // TWITTER  SIGNIN ========================================================
+    // =========================================================================    
+    passport.use(new TwitterStrategy({
+        consumerKey: 'VXHPUwMBneLkzmgWBSZs1mLiF',
+        consumerSecret: 'O1H9NH68tnTYhq7pMFk0WfVRhivwAGqUcRLb06Y0lERH1xfhou',
+        callbackURL: "http://127.0.0.1:8001/api/auth/twitter/callback"
+    },
+        function (token, tokenSecret, profile, cb) {
+            console.log(profile)
+            return cb(null, profile);
+        }
+    ));
 };
