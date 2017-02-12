@@ -92,12 +92,31 @@
                     .catch(fail);
             
             function success(response) {
-                console.log(response);
                 return response;
             }
             
             function fail() {
-                return false;
+                return false; 
+           }
+        }
+
+        function isLoggedin() {
+            return $http.get('/api/loggedin')
+                .then(success)
+                .catch(fail);
+
+            function success(responseUser) {
+                if (responseUser.data === '0') {
+                    $rootScope.authUser = false;
+                    return false;
+                } else {
+                    $rootScope.authUser = responseUser.data;
+                    return responseUser.data;
+                }
+            }
+
+            function fail(e) {
+                return exception.catcher('XHR Failed for /api/loggedin')(e);
             }
         }
 

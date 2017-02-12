@@ -50,20 +50,18 @@
             var dataUserJSON = JSON.stringify(data);
 
             dataservice.SignIn(dataUserJSON).then(function (response) {
-                // if (response.data.user === vm.inputUser) {
-
-                //     logger.success('Logged In');
-                //     cookiesService.SetCredentials(response.data);
-                //     // $uibModalInstance.dismiss('cancel');
-                //     // headerService.login();
-                //     $state.go('home');
-                // } else if (response.data === 'errorcredentials') {
-
-                //     logger.error('Error en las credenciales, el usuario o la contraseña no son correctos');
-                // } else {
-
-                //     logger.error('Error en el server');
-                // }
+                console.log(response);
+                if (response.data.username === vm.username) {
+                    logger.success('Logged In');
+                    // cookiesService.SetCredentials(response.data);
+                    // $uibModalInstance.dismiss('cancel');
+                    // headerService.login();
+                    // $state.go('home');
+                } else if (response.data === 'errorcredentials') {
+                    logger.error('User or password wrong');
+                } else {
+                    logger.error('Server error, try again');
+                }
 
             });
         }
