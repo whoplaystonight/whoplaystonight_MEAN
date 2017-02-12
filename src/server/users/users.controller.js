@@ -32,5 +32,5 @@ exports.loginfacebook = function (){
 
 exports.loginfacebookcallback = function (req, res, next){
     console.log("callback");
-    passport.authenticate('facebook', {failureRedirect: 'http://localhost:8001/signup', succesRedirect: 'http://localhost:8001/'});
+    passport.authenticate('facebook', {failureRedirect: '/signup', succesRedirect: '/'});
 };

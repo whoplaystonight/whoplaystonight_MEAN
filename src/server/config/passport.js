@@ -172,9 +172,10 @@ module.exports = function (passport) {
               return cb(err, user);
             });*/
             userModel.countUsers(profile.id, function (error, rows) {
-                console.log(rows);
+                console.log(profile);
                 if (rows[0].total > 0) {
                     console.log("Existe y no se crea")
+                    return cb(null, rows);
                 } else {
                     var addnewuserinbd = {
                         username: profile.id,
@@ -189,7 +190,7 @@ module.exports = function (passport) {
                             return cb(error);
                         }
                         if (rows) {
-                            return cb(null, addnewuserinbd);
+                            return cb(null, rows[0]);
                         }
                     });
                 }
