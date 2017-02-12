@@ -14,27 +14,12 @@ exports.signup = function (req, res) {
     )(req, res);
 };
 
-exports.loginfacebook = function (req, res, next){
+exports.loginfacebook = function (){
     console.log("LogIn Facebook - server > users.controller ----------");
-    passport.authenticate('facebook', function (err, user, info){
-        if(err){
-          return res.send('err');
-        }else if(!user){
-            return res.send('err');
-        }
-        console.log(user);
-        return res.send(user);
-    })(req, res, next);
+    passport.authenticate('facebook');
 };
 
 exports.loginfacebookcallback = function (req, res, next){
-    passport.authenticate('loginfacebookcallback', function(err, user, info){
-        console.log("CALLBACK____________");
-        if(err){
-          return res.send('err');
-        }else if(!user){
-            return res.send('err');
-        }
-        return res.send(req.user);
-    })(req, res, next); 
+    console.log("callback");
+    passport.authenticate('facebook', {failureRedirect: '/signup', succesRedirect: '/'}); 
 };

@@ -81,7 +81,7 @@ module.exports = function (passport) {
         console.log(req.user);
         return cb(null, profile);
         //return done({ msg: `yomogan` });
-    }));*/
+    }));*****
 
     passport.use(new FacebookStrategy({
         clientID: '1839022376365731',
@@ -92,7 +92,7 @@ module.exports = function (passport) {
         function (accessToken, refreshToken, profile, cb) {
             /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
               return cb(err, user);
-            });*/
+            });****
             return cb(null, profile);
         }
     ));
@@ -106,7 +106,7 @@ module.exports = function (passport) {
         function (accessToken, refreshToken, profile, cb) {
             /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
               return cb(err, user);
-            });*/
+            });****
             userModel.countUsers(profile.id, function (error, rows) {
                 console.log(rows);
                 if (rows[0].total > 0) {
@@ -133,5 +133,59 @@ module.exports = function (passport) {
             });
             return cb(null, profile);
         }
+    ));*/
+    passport.use(new FacebookStrategy({
+        clientID: '1839022376365731',
+        clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
+        callbackURL: "http://localhost:8001/api/auth/facebook/callback",
+        profileFields: ['id', 'displayName', 'name', 'gender', 'photos']
+    },
+        function (req, accessToken, refreshToken, profile, cb) {
+            /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+              return cb(err, user);
+            });*/
+            userModel.countUsers(profile.id, function (error, rows) {
+                console.log(rows);
+                if (rows[0].total > 0) {
+                    console.log("Existe y no se crea")
+                }else{
+                    var addnewuserinbd = {
+                        username: profile.id,
+                        email: '',
+                        name: profile.name.givenName,
+                        password: '',
+                        type: 'client'
+                    };
+                    console.log(addnewuserinbd);
+                    userModel.addUserDB(addnewuserinbd, function (error, rows) {
+                        if (error) {
+                            return cb(error);
+                        }
+                        if (rows) {
+                            return cb(null, addnewuserinbd);
+                        }
+                    });
+                }
+            });
+        }
     ));
+
+    /*passport.use('facebook-callback', new FacebookStrategy({
+        clientID: '1839022376365731',
+        clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
+        callbackURL: "http://localhost:8001/api/auth/facebook/callback",
+        profileFields: ['id', 'displayName', 'name', 'gender', 'photos']
+    },
+        function (req, accessToken, refreshToken, profile, cb) {
+            /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+              return cb(err, user);
+            });*****
+            userModel.countUsers(profile.id, function (error, rows) {
+                console.log(rows);
+                if (rows[0].total > 0) {
+                    return cb(null, rows);
+                }
+            });
+        }
+    ));*/
 };
