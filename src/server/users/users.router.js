@@ -15,7 +15,6 @@ module.exports = function (app) {
     }));
 
     app.get('/api/loginTwitter', passport.authenticate('twitter'));
-    //app.get('/api/auth/twitter/callback', passport.authenticate('twitter'));
     app.get('/api/auth/twitter/callback',
         passport.authenticate('twitter', { failureRedirect: '/signin' }),
         function (req, res) {

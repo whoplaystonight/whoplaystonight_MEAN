@@ -94,72 +94,7 @@ module.exports = function (passport) {
     // =========================================================================
     // FACEBOOK  SIGNIN ========================================================
     // =========================================================================
-    /*passport.use(new FacebookStrategy({
-        clientID: '1250655768361117',
-        clientSecret: 'cdef86dee33660343397aa880ea86799',
-        callbackURL: '/auth/facebook/callback',
-        //callbackURL: 'http:/whoplaystonight.com/auth/facebook/callback'
-        profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
-        passReqToCallback: true
-    }, (req, accessToken, refreshToken, profile, cb) => {
-        //console.log(profile);
-        req.user = profile.name;
-        console.log(req.user);
-        return cb(null, profile);
-        //return done({ msg: `yomogan` });
-    }));*****
-
-    passport.use(new FacebookStrategy({
-        clientID: '1839022376365731',
-        clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
-        callbackURL: "http://localhost:8001/api/auth/facebook/callback",
-        profileFields: ['id', 'displayName', 'name', 'gender', 'photos']
-    },
-        function (accessToken, refreshToken, profile, cb) {
-            /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-              return cb(err, user);
-            });****
-            return cb(null, profile);
-        }
-    ));
-
-    passport.use('loginfacebookcallback',new FacebookStrategy({
-        clientID: '1839022376365731',
-        clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
-        callbackURL: "http://localhost:8001/api/auth/facebook/callback",
-        profileFields: ['id', 'displayName', 'name', 'gender', 'photos']
-    },
-        function (accessToken, refreshToken, profile, cb) {
-            /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-              return cb(err, user);
-            });****
-            userModel.countUsers(profile.id, function (error, rows) {
-                console.log(rows);
-                if (rows[0].total > 0) {
-                    return done(null, false, 'That username is already taken.');
-                } else {
-                    var addnewuserinbd = {
-                        username: profile.id,
-                        email: '',
-                        name: profile.name.givenName,
-                        password: '',
-                        type: 'client'
-                    };
-                    console.log(addnewuserinbd) 
-                    userModel.addUserDB(addnewuserinbd, function (error, rows) {
-                        if (error) {
-                            return done(error);
-                        }
-                        if (rows) {
-                            return done(null, addnewuserinbd);
-                        }
-                    });
-                }
-                
-            });
-            return cb(null, profile);
-        }
-    ));*/
+    
     passport.use(new FacebookStrategy({
         clientID: '1839022376365731',
         clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
@@ -175,7 +110,7 @@ module.exports = function (passport) {
                 console.log(profile);
                 if (rows[0].total > 0) {
                     console.log("Existe y no se crea")
-                    return cb(null, rows);
+                    return cb(null, profile);
                 } else {
                     var addnewuserinbd = {
                         username: profile.id,
@@ -190,7 +125,7 @@ module.exports = function (passport) {
                             return cb(error);
                         }
                         if (rows) {
-                            return cb(null, rows[0]);
+                            return cb(null, profile);
                         }
                     });
                 }
@@ -198,24 +133,6 @@ module.exports = function (passport) {
         }
     ));
 
-    /*passport.use('facebook-callback', new FacebookStrategy({
-        clientID: '1839022376365731',
-        clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
-        callbackURL: "http://localhost:8001/api/auth/facebook/callback",
-        profileFields: ['id', 'displayName', 'name', 'gender', 'photos']
-    },
-        function (req, accessToken, refreshToken, profile, cb) {
-            /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-              return cb(err, user);
-            });*****
-            userModel.countUsers(profile.id, function (error, rows) {
-                console.log(rows);
-                if (rows[0].total > 0) {
-                    return cb(null, rows);
-                }
-            });
-        }
-    ));*/
     // =========================================================================
     // TWITTER  SIGNIN ========================================================
     // =========================================================================    
@@ -226,7 +143,29 @@ module.exports = function (passport) {
     },
         function (token, tokenSecret, profile, cb) {
             console.log(profile)
-            return cb(null, profile);
+            userModel.countUsers(profile.id, function (error, rows) {
+                if (rows[0].total > 0) {
+                    console.log("Existe y no se crea")
+                    return cb(null, profile);
+                } else {
+                    var addnewuserinbd = {
+                        username: profile.id,
+                        email: '',
+                        name: profile.displayName,
+                        password: '',
+                        type: 'client'
+                    };
+                    console.log(addnewuserinbd);
+                    userModel.addUserDB(addnewuserinbd, function (error, rows) {
+                        if (error) {
+                            return cb(error);
+                        }
+                        if (rows) {
+                            return cb(null, profile);
+                        }
+                    });
+                }
+            });
         }
     ));
 };
