@@ -24,10 +24,16 @@
               <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
             </li>
             <li ng-hide="$root.authUser">
-              <a target="_self" href="api/loginFacebook"><span  class="fa fa-facebook fa-lg"></span></a>
+              <a target="_self" href="/signin" ng-show="!$root.authUser">SignIn</a>
+            </li>
+            <li ng-hide="$root.authUser">
+              <a target="_self" href="api/loginFacebook" ng-show="!$root.authUser"><span  class="fa fa-facebook fa-lg"></span></a>
             </li>
             <li id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
               <a href="#"><span class="fa fa-sign-out"></span>Logout</a>
+            </li>
+            <li id="userAuthInfo" ng-show="$root.authUser">
+              <a href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.name}}</a>
             </li>
             <li class="icon">
               <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>

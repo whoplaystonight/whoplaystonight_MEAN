@@ -5,9 +5,9 @@
         .module('app.core')
         .factory('dataservice', dataservice);
 
-    dataservice.$inject = ['$window', '$http', '$q', 'exception', 'logger'];
+    dataservice.$inject = ['$window', '$http', '$q', 'exception', 'logger', '$rootScope'];
     /* @ngInject */
-    function dataservice($window, $http, $q, exception, logger) {
+    function dataservice($window, $http, $q, exception, logger, $rootScope) {
 
         var service = {
             sendemail: sendemail,
@@ -87,17 +87,17 @@
         }
 
         function SignIn(data) {
-            return $http.post('/api/signin',data)
-                    .then(success)
-                    .catch(fail);
-            
+            return $http.post('/api/signin', data)
+                .then(success)
+                .catch(fail);
+
             function success(response) {
                 return response;
             }
-            
+
             function fail() {
-                return false; 
-           }
+                return false;
+            }
         }
 
         function checkLoggedin() {
@@ -144,6 +144,24 @@
                 return exception.catcher('XHR Failed for /api/loggedin')(e);
             }
         }
+    }
+
+    function logout() {
+        console.log("dataservice logout")
+        return $http({
+            url: '/api/logout',
+            method: 'POST'
+        })
+            .then(function (responseUser) {
+                console.log('OKKK:');
+                console.log(responseUser);
+                $rootScope.authUser = false;
+                $state.go('main');
+            },
+            function (responseError) {
+                console.log('ERRRRROR: ' + responseError);
+                console.log(responseError);
+            });
     }
 
 })();

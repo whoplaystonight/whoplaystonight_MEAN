@@ -35,10 +35,10 @@
           controller: 'SignUpController',
           controllerAs: 'vm',
           title: 'SignIn',
-          settings: {
-            nav: 7,
-            content: 'SignIn'
-          }
+          // settings: {
+          //   nav: 7,
+          //   content: 'SignIn'
+          // }
         }
       }
     ];

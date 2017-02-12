@@ -8,7 +8,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var port = process.env.PORT || 8001;
 var four0four = require('./utils/404')();
-
+var cookieParser = require('cookie-parser');
 var environment = process.env.NODE_ENV;
 var passport = require('passport');
 var session = require('express-session');
@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(cors());
+app.use(cookieParser());
 
 // app.use('/api', require('./routes'));
 require('./contact/contact.router.js')(app);
