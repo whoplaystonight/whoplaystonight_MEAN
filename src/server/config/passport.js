@@ -65,6 +65,32 @@ module.exports = function (passport) {
             });
         })
     );
+
+
+    passport.use('local-login', new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+    },
+        function (req, user, password, done) {
+            userModel.getUser(user, function (error, rows) {
+                if (!rows.length) {
+
+                    return done(null, false, 'nouser');
+                }
+                if (!bcrypt.compareSync(password, rows[0].password)) {
+
+                    return done(null, false, 'wrongpassword');
+                } else {
+
+                    return done(null, rows[0]);
+                }
+            });
+
+        })
+    );
+
+
     // =========================================================================
     // FACEBOOK  SIGNIN ========================================================
     // =========================================================================
@@ -149,7 +175,7 @@ module.exports = function (passport) {
                 console.log(rows);
                 if (rows[0].total > 0) {
                     console.log("Existe y no se crea")
-                }else{
+                } else {
                     var addnewuserinbd = {
                         username: profile.id,
                         email: '',
@@ -189,4 +215,5 @@ module.exports = function (passport) {
             });
         }
     ));*/
+
 };

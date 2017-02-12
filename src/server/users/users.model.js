@@ -30,4 +30,19 @@ usersModel.addUserDB = function (user, callback) {
     }
 }
 
+usersModel.getUser = function (user, callback) {
+    if (connection) {
+        //var sql = 'SELECT * FROM users WHERE id = ' + id;
+        //'SELECT * FROM users WHERE id =' + id, function (err, rows)
+        connection.query('SELECT * FROM users WHERE username like "' + user + '"',
+        function (error, row) {
+            if (error) {
+                throw error;
+            } else {
+                callback(null, row);
+            }
+        });
+    }
+};
+
 module.exports = usersModel;

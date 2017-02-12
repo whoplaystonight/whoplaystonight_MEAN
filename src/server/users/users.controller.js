@@ -14,6 +14,17 @@ exports.signup = function (req, res) {
     )(req, res);
 };
 
+exports.signin = function (req, res, next) {
+    passport.authenticate('local-login', function (err, user, info) {
+        if (err) {
+            return res.send('err');
+        }
+        if (!user) {
+            return res.send('errorcredentials');
+        }
+        return res.send(user);
+    })(req, res, next);
+}
 exports.loginfacebook = function (){
     console.log("LogIn Facebook - server > users.controller ----------");
     passport.authenticate('facebook');
@@ -21,5 +32,5 @@ exports.loginfacebook = function (){
 
 exports.loginfacebookcallback = function (req, res, next){
     console.log("callback");
-    passport.authenticate('facebook', {failureRedirect: 'http://localhost:8001/signup', succesRedirect: 'http://localhost:8001/'}); 
+    passport.authenticate('facebook', {failureRedirect: 'http://localhost:8001/signup', succesRedirect: 'http://localhost:8001/'});
 };
