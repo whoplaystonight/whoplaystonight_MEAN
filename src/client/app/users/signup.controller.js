@@ -5,9 +5,9 @@
         .module('app.users')
         .controller('SignUpController', SignUpController);
 
-    SignUpController.$inject = ['logger', 'dataservice', '$state', '$timeout'];
+    SignUpController.$inject = ['logger', 'dataservice', '$state', '$timeout', '$rootScope'];
     /* @ngInject */
-    function SignUpController(logger, dataservice, $state, $timeout) {
+    function SignUpController(logger, dataservice, $state, $timeout, $rootScope) {
         var vm = this;
         vm.title = 'SignUp';
         vm.username = '';
@@ -56,10 +56,8 @@
                 console.log(response);
                 if (response.data.username === vm.username) {
                     logger.success('Logged In');
-                    // cookiesService.SetCredentials(response.data);
-                    // $uibModalInstance.dismiss('cancel');
-                    // headerService.login();
-                    // $state.go('home');
+                    $rootScope.authUser = response.data;
+                    console.log(response.data);
                 } else if (response.data === 'errorcredentials') {
                     logger.error('User or password wrong');
                 } else {

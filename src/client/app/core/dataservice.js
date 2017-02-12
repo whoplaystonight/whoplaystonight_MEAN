@@ -100,6 +100,31 @@
            }
         }
 
+        function checkLoggedin() {
+            return $http.get('/api/loggedin')
+                .then(success)
+                .catch(fail);
+
+            function success(responseUser) {
+                console.log('success:');
+                console.log(responseUser);
+                if (responseUser.data === '0') {
+                    $rootScope.authUser = false;
+                    $state.go('loginpage');
+                    //  $state.go('login');
+                } else {
+                    console.log('else:');
+                    console.log(responseUser.data);
+                    $rootScope.authUser = responseUser.data;
+                }
+            }
+            function fail(e) {
+                console.log('fail:');
+                console.log(e);
+                return exception.catcher('XHR Failed for /api/loggedin')(e);
+            }
+        }
+
         function isLoggedin() {
             return $http.get('/api/loggedin')
                 .then(success)
@@ -119,8 +144,6 @@
                 return exception.catcher('XHR Failed for /api/loggedin')(e);
             }
         }
-
-
     }
 
 })();
