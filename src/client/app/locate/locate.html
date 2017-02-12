@@ -6,111 +6,79 @@
           <div ht-widget-header title="{{vm.title}}"></div>
           <div class="widget-content user">
             <section id="main" class="wrapper">
-    <div class="container">
+                <div class="container">
+                    <header class="major">
+                        <h2>Events</h2>
+                        <p>Here you can view the location of the events.</p>
+                    </header>
 
-        <header class="major">
-            <h2>Events</h2>
-            <p>Here you can view the location of the events.</p>
-        </header>
+                    <div class="image fit">
+                        <section id="filterEvents">
+                          <label for="searchEvents">Enter the name of the city where search concerts</label>
+                          <br>
+                          <input id="searchEvents" type="text" class="filtre" ng-model="vm.filtro" >
+                        </section>
 
-        <div class="image fit">
-            <!-- <div id="ubicacion">Ubication</div> -->
-            <!-- Se escribe un mapa con la localizacion anterior-->
-            <!-- <div id="demo">Demo</div> -->
-
-            <section id="filterEvents">
-              <label for="searchEvents">Enter the name of the city where search concerts</label>
-              <br>
-              <input id="searchEvents" type="text" class="filtre" ng-model="filtro" >
-            </section>
-
-            <div id="mapholder">
-              <h5>Mapholder</h5>
-              <ui-gmap-google-map center="vm.map.center" zoom="vm.map.zoom">
-                <!--To show the browser location marker on the map-->
-                <ui-gmap-marker idkey="vm.location.id" coords="vm.location.coords" options="vm.location.options" ></ui-gmap-marker>
-                <!--To show the events location markers on the map-->
-                <ui-gmap-markers models="vm.eventsMarkers" coords="'self'"></ui-gmap-markers>
-              </ui-gmap-google-map>
-              <!-- <div class="widget-content text-center text-info">
-                <table class="table table-condensed table-striped">
-                  <thead>
-                    <tr>
-                      <th>Band Name</th>
-                      <th>Event Description</th>
-                      <th>Type Event</th>
-                      <th>Number of artist</th>
-                      <th>Date Event</th>
-                      <th>Access</th>
-                      <th>Date Ticket</th>
-                      <th>Openning Time</th>
-                      <th>Start Time</th>
-                      <th>End Time</th>
-                      <th>Poster</th>
-                      <th>Town</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="ev in vm.details">
-                      <td>{{ev.band_name}}</td>
-                      <td>{{ev.description}}</td>
-                      <td>{{ev.type_event}}</td>
-                      <td>{{ev.n_participants}}</td>
-                      <td>{{ev.date_event}}</td>
-                      <td>{{ev.type_access}}</td>
-                      <td>{{ev.date_ticket}}</td>
-                      <td>{{ev.openning}}</td>
-                      <td>{{ev.start}}</td>
-                      <td>{{ev.end}}</td>
-                      <td>{{ev.poster}}</td>
-                      <td>{{ev.town}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div> -->
-            </div>
-            <div class="ofertas">
-              <div class="col-md-6">
-                <div class="widget wviolet">
-                  <div ht-widget-header title="Events" allow-collapse="true"></div>
-
-                  <div class="widget-content text-center text-info">
-                    <table class="table table-condensed table-striped">
-                      <thead>
-                        <tr>
-                          <th>Town</th>
-                          <th>Band Name</th>
-                          <th>Date Event</th>
-                          <th>Start Time</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr ng-repeat="evs in vm.events | filter:filtro" >
-                          <!-- <td>{{evs}}</td> -->
-                          <td>{{evs.town}}</td>
-                          <td>{{evs.band_name}}</td>
-                          <td>{{evs.date_event}}</td>
-                          <td>{{evs.start}}</td>
-                          <!-- <td><input id="{{evs.event_id}}" type="button" value="Details" ng-click="vm.getEvent($element.target)"></td> -->
-                          <!-- <td><a class="details" ui-sref="locate.details({eventId:evs.event_id})">Details</a></td> -->
-                          <td><button id="{{evs.event_id}}" ng-click="vm.showDetails(evs)">Details</button></td>
-                          <!-- ng-click="vm.getEvent($event)" -->
-                          <!-- ng-click="vm.open($event)" -->
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="widget-foot">
-                    <div class="clearfix"></div>
-                  </div>
+                        <div id="mapholder">
+                          <h5>Mapholder</h5>
+                          <ui-gmap-google-map center="vm.map.center" zoom="vm.map.zoom">
+                            <!--To show the browser location marker on the map-->
+                            <ui-gmap-marker idkey="vm.location.id" coords="vm.location.coords" options="vm.location.options" ></ui-gmap-marker>
+                            <!--To show the events location markers on the map-->
+                            <ui-gmap-markers models="vm.eventsMarkers" coords="'self'" icon="'icon'" events="vm.clickMarker"></ui-gmap-markers>
+                          </ui-gmap-google-map>
+                        </div>
+                        <div class="ofertas">
+                          <div class="col-md-6">
+                            <div class="widget wviolet">
+                              <div ht-widget-header title="Events" allow-collapse="true"></div>
+                              <div class="widget-content text-center text-info">
+                                <table class="table table-condensed table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th>Town</th>
+                                      <th>Band Name</th>
+                                      <th>Date Event</th>
+                                      <th>Start Time</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr ng-repeat="evs in vm.filteredEvents | filter:vm.filtro" >
+                                      <td>{{evs.town}}</td>
+                                      <td>{{evs.band_name}}</td>
+                                      <td>{{evs.date_event}}</td>
+                                      <td>{{evs.start}}</td>
+                                      <td><button id="{{evs.event_id}}" ng-click="vm.showDetails(evs)">Details</button></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <br>
+                                <!-- View
+                                <select ng-model="vm.viewby" ng-change="vm.setItemsPerPage(vm.viewby)">
+                                    <option>3</option>
+                                    <option>5</option>
+                                    <option>7</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>30</option>
+                                    <option>50</option>
+                                </select>
+                                    records at a time. -->
+                              </div>
+                              <div class="widget-foot">
+                                <div class="clearfix">
+                                  <div id="pager">
+                                      <uib-pagination total-items="vm.totalItems" ng-model="vm.currentPage" class="pagination-sm"
+                                       items-per-page="vm.itemsPerPage" ng-change="vm.pageChanged()"></uib-pagination>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
+            </section>
           </div>
           <div class="widget-foot">
             <div class="clearfix"></div>
