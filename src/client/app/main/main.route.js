@@ -23,7 +23,7 @@
             title:'Main',
             settings: {
               nav:1,
-              content:'<i class="fa fa-home" aria-hidden="true"></i> Home'
+              content:'<img src="../images/Home.svg" alt="home"/>'
             }//end_settings
           }//end_config
         }

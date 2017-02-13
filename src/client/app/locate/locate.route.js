@@ -22,7 +22,7 @@
           title:'Locate',
           settings:{
             nav:5,
-            content:'Locate'
+            content:'<img src="../images/Locate.svg" alt="home"/>'
           }//end_settings
         }//end_config
       }//end of state locate

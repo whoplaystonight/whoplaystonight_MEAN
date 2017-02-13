@@ -115,21 +115,22 @@ header nav ul li span {
 section {
     padding:20px;
 }
-.logo{
+/*.logo{
     float:left;
 }
 .logo span {
     color: #17C2A4;
 }
 .logo h1 a {
-    font-size:1.2em;
+  font-family: Impact;
+    font-size:2em;
     color: #fff;
     text-decoration: none;
     text-transform: capitalize;
     font-weight:600;
     margin-left: 20px;
     letter-spacing: 2px;
-}
+}*/
 .info-head {
     padding-bottom: 25px;
     padding-left: 20px;
@@ -376,7 +377,7 @@ span.menu{
     line-height: 1.8em;
     text-decoration: none;
 }
-.social-icon {
+/*.social-icon {
     margin-top: 1.8em;
 }
 .social-icon a {
@@ -384,8 +385,8 @@ span.menu{
     margin-right: 0px;
     padding-right: 0px;
     padding-left: 0px;
-}
-.social-icon a i {
+}*/
+/*.social-icon a i {
     width: 32px;
     height: 32px;
     background:#F19E1F url(../img/img-sprite.png) no-repeat 0px 0px;
@@ -397,8 +398,9 @@ span.menu{
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
     border-radius: 16px;
-}
-.social-icon i.icon:hover {
+}*/
+
+/*.social-icon i.icon:hover {
     background: #e44514   url(../img/img-sprite.png) no-repeat 0px 0px;
     border-radius: 0px;
 }
@@ -425,7 +427,7 @@ span.menu{
 .social-icon i.icon3:hover {
     background: #e44514   url(../img/img-sprite.png) no-repeat -96px 0px;
     border-radius: 0px;
-}
+}*/
 .footer-grid input[type="text"] {
     width: 100%;
     padding: 0.3em;
@@ -501,7 +503,10 @@ span.menu{
 
 }
 @media(max-width:1280px){
-
+  .footer-grid ul li {
+      font-size: 0.9em;
+      display:inline;
+  }
 }
 @media(max-width:1080px){
     .w3ls_banner_info h3 {
@@ -530,6 +535,7 @@ span.menu{
     }
     .footer-grid ul li {
         font-size: 0.9em;
+        display:inline;
     }
     .port-7.effect-3 .gal-desc {
         top: -12px
@@ -691,6 +697,7 @@ span.menu{
 @media(max-width:800px){
 
 }
+
 @media(max-width:768px){
 
 }
