@@ -23,8 +23,8 @@
             </div>
           </section>
         </section>
-        <nav id="myTopnav" class="container borderXwidth">
-          <ul class="topnav" >
+        <nav class="container borderXwidth" style="background-color:black">
+          <ul class="topnav" id="myTopnav">
             <!-- Menú -->
             <li class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
               <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
@@ -47,5 +47,7 @@
             }
           }
         </script>
+
+
   </div>
 </div>
