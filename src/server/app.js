@@ -23,12 +23,6 @@ app.use(logger('dev'));
 app.use(cors());
 app.use(cookieParser());
 
-// app.use('/api', require('./routes'));
-require('./contact/contact.router.js')(app);
-require('./config/passport.js')(passport);
-require('./users/users.router.js')(app);
-require('./locate/routes/events_routes')(app);
-
 app.use(session({
   secret: 'whoplaystonightsecret',
   resave: true,
@@ -37,6 +31,14 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// app.use('/api', require('./routes'));
+require('./contact/contact.router.js')(app);
+require('./config/passport.js')(passport);
+require('./users/users.router.js')(app);
+require('./locate/routes/events_routes')(app);
+
+
 
 console.log('About to crank up node');
 console.log('PORT=' + port);

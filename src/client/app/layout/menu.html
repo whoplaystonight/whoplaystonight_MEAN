@@ -29,22 +29,19 @@
             <li role="menuitem" class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
               <a role="button" ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
             </li>
+            <li  role="menuitem" ng-hide="$root.authUser">
+              <a role="button" target="_self" href="/signin" ng-show="!$root.authUser"><img src="../images/Sign_in.svg" alt="Sign_in"/></a>
+            </li>
+            <li role="menuitem" ng-hide="$root.authUser">
+              <a role="button" target="_self" href="/signup" ng-show="!$root.authUser"><img src="../images/Sign_up.svg" alt="Sign_up"/></a>
+            </li>
             <li role="menuitem" ng-hide="$root.authUser" >
               <a role="button" target="_self" href="api/loginFacebook"><img id="loginFacebook" src="../../images/facebook.svg"/></a>
             </li>
             <li role="menuitem" ng-hide="$root.authUser" >
-              <a role="button" target="_self" href=""><img id="loginTwitter" src="../../images/twitter.svg"/></a>
+              <a role="button" target="_self" href="api/loginTwitter"><img id="loginTwitter" src="../../images/twitter.svg"/></a>
             </li>
-            <li role="menuitem" ng-hide="$root.authUser">
-              <a role="button" target="_self" href="/signin" ng-show="!$root.authUser">SignIn</a>
-            </li>
-            <li ng-hide="$root.authUser">
-              <a role="button" target="_self" href="/signup" ng-show="!$root.authUser">SignUp</a>
-            </li>
-            <li role="menuitem" ng-hide="$root.authUser">
-              <a role="button" target="_self" href="api/loginFacebook" ng-show="!$root.authUser"><span  class="fa fa-facebook fa-lg"></span></a>
-            </li>
-            <li id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
+            <li role="menuitem" id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
               <a role="button" href="#"><img src="../../images/Logout.svg"/>Logout</a>
             </li>
             <li role="menuitem" id="userAuthInfo" ng-show="$root.authUser">
