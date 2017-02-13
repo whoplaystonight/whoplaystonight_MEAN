@@ -27,6 +27,9 @@
               <a target="_self" href="/signin" ng-show="!$root.authUser">SignIn</a>
             </li>
             <li ng-hide="$root.authUser">
+              <a target="_self" href="/signup" ng-show="!$root.authUser">SignUp</a>
+            </li>
+            <li ng-hide="$root.authUser">
               <a target="_self" href="api/loginFacebook" ng-show="!$root.authUser"><span  class="fa fa-facebook fa-lg"></span></a>
             </li>
             <li id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">

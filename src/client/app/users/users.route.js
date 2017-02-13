@@ -21,10 +21,6 @@
           controller: 'SignUpController',
           controllerAs: 'vm',
           title: 'SignUp',
-          settings: {
-            nav: 6,
-            content: 'SignUp'
-          }
         }
       },
       {
@@ -35,10 +31,6 @@
           controller: 'SignUpController',
           controllerAs: 'vm',
           title: 'SignIn',
-          // settings: {
-          //   nav: 7,
-          //   content: 'SignIn'
-          // }
         }
       }
     ];
