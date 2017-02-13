@@ -27,4 +27,7 @@ module.exports = function (app) {
             console.log('TWITTER login ' + JSON.stringify(req.user));
             res.redirect('/');
         });
+
+        //isloggedin
+        //req.isAuthenticated()?res.json(req.user):'0';
 };

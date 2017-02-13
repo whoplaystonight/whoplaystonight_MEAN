@@ -1,5 +1,5 @@
 
-var connection=require('../../config.db.js');
+var connection=require('../../config/config.db.js');
 
 var eventsModel={};
 
