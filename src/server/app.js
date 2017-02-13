@@ -13,8 +13,8 @@ var environment = process.env.NODE_ENV;
 var passport = require('passport');
 var session = require('express-session');
 var cors = require('cors');
-//var dotenv = require('dotenv');
-// dotenv.load({ path: './src/server/.env' });
+var dotenv = require('dotenv');
+dotenv.load({ path: './src/server/.env' });
 
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,7 +1,7 @@
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
-// var sg = process.env.SENDGRID_API_KEY;
-var sg = require('../sendgrid.env');
+var sg = process.env.SENDGRID_API_KEY;
+// var sg = require('../sendgrid.env');
 
 exports.sendEmail = function(req, res) {
     
