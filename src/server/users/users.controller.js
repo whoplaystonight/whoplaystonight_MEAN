@@ -25,12 +25,7 @@ exports.signin = function (req, res, next) {
         return res.send(user);
     })(req, res, next);
 }
-exports.loginfacebook = function (){
+exports.loginfacebook = function (req, res, next){
     console.log("LogIn Facebook - server > users.controller ----------");
-    passport.authenticate('facebook');
-};
-
-exports.loginfacebookcallback = function (req, res, next){
-    console.log("callback");
-    passport.authenticate('facebook', {failureRedirect: '/signup', succesRedirect: '/'});
+    passport.authenticate('facebook', { scope: ['email', 'public_profile'] })(req, res, next);
 };
