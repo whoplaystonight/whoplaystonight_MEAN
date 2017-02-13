@@ -32,23 +32,23 @@
             <li ng-hide="$root.authUser" >
               <a target="_self" href="api/loginFacebook"><img id="loginFacebook" src="../../images/facebook.svg"/></a>
             </li>
+            <li ng-hide="$root.authUser" > 
+              <a target="_self" href="api/loginTwitter"><span class="fa fa-twitter fa-lg"></span></a>
+            </li>
             <li ng-hide="$root.authUser">
               <a target="_self" href="/signin" ng-show="!$root.authUser">SignIn</a>
             </li>
             <li ng-hide="$root.authUser">
               <a target="_self" href="/signup" ng-show="!$root.authUser">SignUp</a>
             </li>
-            <li ng-hide="$root.authUser">
+            <!--<li ng-hide="$root.authUser">
               <a target="_self" href="api/loginFacebook" ng-show="!$root.authUser"><span  class="fa fa-facebook fa-lg"></span></a>
-            </li>
+            </li>-->
             <li id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
               <a href="#"><img src="../../images/Logout.svg"/>Logout</a>
             </li>
             <li id="userAuthInfo" ng-show="$root.authUser">
               <a href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.name}}</a>
-            </li>
-            <li ng-hide="$root.authUser" > 
-              <a target="_self" href="api/loginTwitter"><span class="fa fa-twitter fa-lg"></span></a>
             </li>
             <li class="icon">
               <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
