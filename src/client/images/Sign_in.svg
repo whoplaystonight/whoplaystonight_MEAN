@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="15.804446mm"
+   height="15.804443mm"
+   viewBox="0 0 56.000006 55.999994"
+   id="svg4174"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="Sign_in.svg">
+  <defs
+     id="defs4176" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="30.535056"
+     inkscape:cy="19.889495"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="731"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4179">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Capa 2"
+     transform="translate(0.73096609,-44.239841)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4744"
+       width="55.885372"
+       height="56.026176"
+       x="-0.64169341"
+       y="44.065369"
+       transform="matrix(0.99997958,0.00639063,0,1,0,0)" />
+  </g>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-374.26903,-225.88776)">
+    <rect
+       style="fill:#c30007;fill-opacity:1"
+       id="rect3400"
+       width="56.062801"
+       height="11.560513"
+       x="374.20624"
+       y="225.77229" />
+    <rect
+       style="fill:#1665ac;fill-opacity:1"
+       id="rect3400-3"
+       width="34.374233"
+       height="10.173252"
+       x="374.18167"
+       y="245.51068" />
+    <rect
+       style="fill:#1665ac;fill-opacity:1"
+       id="rect3400-3-6"
+       width="36.804539"
+       height="9.8649721"
+       x="393.38751"
+       y="254.75909"
+       inkscape:transform-center-x="18.154695"
+       inkscape:transform-center-y="-12.586339" />
+    <rect
+       style="fill:#c30007;fill-opacity:1"
+       id="rect3400-7"
+       width="13.705457"
+       height="6.4738874"
+       x="377.44913"
+       y="264.00751" />
+    <rect
+       style="fill:#c30007;fill-opacity:1"
+       id="rect3400-5"
+       width="32.338711"
+       height="9.0942707"
+       x="397.9303"
+       y="272.79349" />
+    <rect
+       style="fill:#1665ac;fill-opacity:1"
+       id="rect3400-7-5"
+       width="8.0076828"
+       height="5.703187"
+       x="374.35507"
+       y="276.06726" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15.68419456px;line-height:125%;font-family:Impact;-inkscape-font-specification:'Impact Condensed';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="413.56781"
+       y="240.08717"
+       id="text4151"
+       sodipodi:linespacing="125%"
+       transform="scale(0.92368184,1.0826239)"><tspan
+         sodipodi:role="line"
+         x="413.56781"
+         y="240.08717"
+         id="tspan4153"><tspan
+           x="413.56781"
+           y="240.08717"
+           id="tspan4155"
+           style="fill:#ffffff;">Sign in</tspan></tspan></text>
+  </g>
+</svg>

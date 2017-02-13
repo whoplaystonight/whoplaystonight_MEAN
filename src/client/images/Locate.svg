@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="15.804443mm"
+   height="15.804451mm"
+   viewBox="0 0 55.999994 56.000023"
+   id="svg4191"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="Locate.svg">
+  <defs
+     id="defs4193" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.2"
+     inkscape:cx="18.140404"
+     inkscape:cy="33.253267"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="731"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4196">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Capa 2"
+     transform="translate(0.19625618,-44.324566)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.40000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4802"
+       width="55.975994"
+       height="56.320312"
+       x="-0.16739482"
+       y="44.324566" />
+  </g>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-341.04916,-549.5573)">
+    <rect
+       style="fill:#c30007;fill-opacity:1"
+       id="rect3400"
+       width="56.122608"
+       height="11.649307"
+       x="340.95987"
+       y="549.51965" />
+    <rect
+       style="fill:#1665ac;fill-opacity:1"
+       id="rect3400-3"
+       width="36.858955"
+       height="13.200346"
+       x="341.13303"
+       y="569.22632" />
+    <rect
+       style="fill:#1665ac;fill-opacity:1"
+       id="rect3400-3-6"
+       width="41.023071"
+       height="9.9407415"
+       x="355.95609"
+       y="578.54578"
+       inkscape:transform-center-x="20.235597"
+       inkscape:transform-center-y="-12.683027" />
+    <rect
+       style="fill:#c30007;fill-opacity:1"
+       id="rect3400-7"
+       width="8.6518326"
+       height="7.2257438"
+       x="342.18134"
+       y="589.03333" />
+    <rect
+       style="fill:#c30007;fill-opacity:1"
+       id="rect3400-5"
+       width="32.881123"
+       height="9.3426943"
+       x="364.16803"
+       y="596.39319" />
+    <rect
+       style="fill:#1665ac;fill-opacity:1"
+       id="rect3400-7-5"
+       width="13.586439"
+       height="5.7469916"
+       x="341.13998"
+       y="600.02283" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15.73198414px;line-height:125%;font-family:Impact;-inkscape-font-specification:'Impact Condensed';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="381.64304"
+       y="538.00537"
+       id="text4151"
+       sodipodi:linespacing="125%"
+       transform="scale(0.91943417,1.0876254)"><tspan
+         sodipodi:role="line"
+         x="381.64304"
+         y="538.00537"
+         id="tspan4153"><tspan
+           x="381.64304"
+           y="538.00537"
+           id="tspan4155"
+           style="fill:#ffffff;">Locate</tspan></tspan></text>
+  </g>
+</svg>

@@ -1,11 +1,84 @@
 //~/whoplaystonight_MEAN/src/client/styles$ sass --watch scss/estilos.scss:css/estilos_sass.css
 @import "variables";
+.center{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
 
-header {
-    background: $backgroundcolor_header;
+header{
+    background-color: $backgroundcolor_header;
     color: $text_white;
 }
 
+
+
+
+#isotipo{
+  height: 150px;
+  background: url(../../images/Favicon_2.svg) no-repeat;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.logo{
+    float:left;
+}
+.logo span {
+    color: #17C2A4;
+}
+.logo h1 a {
+    font-family: $headerFont;
+    font-size:2em;
+    color: #fff;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight:600;
+    margin-left: 20px;
+    letter-spacing: 2px;
+}
+
+
+#myTopnav{
+  background-color:black;
+  padding:none;
+}
+
+.w3ls_banner_info{
+  background:url(../../images/backgroundBanner.svg) no-repeat;
+  background-size:cover;
+
+  h3{
+    span{
+      font-family: $headerFont;
+      font-size:1.5em;
+    }//span
+  }//h3
+  h4{
+    color:$text_white;
+    font-size:2em;
+  }//h4
+}//w3ls_banner_info
+
 .footer-w3l {
-    background: $backgroundcolor_footer;
+      background: $backgroundcolor_footer;
+}
+
+.social-icon{
+  margin-top: 1.8em;
+  a{
+    margin-left: 0px;
+    margin-right: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+    img{
+      border-radius: 50%;
+    }
+  }//a
+}//social-icon
+
+@media(min-width:800px){
+  .socialIcon ul li{
+    display:inline!important;
+  }
 }

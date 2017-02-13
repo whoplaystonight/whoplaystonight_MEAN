@@ -1,8 +1,64 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 header {
-  background: #2E2E2E;
+  background-color: #000000;
   color: #ffffff; }
+
+#isotipo {
+  height: 150px;
+  background: url(../../images/Favicon_2.svg) no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.logo {
+  float: left; }
+
+.logo span {
+  color: #17C2A4; }
+
+.logo h1 a {
+  font-family: Impact;
+  font-size: 2em;
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 600;
+  margin-left: 20px;
+  letter-spacing: 2px; }
+
+#myTopnav {
+  background-color: black;
+  padding: none; }
+
+.w3ls_banner_info {
+  background: url(../../images/backgroundBanner.svg) no-repeat;
+  background-size: cover; }
+  .w3ls_banner_info h3 span {
+    font-family: Impact;
+    font-size: 1.5em; }
+  .w3ls_banner_info h4 {
+    color: #ffffff;
+    font-size: 2em; }
 
 .footer-w3l {
   background: #000000; }
+
+.social-icon {
+  margin-top: 1.8em; }
+  .social-icon a {
+    margin-left: 0px;
+    margin-right: 20px;
+    padding-right: 0px;
+    padding-left: 0px; }
+    .social-icon a img {
+      border-radius: 50%; }
+
+@media (min-width: 800px) {
+  .socialIcon ul li {
+    display: inline !important; } }
 
 /*# sourceMappingURL=estilos_sass.css.map */

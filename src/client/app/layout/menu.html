@@ -1,8 +1,8 @@
 <div ng-controller="MenuController as vm">
   <!--<div id="alertbanner" ng-show="bannerV"><a ng-class='bannerClass'>{{bannerText}}</a></div>-->
   <div class="banner">
-    <header>
-      <div class="container info-head">
+
+      <section class="container info-head">
         <div class="indicat">
           <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1398 W El Camino Real, Mountain View,UK</span>
         </div>
@@ -12,19 +12,25 @@
             <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i> Mon-Sun 8:00 am to 23:00 pm </li>
           </ul>
         </div>
-      </div>
-      <div class="container">
-        <div ng-hide="expression" class="logo">
-          <h1><a href="#/">WHO PLAYS TONIGHT?</a></h1>
-        </div>
-        <nav class="container borderXwidth">
-          <ul class="topnav" id="myTopnav">
+      </section>
+      <section class="container">
+        <!-- <section class="row">
+          <section id="isotipo" class="col-xs-12 col-lg-1">
+          </section> -->
+          <section id="logotipo" class="col-xs-12 col-lg-11">
+            <div ng-hide="expression" class="logo" >
+              <h1><a href="#/">WHO PLAYS TONIGHT?</a></h1>
+            </div>
+          </section>
+        </section>
+        <nav id="myTopnav" class="container borderXwidth">
+          <ul class="topnav" >
             <!-- Menú -->
             <li class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
               <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
             </li>
             <li ng-hide="$root.authUser" >
-              <a target="_self" href="api/loginFacebook"><span  class="fa fa-facebook fa-lg"></span></a>
+              <a target="_self" href="api/loginFacebook"><img id="loginFacebook" src="../../images/facebook.svg"/></a>
             </li>
             <li class="icon">
               <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
@@ -41,7 +47,5 @@
             }
           }
         </script>
-      </div>
-    </header>
   </div>
 </div>

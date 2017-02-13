@@ -1,3 +1,22 @@
-$backgroundcolor_header:#2E2E2E;
+$backgroundcolor_header:#000000;
 $backgroundcolor_footer:#000000;
 $text_white:#ffffff;
+$headerFont:Impact;
+
+@mixin bp-large {
+  @media only screen and (max-width: 60em) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 40em) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
