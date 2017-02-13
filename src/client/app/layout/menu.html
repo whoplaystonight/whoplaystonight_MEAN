@@ -45,7 +45,7 @@
               <a target="_self" href="api/loginFacebook" ng-show="!$root.authUser"><span  class="fa fa-facebook fa-lg"></span></a>
             </li>-->
             <li id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
-              <a href="#"><img src="../../images/Logout.svg"/></a>
+              <a target="_self" href="api/logout"><img src="../../images/Logout.svg"/></a>
             </li>
             <li id="userAuthInfo" ng-show="$root.authUser">
               <a href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.name}}</a>

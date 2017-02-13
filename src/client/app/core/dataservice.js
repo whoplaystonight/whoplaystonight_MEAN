@@ -12,8 +12,6 @@
         var service = {
             sendemail: sendemail,
             getEvents: getEvents,
-            // getPeople: getPeople,
-            // getMessageCount: getMessageCount,
             getLocation: getLocation,
             SignUp: SignUp,
             SignIn: SignIn
@@ -144,24 +142,7 @@
                 return exception.catcher('XHR Failed for /api/loggedin')(e);
             }
         }
-    }
 
-    function logout() {
-        console.log("dataservice logout")
-        return $http({
-            url: '/api/logout',
-            method: 'POST'
-        })
-            .then(function (responseUser) {
-                console.log('OKKK:');
-                console.log(responseUser);
-                $rootScope.authUser = false;
-                $state.go('main');
-            },
-            function (responseError) {
-                console.log('ERRRRROR: ' + responseError);
-                console.log(responseError);
-            });
     }
 
 })();

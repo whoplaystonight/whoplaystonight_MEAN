@@ -14,6 +14,11 @@ module.exports = function (app) {
         failureRedirect: '/signin'
     }));
 
+    app.get('/api/logout', function (req, res) {
+        req.logOut();
+        res.redirect('/');
+    });
+
     app.get('/api/loginTwitter', passport.authenticate('twitter'));
     app.get('/api/auth/twitter/callback',
         passport.authenticate('twitter', { failureRedirect: '/signin' }),

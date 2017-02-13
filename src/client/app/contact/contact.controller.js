@@ -44,15 +44,10 @@
                         console.log("sendemail");
                         if (response) {
                             console.log("true");
-                            logger.success("The email has been sent");
                             vm.inputName = '';
                             vm.inputEmail = '';
                             vm.inputSubject = '';
                             vm.inputMessage = '';
-                            $timeout(function () {
-                                $state.go('main');
-                            }, 3000);
-
                         } else {
                             console.log("false");
                             logger.error("Error sending the email, try later");
