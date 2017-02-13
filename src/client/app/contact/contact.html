@@ -1,7 +1,7 @@
 <!-- <link rel="stylesheet" href="/src/client/styles/contact.css"> -->
 <section class="mainbar">
     <section class="matter">
-        <form name="userForm" ng-submit="submitForm()" novalidate>
+        <form name="userForm" id="formula" ng-submit="submitForm()" novalidate>
             <div ht-widget-header title="{{vm.title}}"></div>
             <h1>Contact us</h1><br />
             <!-- Name -->
@@ -45,7 +45,7 @@
             </div>
 
 
-            
+
             <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="vm.sendContact()">Submit</button>
 
         </form>
