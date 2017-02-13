@@ -58,6 +58,9 @@
                     logger.success('Logged In');
                     $rootScope.authUser = response.data;
                     console.log(response.data);
+                    $timeout(function () {
+                        $state.go('main');
+                    }, 3000);
                 } else if (response.data === 'errorcredentials') {
                     logger.error('User or password wrong');
                 } else {

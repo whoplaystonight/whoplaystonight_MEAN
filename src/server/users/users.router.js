@@ -15,6 +15,12 @@ module.exports = function (app) {
             res.redirect('/locate');
         });
 
+    app.post('/api/logout', function (req, res) {
+        console.log("logout serverS");
+        req.logOut();
+        res.redirect('/');
+    });
+
     app.get('/api/loginTwitter', passport.authenticate('twitter'));
     app.get('/api/auth/twitter/callback',
         passport.authenticate('twitter', { failureRedirect: '/signin' }),
@@ -22,4 +28,7 @@ module.exports = function (app) {
             console.log('TWITTER login ' + JSON.stringify(req.user));
             res.redirect('/');
         });
+
+        //isloggedin
+        //req.isAuthenticated()?res.json(req.user):'0';
 };

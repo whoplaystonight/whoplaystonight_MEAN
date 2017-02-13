@@ -4,7 +4,7 @@ const OAuthStrategy = require('passport-oauth').OAuthStrategy; //encara que no e
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy; //encara que no es gaste, fa falta
 var TwitterStrategy = require('passport-twitter').Strategy;
 var bcrypt = require('bcrypt-nodejs');
-var connection = require('../config.db.js');
+var connection = require('../config/config.db.js');
 var userModel = require('../users/users.model');
 
 

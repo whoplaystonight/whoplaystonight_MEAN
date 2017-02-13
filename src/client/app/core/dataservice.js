@@ -5,17 +5,18 @@
         .module('app.core')
         .factory('dataservice', dataservice);
 
-    dataservice.$inject = ['$window', '$http', '$q', 'exception', 'logger', '$rootScope'];
+    dataservice.$inject = ['$window', '$http', '$q', 'exception', 'logger', '$rootScope', '$state'];
     /* @ngInject */
-    function dataservice($window, $http, $q, exception, logger, $rootScope) {
+    function dataservice($window, $http, $q, exception, logger, $rootScope, $state) {
 
         var service = {
             sendemail: sendemail,
             getEvents: getEvents,
-            // getPeople: getPeople,
-            // getMessageCount: getMessageCount,
             getLocation: getLocation,
             SignUp: SignUp,
+            checkLoggedin: checkLoggedin,
+            isLoggedin: isLoggedin,
+            logout: logout,
             SignIn: SignIn
         };
 
@@ -144,24 +145,24 @@
                 return exception.catcher('XHR Failed for /api/loggedin')(e);
             }
         }
-    }
 
-    function logout() {
-        console.log("dataservice logout")
-        return $http({
-            url: '/api/logout',
-            method: 'POST'
-        })
-            .then(function (responseUser) {
-                console.log('OKKK:');
-                console.log(responseUser);
-                $rootScope.authUser = false;
-                $state.go('main');
-            },
-            function (responseError) {
-                console.log('ERRRRROR: ' + responseError);
-                console.log(responseError);
-            });
+        function logout() {
+            return $http({
+                url: '/api/logout',
+                method: 'POST'
+            })
+                .then(function (responseUser) {
+                    console.log(responseUser);
+                    $rootScope.authUser = false;
+                    $state.go('main');
+
+                },
+                function (responseError) {
+                    console.log('ERRRRROR: ' + responseError);
+                    console.log(responseError);
+                });
+        }
+
     }
 
 })();
