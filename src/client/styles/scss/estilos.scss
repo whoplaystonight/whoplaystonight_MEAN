@@ -1,18 +1,21 @@
 //~/whoplaystonight_MEAN/src/client/styles$ sass --watch scss/estilos.scss:css/estilos_sass.css
 @import "variables";
+
 .center{
   display:flex;
   justify-content: center;
   align-items: center;
 }
 
-header{
-    background-color: $backgroundcolor_header;
-    color: $text_white;
+.textRegular{
+  font-family:"Open Sans", Arial,$textFont;
+  font-size:14px;
 }
 
-
-
+header{
+    background-color: $backgroundcolor_black;
+    color: $text_white;
+}
 
 #isotipo{
   height: 150px;
@@ -21,6 +24,7 @@ header{
   background-repeat: no-repeat;
   background-position: center;
 }
+
 .logo{
     float:left;
 }
@@ -36,14 +40,21 @@ header{
     font-weight:600;
     margin-left: 20px;
     letter-spacing: 2px;
+    @include bp-small{
+      font-size:1.5em;
+    };
+    @include bp-medium{
+      font-size:2em;
+    };
 }
 
 #myTopnav{
-  background-color:black;
+  background-color:$backgroundcolor_black;
   padding:none;
 }
 
 .w3ls_banner_info{
+
   background:url(../../images/backgroundBanner.svg) no-repeat;
   background-size:cover;
 
@@ -60,7 +71,7 @@ header{
 }//w3ls_banner_info
 
 .footer-w3l {
-      background: $backgroundcolor_footer;
+      @extend header;
 }
 
 .social-icon{
@@ -74,10 +85,32 @@ header{
       border-radius: 50%;
     }
   }//a
+  @include bp-small{
+    ul li{
+      display:block!important;
+    }
+  }
+  @include bp-medium{
+    ul li{
+      display:inline!important;
+    }
+  }
+  @include bp-large{
+    ul li{
+      display:inline!important;
+    }
+  }
 }//social-icon
 
-@media(min-width:800px){
-  .socialIcon ul li{
-    display:inline!important;
-  }
+#userForm{
+  @extend .textRegular;
+  width:10px;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+
+input{
+  width:98%;
+  height: 40px;
+  font:300 24px "Open Sans", Arial, sans-serif;
 }

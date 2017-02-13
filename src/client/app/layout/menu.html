@@ -1,5 +1,5 @@
 <div ng-controller="MenuController as vm">
-  <!--<div id="alertbanner" ng-show="bannerV"><a ng-class='bannerClass'>{{bannerText}}</a></div>-->
+  <!--<section id="alertbanner" ng-show="bannerV"><a ng-class='bannerClass'>{{bannerText}}</a></section>-->
   <div class="banner">
 
       <section class="container info-head">
@@ -17,41 +17,38 @@
         <!-- <section class="row">
           <section id="isotipo" class="col-xs-12 col-lg-1">
           </section> -->
-          <section id="logotipo" class="col-xs-12 col-lg-11">
+          <div role="presentation" id="logotipo" class="col-xs-12 col-lg-11">
             <div ng-hide="expression" class="logo" >
-              <h1><a href="#/">WHO PLAYS TONIGHT?</a></h1>
+              <h1><a href="#/" role="button">WHO PLAYS TONIGHT?</a></h1>
             </div>
-          </section>
+          </div>
         </section>
-        <nav class="container borderXwidth" style="background-color:black">
-          <ul class="topnav" id="myTopnav">
+        <nav role="navigation" class="container borderXwidth" style="background-color:black">
+          <ul role="menubar" class="topnav" id="myTopnav">
             <!-- Menú -->
-            <li class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
-              <a ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
+            <li role="menuitem" class="nlightblue fade-selection-animation" ng-class="vm.isCurrent(r)" ng-repeat="r in vm.navRoutes">
+              <a role="button" ui-sref="{{r.name}}" ng-bind-html="r.settings.content"></a>
             </li>
-            <li ng-hide="$root.authUser">
-              <a target="_self" href="/signin" ng-show="!$root.authUser"><img src="../images/Sign_in.svg" alt="Sign_in"/></a>
+            <li  role="menuitem" ng-hide="$root.authUser">
+              <a role="button" target="_self" href="/signin" ng-show="!$root.authUser"><img src="../images/Sign_in.svg" alt="Sign_in"/></a>
             </li>
-            <li ng-hide="$root.authUser">
-              <a target="_self" href="/signup" ng-show="!$root.authUser"><img src="../images/Sign_up.svg" alt="Sign_up"/></a>
+            <li role="menuitem" ng-hide="$root.authUser">
+              <a role="button" target="_self" href="/signup" ng-show="!$root.authUser"><img src="../images/Sign_up.svg" alt="Sign_up"/></a>
             </li>
-            <li ng-hide="$root.authUser" >
-              <a target="_self" href="api/loginFacebook"><img id="loginFacebook" src="../../images/facebook.svg"/></a>
+            <li role="menuitem" ng-hide="$root.authUser" >
+              <a role="button" target="_self" href="api/loginFacebook"><img id="loginFacebook" src="../../images/facebook.svg"/></a>
             </li>
-            <li ng-hide="$root.authUser" > 
-              <a target="_self" href="api/loginTwitter"><span class="fa fa-twitter fa-lg"></span></a>
+            <li role="menuitem" ng-hide="$root.authUser" >
+              <a role="button" target="_self" href="api/loginTwitter"><img id="loginTwitter" src="../../images/twitter.svg"/></a>
             </li>
-            <!--<li ng-hide="$root.authUser">
-              <a target="_self" href="api/loginFacebook" ng-show="!$root.authUser"><span  class="fa fa-facebook fa-lg"></span></a>
-            </li>-->
-            <li id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
-              <a target="_self" href="api/logout"><img src="../../images/Logout.svg"/></a>
+            <li role="menuitem" id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
+              <a role="button" href="api/logout"><img src="../../images/Logout.svg"/></a>
             </li>
-            <li id="userAuthInfo" ng-show="$root.authUser">
-              <a href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.name}}</a>
+            <li role="menuitem" id="userAuthInfo" ng-show="$root.authUser">
+              <a role="button" href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.name}}</a>
             </li>
-            <li class="icon">
-              <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+            <li role="menuitem" class="icon">
+              <a role="button" href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
             </li>
           </ul>
         </nav>

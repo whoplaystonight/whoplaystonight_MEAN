@@ -3,7 +3,11 @@
   justify-content: center;
   align-items: center; }
 
-header {
+.textRegular, #userForm {
+  font-family: "Open Sans", Arial, monospace;
+  font-size: 14px; }
+
+header, .footer-w3l {
   background-color: #000000;
   color: #ffffff; }
 
@@ -29,9 +33,15 @@ header {
   font-weight: 600;
   margin-left: 20px;
   letter-spacing: 2px; }
+  @media only screen and (min-width: 500px) {
+    .logo h1 a {
+      font-size: 1.5em; } }
+  @media only screen and (min-width: 850px) {
+    .logo h1 a {
+      font-size: 2em; } }
 
 #myTopnav {
-  background-color: black;
+  background-color: #000000;
   padding: none; }
 
 .w3ls_banner_info {
@@ -44,9 +54,6 @@ header {
     color: #ffffff;
     font-size: 2em; }
 
-.footer-w3l {
-  background: #000000; }
-
 .social-icon {
   margin-top: 1.8em; }
   .social-icon a {
@@ -56,9 +63,24 @@ header {
     padding-left: 0px; }
     .social-icon a img {
       border-radius: 50%; }
+  @media only screen and (min-width: 500px) {
+    .social-icon ul li {
+      display: block !important; } }
+  @media only screen and (min-width: 850px) {
+    .social-icon ul li {
+      display: inline !important; } }
+  @media only screen and (min-width: 960px) {
+    .social-icon ul li {
+      display: inline !important; } }
 
-@media (min-width: 800px) {
-  .socialIcon ul li {
-    display: inline !important; } }
+#userForm {
+  width: 10px;
+  padding: 0 5px;
+  margin: 0 auto; }
+
+input {
+  width: 98%;
+  height: 40px;
+  font: 300 24px "Open Sans", Arial, sans-serif; }
 
 /*# sourceMappingURL=estilos_sass.css.map */

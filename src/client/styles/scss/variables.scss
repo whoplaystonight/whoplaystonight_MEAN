@@ -1,22 +1,25 @@
-$backgroundcolor_header:#000000;
-$backgroundcolor_footer:#000000;
+$backgroundcolor_black:#000000;
+$backgroundcolor_red:#c30007;
+$backgroundcolor_blue:#1665ac;
 $text_white:#ffffff;
 $headerFont:Impact;
+$textFont:monospace;
 
-@mixin bp-large {
-  @media only screen and (max-width: 60em) {
+
+@mixin bp-small {
+  @media only screen and (min-width: 500px) {
     @content;
   }
 }
 
 @mixin bp-medium {
-  @media only screen and (max-width: 40em) {
+  @media only screen and (min-width: 850px) {
     @content;
   }
 }
 
-@mixin bp-small {
-  @media only screen and (max-width: 30em) {
+@mixin bp-large {
+  @media only screen and (min-width: 960px) {
     @content;
   }
 }
