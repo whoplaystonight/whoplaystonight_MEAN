@@ -28,6 +28,7 @@ module.exports = function (app) {
             res.redirect('/');
         });
 
+    app.get('/api/loggedin', userscontroller.loggedin);
         //isloggedin
         //req.isAuthenticated()?res.json(req.user):'0';
 };

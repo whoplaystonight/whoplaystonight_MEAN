@@ -34,3 +34,11 @@ exports.loginfacebookcallback = function (req, res, next){
     console.log("callback");
     passport.authenticate('facebook', {failureRedirect: '/signup', succesRedirect: '/'});
 };
+
+exports.loggedin = function (req, res){
+  console.log('LOGGEDIN ' + JSON.stringify(req.user));
+  console.log('session ' + JSON.stringify(req.session));
+  console.log(req.isAuthenticated());
+
+  res.send(req.isAuthenticated() ? req.user : '0');
+}
