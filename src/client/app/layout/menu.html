@@ -42,7 +42,7 @@
               <a role="button" target="_self" href="api/loginTwitter"><img id="loginTwitter" src="../../images/twitter.svg"/></a>
             </li>
             <li role="menuitem" id="logoutButton" ng-click="vm.logout()" ng-show="$root.authUser">
-              <a role="button" target="_self" href="api/logout"><img src="../../images/Logout.svg"/></a>
+              <a role="button" href="#"><img src="../../images/Logout.svg"/></a>
             </li>
             <li role="menuitem" id="userAuthInfo" ng-show="$root.authUser">
               <a role="button" href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.name}}</a>

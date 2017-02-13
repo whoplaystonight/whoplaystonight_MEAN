@@ -5,13 +5,13 @@
     .module('app.layout')
     .controller('MenuController', MenuController);
 
-  MenuController.$inject = ['$state', 'routerHelper'];
+  MenuController.$inject = ['$state', 'routerHelper', '$rootScope', 'dataservice'];
   /* @ngInject */
-  function MenuController($state, routerHelper) {
+  function MenuController($state, routerHelper, $rootScope, dataservice) {
     var vm = this;
     var states = routerHelper.getStates();
     vm.isCurrent = isCurrent;
-
+    vm.logout = logout;
     activate();
 
     function activate() { getNavRoutes(); }
@@ -31,14 +31,15 @@
       var menuName = route.title;
       return $state.current.title.substr(0, menuName.length) === menuName ? 'current' : '';
     }
+
+    function logout() {
+      console.log("LogOut");
+      return dataservice.logout().then(function (data) {
+        $rootScope.authUser = undefined;
+        return $rootScope.authUser;
+      });
+    }
+
   }
 
-  function logout() {
-    console.log('logout');
-    return dataservice.logout().then(function (data) {
-      $rootScope.authUser = undefined;
-      return $rootScope.authUser;
-    });
-  }
-  
 })();

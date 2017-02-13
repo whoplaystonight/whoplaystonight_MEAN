@@ -14,7 +14,8 @@ module.exports = function (app) {
         failureRedirect: '/signin'
     }));
 
-    app.get('/api/logout', function (req, res) {
+    app.post('/api/logout', function (req, res) {
+        console.log("logout serverS");
         req.logOut();
         res.redirect('/');
     });
