@@ -29,3 +29,8 @@ exports.loginfacebook = function (req, res, next){
     console.log("LogIn Facebook - server > users.controller ----------");
     passport.authenticate('facebook', { scope: ['email', 'public_profile'] })(req, res, next);
 };
+
+exports.success = function(req, res){
+    console.log('SERVER SUCCESS!!!!');
+    res.json(req.user);
+}

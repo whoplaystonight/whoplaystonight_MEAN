@@ -9,12 +9,13 @@ module.exports = function (app) {
     app.get('/api/loginFacebook', userscontroller.loginfacebook);
     //app.get('/api/loginFacebook', passport.authenticate('facebook', { scope: ['email', 'public_profile'] }));
     //app.get('/api/auth/facebook/callback', userscontroller.loginfacebookcallback);
-    app.get('/api/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/signin' }),
+    /*app.get('/api/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/signin' }),
         function (req, res) {
             console.log('Facebook login ' + JSON.stringify(req.user));
             res.redirect('/locate');
-        });
-
+        });*/
+    app.get('/api/auth/facebook/callback', passport.authenticate('facebook',
+        { successRedirect: '/socialsignin', failureRedirect: '/signin' }));    
     app.post('/api/logout', function (req, res) {
         console.log("logout serverS");
         req.logOut();
@@ -31,4 +32,5 @@ module.exports = function (app) {
 
         //isloggedin
         //req.isAuthenticated()?res.json(req.user):'0';
+    app.get('/api/auth/success', userscontroller.success);
 };

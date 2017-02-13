@@ -32,6 +32,13 @@
           controllerAs: 'vm',
           title: 'SignIn',
         }
+      },
+      {
+        state: 'socialsignin',
+        config: {
+          url: '/socialsignin',
+          controller: 'SocialController'
+        }
       }
     ];
   }
