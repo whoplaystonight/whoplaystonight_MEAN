@@ -8,10 +8,10 @@ module.exports = function (app) {
 
     app.get('/api/loginFacebook', userscontroller.loginfacebook);
     app.get('/api/auth/facebook/callback', passport.authenticate('facebook',
-        { successRedirect: '/socialsignin', failureRedirect: '/signin' }));    
+        { successRedirect: '/socialsignin', failureRedirect: '/signin' }));
 
     app.post('/api/logout', function (req, res) {
-        console.log("logout serverS");
+        console.log('logout serverS');
         req.logOut();
         res.redirect('/');
     });

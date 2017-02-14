@@ -40,7 +40,7 @@ module.exports = function (passport) {
     },
         function (req, username, password, done) {
             // we are checking to see if the user trying to login already exists
-            console.log("llega a passport");
+            console.log('llega a passport');
 
             userModel.countUsers(username, function (error, rows) {
                 if (rows[0].total > 0) {
@@ -50,7 +50,8 @@ module.exports = function (passport) {
                         username: username,
                         email: req.body.email,
                         name: '',
-                        password: bcrypt.hashSync(password, null, null),  // use the generateHash function in our user model
+                        // use the generateHash function in our user model
+                        password: bcrypt.hashSync(password, null, null),
                         type: 'client'
                     };
                     userModel.addUserDB(addnewuserinbd, function (error, rows) {
@@ -94,9 +95,9 @@ module.exports = function (passport) {
     // =========================================================================
     // FACEBOOK  SIGNIN ========================================================
     // =========================================================================
-    
+
     passport.use(new FacebookStrategy({
-        clientID: process.env.FACEBOOK_CLIENT_ID,        
+        clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
         callbackURL: process.env.FACEBOOK_CALLBACK_URL,
         profileFields: ['id', 'displayName', 'name', 'gender', 'photos'],
@@ -106,7 +107,7 @@ module.exports = function (passport) {
             userModel.countUsers(profile.id, function (error, rows) {
                 console.log(profile);
                 if (rows[0].total > 0) {
-                    console.log("Existe y no se crea")
+                    console.log('Existe y no se crea');
                     return cb(null, profile);
                 } else {
                     var addnewuserinbd = {
@@ -132,17 +133,17 @@ module.exports = function (passport) {
 
     // =========================================================================
     // TWITTER  SIGNIN ========================================================
-    // =========================================================================    
+    // =========================================================================
     passport.use(new TwitterStrategy({
         consumerKey: process.env.TWITTER_CLIENT_ID,
         consumerSecret: process.env.TWITTER_CLIENT_SECRET,
         callbackURL: process.env.TWITTER_CALLBACK_URL,
     },
         function (token, tokenSecret, profile, cb) {
-            console.log(profile)
+            console.log(profile);
             userModel.countUsers(profile.id, function (error, rows) {
                 if (rows[0].total > 0) {
-                    console.log("Existe y no se crea")
+                    console.log('Existe y no se crea');
                     return cb(null, profile);
                 } else {
                     var addnewuserinbd = {
