@@ -96,9 +96,9 @@ module.exports = function (passport) {
     // =========================================================================
     
     passport.use(new FacebookStrategy({
-        clientID: '1839022376365731',
-        clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
-        callbackURL: "http://localhost:8001/api/auth/facebook/callback",
+        clientID: process.env.FACEBOOK_CLIENT_ID,        
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL: process.env.FACEBOOK_CALLBACK_URL,
         profileFields: ['id', 'displayName', 'name', 'gender', 'photos'],
         passReqToCallback: true
     },
@@ -137,9 +137,12 @@ module.exports = function (passport) {
     // TWITTER  SIGNIN ========================================================
     // =========================================================================    
     passport.use(new TwitterStrategy({
-        consumerKey: 'VXHPUwMBneLkzmgWBSZs1mLiF',
-        consumerSecret: 'O1H9NH68tnTYhq7pMFk0WfVRhivwAGqUcRLb06Y0lERH1xfhou',
-        callbackURL: "http://127.0.0.1:8001/api/auth/twitter/callback"
+        // consumerKey: 'VXHPUwMBneLkzmgWBSZs1mLiF',
+        consumerKey: process.env.TWITTER_CLIENT_ID,
+        // consumerSecret: 'O1H9NH68tnTYhq7pMFk0WfVRhivwAGqUcRLb06Y0lERH1xfhou',
+        consumerSecret: process.env.TWITTER_CLIENT_SECRET,
+        // callbackURL: "http://127.0.0.1:8001/api/auth/twitter/callback"
+        callbackURL: process.env.TWITTER_CALLBACK_URL,
     },
         function (token, tokenSecret, profile, cb) {
             console.log(profile)
