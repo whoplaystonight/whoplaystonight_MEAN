@@ -4,7 +4,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var favicon = require('serve-favicon');
+// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var port = process.env.PORT || 8001;
 var four0four = require('./utils/404')();
@@ -16,7 +16,7 @@ var cors = require('cors');
 //var dotenv = require('dotenv');
 // dotenv.load({ path: './src/server/.env' });
 
-app.use(favicon(__dirname + '/favicon.ico'));
+// app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));

@@ -350,9 +350,9 @@ span.menu{
 }
 /*-----------//Banner-info-----------*/
 /*-----------Page-footer-----------*/
-.footer-w3l {
-    padding: 5em 0;
-}
+/*.footer-w3l {
+    padding: 1em 0;
+}*/
 .footer-grid i {
     font-size: 1.2em;
     color: #fff;
@@ -573,7 +573,7 @@ span.menu{
     .w3ls_banner_info p {
         font-size: 0.96em;
     }
-    .best-w3, .dishes-w3ls,.special-w3, .about-w3ls,.what-w3,.count-agileits,.team, .services-agile, .order-w3, .gallery-w3l, .typo, .contact-w3l,.footer-w3l {
+    .best-w3, .dishes-w3ls,.special-w3, .about-w3ls,.what-w3,.count-agileits,.team, .services-agile, .order-w3, .gallery-w3l, .typo, .contact-w3l,{
         padding: 4em 0;
     }
     .best-grid1 {
@@ -776,7 +776,7 @@ span.menu{
         text-align: center;
         margin-top: 1em;
     }
-    .best-w3, .dishes-w3ls, .special-w3, .about-w3ls, .what-w3, .count-agileits, .team, .services-agile, .order-w3, .gallery-w3l, .typo, .contact-w3l, .footer-w3l {
+    .best-w3, .dishes-w3ls, .special-w3, .about-w3ls, .what-w3, .count-agileits, .team, .services-agile, .order-w3, .gallery-w3l, .typo, .contact-w3l,{
         padding: 3em 0;
     }
     .best-grid1 {
@@ -981,7 +981,7 @@ span.menu{
         h3.tittle1 {
             font-size: 2.5em;
         }
-        .best-w3, .dishes-w3ls, .special-w3, .about-w3ls, .what-w3, .count-agileits, .team, .services-agile, .order-w3, .gallery-w3l, .typo, .contact-w3l, .footer-w3l {
+        .best-w3, .dishes-w3ls, .special-w3, .about-w3ls, .what-w3, .count-agileits, .team, .services-agile, .order-w3, .gallery-w3l, .typo, .contact-w3l, {
             padding: 2em 0;
         }
         .best-grids, .special-grids, .dishes-grids, .about-grids, .what-grids, .team-grids, .service-grids, .order-grids, .gallery-grids, .contact-grids {

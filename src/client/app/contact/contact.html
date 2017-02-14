@@ -1,9 +1,10 @@
-<!-- <link rel="stylesheet" href="/src/client/styles/contact.css"> -->
+
 <section class="mainbar">
     <section class="matter">
         <form name="userForm" id="formula" ng-submit="submitForm()" novalidate>
-            <div ht-widget-header title="{{vm.title}}"></div>
-            <h1>Contact us</h1><br />
+            <div>
+                <h1>Contact us</h1>
+            </div>
             <!-- Name -->
             <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
                 <label>Name</label>
@@ -47,7 +48,6 @@
 
 
             <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="vm.sendContact()">Submit</button>
-
         </form>
     </section>
 </section>

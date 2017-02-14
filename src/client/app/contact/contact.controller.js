@@ -5,9 +5,9 @@
     .module('app.contact')
     .controller('ContactController', ContactController);
 
-    ContactController.$inject = ['dataservice', '$state', '$timeout', 'logger'];
+    ContactController.$inject = ['$q','dataservice', '$state', '$timeout', 'logger'];
     /* @ngInject */
-    function ContactController(dataservice, $state, $timeout, logger) {
+    function ContactController($q,dataservice, $state, $timeout, logger) {
         var vm = this;
         vm.title = 'Contact';
         vm.inputName = '';
@@ -15,6 +15,15 @@
         vm.inputSubject = '';
         vm.inputMessage = '';
         vm.sendContact = sendContact;
+
+        activate();
+
+        function activate(){
+          var promises =[];
+          return $q.all(promises).then(function() {
+          logger.info('Activated Contact View');
+          });
+        }//end of activate
 
         function sendContact() {
             var data = {
@@ -67,7 +76,7 @@
                     $timeout(function () {
                         $state.go('main');
                     }, 3000);
-                    
+
 
                 } else {
                     console.log("false");
@@ -75,5 +84,7 @@
                 }
             });
         }
+
     }
+    
 })();
