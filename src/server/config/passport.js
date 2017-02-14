@@ -4,7 +4,7 @@ const OAuthStrategy = require('passport-oauth').OAuthStrategy; //encara que no e
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy; //encara que no es gaste, fa falta
 var TwitterStrategy = require('passport-twitter').Strategy;
 var bcrypt = require('bcrypt-nodejs');
-var connection = require('../config.db.js');
+var connection = require('../config/config.db.js');
 var userModel = require('../users/users.model');
 
 
@@ -96,16 +96,13 @@ module.exports = function (passport) {
     // =========================================================================
     
     passport.use(new FacebookStrategy({
-        clientID: '1839022376365731',
-        clientSecret: 'ca0cd5c294acd3848a04804f864ae7ed',
-        callbackURL: "http://localhost:8001/api/auth/facebook/callback",
+        clientID: process.env.FACEBOOK_CLIENT_ID,        
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL: process.env.FACEBOOK_CALLBACK_URL,
         profileFields: ['id', 'displayName', 'name', 'gender', 'photos'],
         passReqToCallback: true
     },
         function (req, accessToken, refreshToken, profile, cb) {
-            /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-              return cb(err, user);
-            });*/
             userModel.countUsers(profile.id, function (error, rows) {
                 console.log(profile);
                 if (rows[0].total > 0) {
@@ -137,9 +134,9 @@ module.exports = function (passport) {
     // TWITTER  SIGNIN ========================================================
     // =========================================================================    
     passport.use(new TwitterStrategy({
-        consumerKey: 'VXHPUwMBneLkzmgWBSZs1mLiF',
-        consumerSecret: 'O1H9NH68tnTYhq7pMFk0WfVRhivwAGqUcRLb06Y0lERH1xfhou',
-        callbackURL: "http://127.0.0.1:8001/api/auth/twitter/callback"
+        consumerKey: process.env.TWITTER_CLIENT_ID,
+        consumerSecret: process.env.TWITTER_CLIENT_SECRET,
+        callbackURL: process.env.TWITTER_CALLBACK_URL,
     },
         function (token, tokenSecret, profile, cb) {
             console.log(profile)

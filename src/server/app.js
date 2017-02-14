@@ -13,8 +13,8 @@ var environment = process.env.NODE_ENV;
 var passport = require('passport');
 var session = require('express-session');
 var cors = require('cors');
-//var dotenv = require('dotenv');
-// dotenv.load({ path: './src/server/.env' });
+var dotenv = require('dotenv');
+dotenv.load({ path: './src/server/.env' });
 
 // app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(cors());
 app.use(cookieParser());
-
+require('./config/passport.js')(passport);
 app.use(session({
   secret: 'whoplaystonightsecret',
   resave: true,
@@ -33,10 +33,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // app.use('/api', require('./routes'));
-require('./contact/contact.router.js')(app);
-require('./config/passport.js')(passport);
-require('./users/users.router.js')(app);
-require('./locate/routes/events_routes')(app);
+
+// a routes a nivel de toda la  app, en config
+// require('./contact/contact.router.js')(app);
+// require('./config/passport.js')(passport);
+// require('./users/users.router.js')(app);
+// require('./locate/routes/events_routes')(app);
+require('./config/routes.js').init(app, passport);
 
 
 

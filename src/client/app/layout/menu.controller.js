@@ -5,16 +5,23 @@
     .module('app.layout')
     .controller('MenuController', MenuController);
 
-  MenuController.$inject = ['$state', 'routerHelper'];
+  MenuController.$inject = ['$state', 'routerHelper', '$rootScope', 'dataservice', '$q', 'logger'];
   /* @ngInject */
-  function MenuController($state, routerHelper) {
+  function MenuController($state, routerHelper, $rootScope, dataservice, $q, logger) {
     var vm = this;
     var states = routerHelper.getStates();
     vm.isCurrent = isCurrent;
-
+    vm.logout = logout;
     activate();
 
-    function activate() { getNavRoutes(); }
+    function activate() {
+      getNavRoutes();
+
+      var promises = [getAuthUser()];
+      return $q.all(promises).then(function(){
+          logger.info('Activated layout view');
+      });
+    }
 
     function getNavRoutes() {
       vm.navRoutes = states.filter(function (r) {
@@ -31,14 +38,23 @@
       var menuName = route.title;
       return $state.current.title.substr(0, menuName.length) === menuName ? 'current' : '';
     }
+
+    function getAuthUser() {
+      return dataservice.isLoggedin().then(function (data) {
+        console.log("GetAuthUser");
+        $rootScope.authUser = data;
+        return $rootScope.authUser;
+      });
+    }
+
+    function logout() {
+      console.log("LogOut");
+      return dataservice.logout().then(function (data) {
+        $rootScope.authUser = undefined;
+        return $rootScope.authUser;
+      });
+    }
+
   }
 
-  function logout() {
-    console.log('logout');
-    return dataservice.logout().then(function (data) {
-      $rootScope.authUser = undefined;
-      return $rootScope.authUser;
-    });
-  }
-  
 })();
