@@ -20,5 +20,5 @@ borrarlos todos
 
 
 ##Contact
-Put your SENDGRID APIKEY in src/server/sendgrid.env like this:
-module.exports = 'YOUR API KEY'
+Put your SENDGRID APIKEY in src/server/.env like this:
+SENDGRID_API_KEY='YOUR API KEY'

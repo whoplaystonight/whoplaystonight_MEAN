@@ -31,6 +31,13 @@ exports.loginfacebook = function (req, res, next){
 };
 
 exports.success = function(req, res){
-    console.log('SERVER SUCCESS!!!!');
     res.json(req.user);
+}
+
+exports.loggedin = function (req, res){
+  console.log('LOGGEDIN ' + JSON.stringify(req.user));
+  console.log('session ' + JSON.stringify(req.session));
+  console.log(req.isAuthenticated());
+
+  res.send(req.isAuthenticated() ? req.user : '0');
 }

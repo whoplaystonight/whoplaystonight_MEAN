@@ -45,7 +45,7 @@
               <a role="button" href="#"><img src="../../images/Logout.svg"/></a>
             </li>
             <li role="menuitem" id="userAuthInfo" ng-show="$root.authUser">
-              <a role="button" href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.name}}</a>
+              <a role="button" href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.username}}{{ $root.authUser.name.givenName}}</a>
             </li>
             <li role="menuitem" class="icon">
               <a role="button" href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
