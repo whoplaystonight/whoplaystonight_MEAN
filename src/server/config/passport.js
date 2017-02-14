@@ -103,9 +103,6 @@ module.exports = function (passport) {
         passReqToCallback: true
     },
         function (req, accessToken, refreshToken, profile, cb) {
-            /*User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-              return cb(err, user);
-            });*/
             userModel.countUsers(profile.id, function (error, rows) {
                 console.log(profile);
                 if (rows[0].total > 0) {
@@ -137,11 +134,8 @@ module.exports = function (passport) {
     // TWITTER  SIGNIN ========================================================
     // =========================================================================    
     passport.use(new TwitterStrategy({
-        // consumerKey: 'VXHPUwMBneLkzmgWBSZs1mLiF',
         consumerKey: process.env.TWITTER_CLIENT_ID,
-        // consumerSecret: 'O1H9NH68tnTYhq7pMFk0WfVRhivwAGqUcRLb06Y0lERH1xfhou',
         consumerSecret: process.env.TWITTER_CLIENT_SECRET,
-        // callbackURL: "http://127.0.0.1:8001/api/auth/twitter/callback"
         callbackURL: process.env.TWITTER_CALLBACK_URL,
     },
         function (token, tokenSecret, profile, cb) {
