@@ -17,8 +17,7 @@
             checkLoggedin: checkLoggedin,
             isLoggedin: isLoggedin,
             logout: logout,
-            SignIn: SignIn,
-            signinfacebook: signinfacebook
+            SignIn: SignIn
         };
 
         return service;
@@ -162,10 +161,6 @@
                     console.log('ERRRRROR: ' + responseError);
                     console.log(responseError);
                 });
-        }
-
-        function signinfacebook(){
-            console.log("HOLA ESTOY EN FB dataservice")
         }
 
     }
