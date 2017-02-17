@@ -153,7 +153,7 @@ section {
     margin: 0 0.5em;
     color: #fff;
 }
-@media(min-width: 801px){
+@media screen and (min-width: 801px){
     .borderXwidth a:before, .borderXwidth a:after {
         position: absolute;
         opacity: 0;
@@ -180,7 +180,7 @@ section {
     }
 }
 
-@media(max-width:991px){
+@media screen and (max-width:991px){
     .indicat span {
         font-size: 0.95em;
     }
@@ -214,7 +214,7 @@ section {
     }
 }
 
-@media(max-width:736px){
+@media screen and (max-width:736px){
     .indicat span {
         font-size: 0.9em;
     }
@@ -222,7 +222,7 @@ section {
         font-size: 0.9em;
     }
 }
-@media(max-width:667px){
+@media screen and (max-width:667px){
     .indicat {
         float: none;
         text-align: center;
@@ -236,7 +236,7 @@ section {
         text-align: center;
     }
 }
-@media(max-width:414px){
+@media screen and (max-width:414px){
     .logo h1 a {
         font-size: 1em;
     }
@@ -481,7 +481,7 @@ span.menu{
 /*-----------//Page-footer-----------*/
 
 /*--codes--*/
-@media (max-width:768px){
+@media screen and (max-width:768px){
     .grid_5 {
         padding: 0 0 1em;
     }
@@ -489,26 +489,26 @@ span.menu{
         margin-bottom: 0em;
     }
 }
-@media (max-width:640px){
+@media screen and (max-width:640px){
     h1, .h1, h2, .h2, h3, .h3 {
         margin-top: 0px;
         margin-bottom: 0px;
     }
 }
 /*--responsive--*/
-@media(max-width:1440px){
+@media screen and (max-width:1440px){
 
 }
-@media(max-width:1366px){
+@media screen and (max-width:1366px){
 
 }
-@media(max-width:1280px){
+@media screen and (max-width:1280px){
   .footer-grid ul li {
       font-size: 0.9em;
       display:inline;
   }
 }
-@media(max-width:1080px){
+@media screen and (max-width:1080px){
     .w3ls_banner_info h3 {
         font-size: 2.8em;
     }
@@ -547,7 +547,7 @@ span.menu{
         height: 400px;
     }
 }
-@media(max-width:991px){
+@media screen and (max-width:991px){
     .indicat span {
         font-size: 0.95em;
     }
@@ -694,14 +694,8 @@ span.menu{
         width: 50%;
     }
 }
-@media(max-width:800px){
 
-}
-
-@media(max-width:768px){
-
-}
-@media(max-width:736px){
+@media screen and (max-width:736px){
     .w3ls_banner_info {
         width: 74%;
         margin: 10em auto;
@@ -762,7 +756,7 @@ span.menu{
         margin-left: 0em;
     }
 }
-@media(max-width:667px){
+@media screen and (max-width:667px){
     .w3ls_banner_info {
         width: 78%;
         margin: 8em auto;
@@ -825,7 +819,7 @@ span.menu{
         margin-top: 2em;
     }
 }
-@media(max-width:640px){
+@media screen and (max-width:640px){
     .w3ls_banner_info {
         width: 82%;
         margin: 8em auto;
@@ -848,7 +842,7 @@ span.menu{
     padding: 8px 10px 10px 40px;
     }*/
 }
-@media(max-width:600px){
+@media screen and (max-width:600px){
     .link-effect-3 a {
         margin: 5px 10px;
         }.w3ls_banner_info p {
@@ -886,7 +880,7 @@ span.menu{
             height: 260px;
         }
     }
-    @media(max-width:568px){
+    @media screen and (max-width:568px){
         span.menu {
             display: block;
             cursor: pointer;
@@ -959,7 +953,7 @@ span.menu{
             margin-top: 2em;
         }
     }
-    @media(max-width:480px){
+    @media screen and (max-width:480px){
         .best-grid p, .menu-grid p, .dishes-grid p, .about-grid p, .what-grid p, .team-gd p, .service-grid p, .contact-bottom p, .cont-info p {
             font-size: 0.9em;
         }
@@ -1009,7 +1003,7 @@ span.menu{
             font-size: 0.95em;
         }
     }
-    @media(max-width:414px){
+    @media screen and (max-width:414px){
         .w3ls_banner_info {
             width: 100%;
             margin: 5em auto;
@@ -1064,7 +1058,7 @@ span.menu{
             font-size: 0.9em;
         }
     }
-    @media(max-width:384px){
+    @media screen and (max-width:384px){
         .w3ls_banner_info h3 {
             font-size: 1.68em;
         }
@@ -1110,7 +1104,7 @@ span.menu{
             padding: 0;
         }
     }
-    @media(max-width:375px){
+    @media screen and (max-width:375px){
         .w3ls_banner_info h3 {
             font-size: 1.62em;
         }
@@ -1133,7 +1127,7 @@ span.menu{
             top: -43px;
         }
     }
-    @media(max-width:320px){
+    @media screen and (max-width:320px){
         .best-grid1,.best-left,.menu-grid,.dishes-grid1,.dishes-grid,.footer-grid,.about-grid,.what-grid,.team-gd,.service-grid1,.order-grid,.contact-grid,.contact-left,.contact-right {
             padding: 0;
         }
