@@ -3,6 +3,7 @@ PASOS A SEGUIR PARA INSTALAR APLICACION EN VPS
 ##Node
 descargar en https://nodejs.org/es/
 descomprimir en /opt
+tar -C /opt -Jxvf archivo.tar.xz
 cd /usr/local/bin/
 sudo ln -s /opt/node-v6.9.4-linux-x64/bin/node node
 sudo ln -s /opt/node-v6.9.4-linux-x64/bin/npm npm
