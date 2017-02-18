@@ -5,13 +5,15 @@
     .module('app.layout')
     .controller('MenuController', MenuController);
 
-  MenuController.$inject = ['$state', 'routerHelper', '$rootScope', 'dataservice', '$q', 'logger'];
+  MenuController.$inject = ['$state', 'routerHelper', '$rootScope', 'dataservice', '$q', 'logger', '$translate', '$translatePartialLoader'];
   /* @ngInject */
-  function MenuController($state, routerHelper, $rootScope, dataservice, $q, logger) {
+  function MenuController($state, routerHelper, $rootScope, dataservice, $q, logger, $translate, $translatePartialLoader) {
     var vm = this;
+    $translatePartialLoader.addPart('layout');
     var states = routerHelper.getStates();
     vm.isCurrent = isCurrent;
     vm.logout = logout;
+    vm.setLang = setLang;
     activate();
 
     function activate() {
@@ -55,6 +57,10 @@
       });
     }
 
+    function setLang(langKey) {
+      // You can change the language during runtime
+      $translate.use(langKey);
+    };
   }
 
 })();

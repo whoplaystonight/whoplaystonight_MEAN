@@ -4,12 +4,12 @@
 
       <section class="container info-head">
         <div class="indicat">
-          <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1398 W El Camino Real, Mountain View,UK</span>
+          <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>{{'LOCATION' | translate}}</span>
         </div>
         <div class="detail">
           <ul>
             <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> + 1 599-033-5036</li>
-            <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i> Mon-Sun 8:00 am to 23:00 pm </li>
+            <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i>{{'HORARIO' | translate}}</li>
           </ul>
         </div>
       </section>
@@ -45,11 +45,14 @@
               <a role="button" href="#"><img src="../../images/Logout.svg"/></a>
             </li>
             <li role="menuitem" id="userAuthInfo" ng-show="$root.authUser">
-              <a role="button" href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />Welcome {{ $root.authUser.username}}{{ $root.authUser.name.givenName}}</a>
+              <a role="button" href="/admin"><img class="avatar" ng-src="{{$root.authUser.avatar}}" />{{'WELCOME' | translate}} {{ $root.authUser.username}}{{ $root.authUser.name.givenName}}</a>
             </li>
             <li role="menuitem" class="icon">
               <a role="button" href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
             </li>
+            
+            <li> <a ng-click="vm.setLang('en')" translate="ENGLISH">English</a></li>
+            <li> <a ng-click="vm.setLang('es')" translate="ESPAÑOL">Español</a></li>
           </ul>
         </nav>
         <script>

@@ -5,12 +5,13 @@
     .module('app.main')
     .controller('MainController', MainController);
 
-  MainController.$inject = ['logger'];
+  MainController.$inject = ['logger', '$translatePartialLoader'];
   /* @ngInject */
-  function MainController(logger) {
+  function MainController(logger, $translatePartialLoader) {
     var vm = this;
+    $translatePartialLoader.addPart('main');
     vm.title = 'Main';
-
+     
     activate();
 
     function activate() {
