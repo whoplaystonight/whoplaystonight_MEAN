@@ -1,9 +1,14 @@
 # Dependency directory
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
-node_modules/
+
 bower_components/
 build/
+garbage/
+hook/
+node_modules/
 report/
 # other
 .tmp
 *.env
+*.crt
+*.key
